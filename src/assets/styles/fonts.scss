@@ -1,0 +1,109 @@
+// MyriadPro
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProBold/MyriadProBold.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProBold/MyriadProBold.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProBold/MyriadProBold.eot') format('eot'),
+    url('/fonts/MyriadPro/MyriadProBold/MyriadProBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProSemiBold/MyriadProSemiBold.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProSemiBold/MyriadProSemiBold.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProSemiBold/MyriadProSemiBold.eot')
+      format('eot'),
+    url('/fonts/MyriadPro/MyriadProSemiBold/MyriadProSemiBold.woff')
+      format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProRegular/MyriadProRegular.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProRegular/MyriadProRegular.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProRegular/MyriadProRegular.eot')
+      format('eot'),
+    url('/fonts/MyriadPro/MyriadProRegular/MyriadProRegular.woff')
+      format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProBoldItalic/MyriadProBoldItalic.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProBoldItalic/MyriadProBoldItalic.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProBoldItalic/MyriadProBoldItalic.eot')
+      format('eot'),
+    url('/fonts/MyriadPro/MyriadProBoldItalic/MyriadProBoldItalic.woff')
+      format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProSemiBoldItalic/MyriadProSemiBoldItalic.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProSemiBoldItalic/MyriadProSemiBoldItalic.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProSemiBoldItalic/MyriadProSemiBoldItalic.eot')
+      format('eot'),
+    url('/fonts/MyriadPro/MyriadProSemiBoldItalic/MyriadProSemiBoldItalic.woff')
+      format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MyriadPro';
+  src:
+    url('/fonts/MyriadPro/MyriadProItalic/MyriadProItalic.ttf')
+      format('truetype'),
+    url('/fonts/MyriadPro/MyriadProItalic/MyriadProItalic.otf')
+      format('opentype'),
+    url('/fonts/MyriadPro/MyriadProItalic/MyriadProItalic.eot')
+      format('eot'),
+    url('/fonts/MyriadPro/MyriadProItalic/MyriadProItalic.woff')
+      format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+// Roboto
+
+@font-face {
+  font-family: 'Roboto';
+  src:
+    url('/fonts/Roboto/RobotoBold/Roboto-Bold.ttf') format('truetype'),
+    url('/fonts/Roboto/RobotoBold/Roboto-Bold.otf') format('opentype'),
+    url('/fonts/Roboto/RobotoBold/Roboto-Bold.eot') format('eot'),
+    url('/fonts/Roboto/RobotoBold/Roboto-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
