@@ -66,6 +66,7 @@
           </v-icon>
         </div>
       </template>
+      <slot />
     </v-dialog>
   </v-app-bar>
 </template>
@@ -148,7 +149,6 @@ const linkTo = (projectTitle: {
   tag: string;
   link: string;
 }) => {
-
   const project = projects.value.find(
     (project: {title: string; id: string; tag: string; link: string}) => {
       if (typeof projectTitle === 'string') {

@@ -1,5 +1,6 @@
 <template>
   <v-card>
+    <h4 class="pa-4">{{ title }}</h4>
     <slot name="switcher" />
     <slot />
     <v-list-item :href="`https://${env}ccaf.io/`">
@@ -44,6 +45,10 @@ const props = defineProps({
     required: true
   },
   env: {
+    type: String,
+    default: ''
+  },
+  title: {
     type: String,
     default: ''
   },

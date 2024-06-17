@@ -13,5 +13,6 @@ export const DefaultMobileMenu: StoryFn<typeof MobileMenu> = (args) => ({
     return {args};
   },
 
-  template: '<div><MobileMenu v-bind="args" /></div>'
+  template:
+    '<div><MobileMenu v-bind="args" title="Cambridge Digital Money Dashboard" /></div>'
 });
