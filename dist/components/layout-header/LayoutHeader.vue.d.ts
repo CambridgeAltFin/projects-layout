@@ -3,6 +3,14 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
+    title: {
+        type: StringConstructor;
+        default: string;
+    };
+    activeSelect: {
+        type: StringConstructor;
+        default: string;
+    };
     env: {
         type: StringConstructor;
         default: string;
@@ -18,6 +26,14 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
+    title: {
+        type: StringConstructor;
+        default: string;
+    };
+    activeSelect: {
+        type: StringConstructor;
+        default: string;
+    };
     env: {
         type: StringConstructor;
         default: string;
@@ -31,6 +47,8 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
 }, {
     env: string;
     dialog: boolean;
+    title: string;
+    activeSelect: string;
     topic: string;
 }, {}>, {
     default?(_: {
