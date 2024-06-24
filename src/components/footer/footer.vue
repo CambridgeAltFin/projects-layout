@@ -14,7 +14,7 @@
       <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-arrow-up">
       </v-icon>
     </div>
-    <v-container class="pa-4" fluid>
+    <v-container fluid>
       <v-row
         class="footer__pre-footer"
         align="start"
@@ -251,6 +251,7 @@ onMounted(() => {
 }
 .footer {
   z-index: 6 !important;
+
   a {
     text-decoration: none;
     &:hover {
@@ -297,5 +298,12 @@ onMounted(() => {
 }
 .footer-privacy {
   margin-right: 20px;
+}
+</style>
+<style lang="scss">
+.v-footer {
+  .v-container {
+    padding: 0;
+  }
 }
 </style>

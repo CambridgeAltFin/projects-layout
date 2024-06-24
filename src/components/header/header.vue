@@ -52,7 +52,7 @@
             <v-list-item
               v-bind="props"
               :title="item.value"
-              :subtitle="item.title || ''"
+              :subtitle="item.title || undefined"
             ></v-list-item>
           </template>
         </v-select>
@@ -310,6 +310,7 @@ header .v-toolbar__content {
 }
 .project-selector__menu {
   max-height: none !important;
+
   .v-list-item--active {
     caret-color: #ffb71a !important;
     color: #ffb71a !important;
@@ -321,10 +322,14 @@ header .v-toolbar__content {
     align-items: center;
 
     .v-list-item-subtitle {
+      padding: 4.5px 4px;
       margin-left: 16px;
-      font-size: 16px;
+      font-size: 12px;
       opacity: 1;
-      line-height: 1.25rem;
+      line-height: 8px;
+      color: #ffb71a;
+      border: 1px solid #ffb71a;
+      border-radius: 5px;
     }
   }
 }
