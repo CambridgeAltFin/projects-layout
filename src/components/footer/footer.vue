@@ -22,15 +22,22 @@
         no-gutters
       >
         <v-col cols="auto" class="mb-4 pa-4">
-          <a :href="webLink" target="_blank" class="mb-2 link-icon">
+          <a
+            class="footer__link mb-2 link-icon"
+            :href="webLink"
+            target="_blank"
+          >
             <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-web" />
             <p>{{ webLink }}</p>
           </a>
-          <a :href="`mailto:${email}`" class="mb-2 link-icon">
+          <a class="footer__link mb-2 link-icon" :href="`mailto:${email}`">
             <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-email" />
             <p>{{ email }}</p>
           </a>
-          <div class="link-icon">
+          <a
+            :href="locationLink"
+            class="footer__link footer__link--location mb-2 link-icon"
+          >
             <v-icon
               size="16"
               color="#0e1436"
@@ -38,10 +45,8 @@
               icon="mdi-map-marker"
             >
             </v-icon>
-            <a class="link-icon__location" :href="locationLink">{{
-              location
-            }}</a>
-          </div>
+            <p>{{ location }}</p>
+          </a>
           <div class="ml-7">
             <v-row>
               <v-col>
@@ -298,6 +303,20 @@ onMounted(() => {
 }
 .footer-privacy {
   margin-right: 20px;
+}
+.footer__link {
+  display: flex;
+  text-decoration: none;
+  &--location {
+    max-width: 250px;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+    p {
+      text-decoration: underline;
+    }
+  }
 }
 </style>
 <style lang="scss">
