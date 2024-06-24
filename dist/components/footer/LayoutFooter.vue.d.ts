@@ -1,7 +1,4 @@
-import { PropType } from 'vue';
-import { SupportedElement } from './LayoutFooter.type';
-
-declare const _default: import('vue').DefineComponent<{
+declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
     webLink: {
         type: StringConstructor;
         default: string;
@@ -17,9 +14,6 @@ declare const _default: import('vue').DefineComponent<{
     locationLink: {
         type: StringConstructor;
         default: string;
-    };
-    supportedBy: {
-        type: PropType<SupportedElement[]>;
     };
     env: {
         type: StringConstructor;
@@ -54,9 +48,6 @@ declare const _default: import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
-    supportedBy: {
-        type: PropType<SupportedElement[]>;
-    };
     env: {
         type: StringConstructor;
         default: string;
@@ -82,5 +73,12 @@ declare const _default: import('vue').DefineComponent<{
     linkedinLink: string;
     twitterLink: string;
     facebookLink: string;
-}, {}>;
+}, {}>, {
+    supported?(_: {}): any;
+}>;
 export default _default;
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

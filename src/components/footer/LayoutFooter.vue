@@ -122,24 +122,7 @@
           </p>
         </v-col>
         <v-spacer class="hidden-sm-and-down" />
-        <v-col
-          v-for="supportedElement in supportedBy"
-          :key="supportedElement.id"
-          cols="auto"
-          class="pa-4"
-        >
-          <div class="mb-2" style="font-size: 16px; height: 20px">
-            <strong> {{ supportedElement.description }}</strong>
-          </div>
-          <a :href="supportedElement.link" target="_blank">
-            <img
-              :src="supportedElement.image"
-              :width="supportedElement.imageWidth"
-              :height="supportedElement.imageHeight"
-              :alt="supportedElement.imageAlt"
-            />
-          </a>
-        </v-col>
+        <slot name="supported" />
       </v-row>
       <v-row
         class="footer__main-footer"
@@ -163,8 +146,7 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps, ref, onMounted, PropType} from 'vue';
-import {SupportedElement} from './LayoutFooter.type';
+import {defineProps, ref, onMounted} from 'vue';
 import {useDisplay, useGoTo} from 'vuetify';
 
 const goTo = useGoTo();
@@ -188,9 +170,7 @@ defineProps({
     type: String,
     default: ''
   },
-  supportedBy: {
-    type: Array as PropType<SupportedElement[]>
-  },
+
   env: {
     type: String,
     default: ''
@@ -307,6 +287,7 @@ onMounted(() => {
 .footer__link {
   display: flex;
   text-decoration: none;
+  color: $base-color;
   &--location {
     max-width: 250px;
   }
