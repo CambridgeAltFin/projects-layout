@@ -164,7 +164,7 @@
 
 <script setup lang="ts">
 import {defineProps, ref, onMounted, PropType} from 'vue';
-import {SupportedElement} from './footer.type';
+import {SupportedElement} from './LayoutFooter.type';
 import {useDisplay, useGoTo} from 'vuetify';
 
 const goTo = useGoTo();

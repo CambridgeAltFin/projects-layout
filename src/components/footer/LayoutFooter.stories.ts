@@ -1,9 +1,9 @@
 import {Meta, StoryFn} from '@storybook/vue3';
-import Footer from './footer.vue';
+import LayoutFooter from './LayoutFooter.vue';
 
 export default {
   title: 'Footer',
-  component: Footer,
+  component: LayoutFooter,
   argTypes: {
     env: {
       control: {
@@ -13,10 +13,10 @@ export default {
       }
     }
   }
-} as Meta<typeof Footer>;
+} as Meta<typeof LayoutFooter>;
 
-export const DefaultFooter: StoryFn<typeof Footer> = (args) => ({
-  components: {Footer},
+export const DefaultFooter: StoryFn<typeof LayoutFooter> = (args) => ({
+  components: {LayoutFooter},
   setup() {
     const mock = {
       webLink: 'https://www.jbs.cam.ac.uk/ccaf',
@@ -32,5 +32,5 @@ export const DefaultFooter: StoryFn<typeof Footer> = (args) => ({
     return {args: {...args, ...mock}};
   },
 
-  template: '<div><Footer v-bind="args" /></div>'
+  template: '<div><LayoutFooter v-bind="args" /></div>'
 });

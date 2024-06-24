@@ -1,9 +1,9 @@
 import {Meta, StoryFn} from '@storybook/vue3';
-import Header from './header.vue';
+import LayoutHeader from './LayoutHeader.vue';
 
 export default {
   title: 'Header',
-  component: Header,
+  component: LayoutHeader,
   argTypes: {
     env: {
       control: {
@@ -16,13 +16,13 @@ export default {
       default: 'Cambridge Bitcoin Electricity Consumption Index'
     }
   }
-} as Meta<typeof Header>;
+} as Meta<typeof LayoutHeader>;
 
-export const DefaultHeader: StoryFn<typeof Header> = (args) => ({
-  components: {Header},
+export const DefaultHeader: StoryFn<typeof LayoutHeader> = (args) => ({
+  components: {LayoutHeader},
   setup() {
     return {args};
   },
 
-  template: '<div><Header v-bind="args" /></div>'
+  template: '<div><LayoutHeader v-bind="args" /></div>'
 });
