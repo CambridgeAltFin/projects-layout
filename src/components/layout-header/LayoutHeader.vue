@@ -20,7 +20,7 @@
       </a>
       <h4
         class="ma-0 ml-8 d-none d-sm-flex header__title"
-        style="font-family: MyriadProSemiBold !important"
+        style="font-family: MyriadPro"
       >
         {{ title }}
       </h4>
@@ -58,15 +58,18 @@
         </v-select>
       </div>
     </v-row>
-    <v-dialog v-model="dialog" fullscreen>
-      <template #activator>
-        <div class="header__nav-icon hidden-lg-and-up">
+    <v-dialog class="header-overlay" :scrim="false" @update:modelValue="(value) => (dialog = value)" fullscreen>
+      <template #activator="{props: activatorProps}">
+        <v-btn v-bind="activatorProps" class="hidden-lg-and-up dialog-button">
           <v-icon color="#000">
             {{ dialog ? 'mdi-close' : 'mdi-menu' }}
           </v-icon>
-        </div>
+        </v-btn>
+        <div class="hidden-lg-and-up"></div>
       </template>
-      <slot />
+      <template v-slot:default="{isActive}">
+        <slot :close="() => (isActive.value = false)" />
+      </template>
     </v-dialog>
   </v-app-bar>
 </template>
@@ -173,10 +176,6 @@ const linkTo = (projectTitle: {
     font-size: 1.3rem;
     line-height: 1.4rem;
   }
-  &__nav-icon {
-    position: absolute;
-    right: 16px;
-  }
   &__navigation a {
     text-decoration-line: none !important;
     color: #000000 !important;
@@ -216,6 +215,14 @@ const linkTo = (projectTitle: {
       margin-left: 8px;
     }
   }
+}
+.dialog-button {
+  position: absolute;
+  right: 16px;
+  padding: 0;
+  height: auto;
+  width: auto;
+  min-width: auto;
 }
 </style>
 

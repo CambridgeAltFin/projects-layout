@@ -46,3 +46,16 @@ html body .v-application {
     cursor: pointer;
   }
 }
+
+.header-overlay {
+  .v-overlay__content {
+    border-radius: 0;
+    margin: 0;
+    height: 100%;
+    position: fixed;
+    overflow-y: auto;
+    @include header-top;
+    padding-bottom: 40px;
+    left: 0;
+  }
+}
