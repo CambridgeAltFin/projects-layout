@@ -2,10 +2,6 @@ import { PropType } from 'vue';
 import { ActiveProject } from './mobile-menu.type';
 
 declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
-    dialogModel: {
-        type: BooleanConstructor;
-        required: true;
-    };
     env: {
         type: StringConstructor;
         default: string;
@@ -19,10 +15,6 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         default: string;
     };
 }, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-    dialogModel: {
-        type: BooleanConstructor;
-        required: true;
-    };
     env: {
         type: StringConstructor;
         default: string;

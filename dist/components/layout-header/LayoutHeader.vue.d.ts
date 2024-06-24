@@ -1,19 +1,23 @@
 declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
+    dialog: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     env: {
         type: StringConstructor;
         default: string;
     };
     topic: {
-        type: StringConstructor;
-        default: string;
-    };
-    title: {
         type: StringConstructor;
         default: string;
     };
 }, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    [x: string]: (...args: any[]) => void;
+    changeDialog: (value: boolean) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    dialog: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     env: {
         type: StringConstructor;
         default: string;
@@ -22,13 +26,11 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
-    title: {
-        type: StringConstructor;
-        default: string;
-    };
-}>>, {
+}>> & {
+    onChangeDialog?: ((value: boolean) => any) | undefined;
+}, {
     env: string;
-    title: string;
+    dialog: boolean;
     topic: string;
 }, {}>, {
     default?(_: {

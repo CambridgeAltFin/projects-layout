@@ -18,12 +18,7 @@
           alt="Cambridge Centre for Alternative Finance (CCAF.io)"
         />
       </a>
-      <h4
-        class="ma-0 ml-8 d-none d-sm-flex header__title"
-        style="font-family: MyriadPro"
-      >
-        {{ title }}
-      </h4>
+
       <v-spacer />
       <div class="project-selector">
         <v-select
@@ -58,9 +53,21 @@
         </v-select>
       </div>
     </v-row>
-    <v-dialog class="header-overlay" :scrim="false" @update:modelValue="(value) => (dialog = value)" fullscreen>
+    <v-dialog
+      class="header-overlay"
+      :scrim="false"
+      :model-value="dialog"
+      @update:modelValue="(value) => $emit('changeDialog', value)"
+      fullscreen
+    >
       <template #activator="{props: activatorProps}">
-        <v-btn v-bind="activatorProps" class="hidden-lg-and-up dialog-button">
+        <v-btn
+          v-if="!mdAndUp"
+          v-bind="activatorProps"
+          flat
+          :ripple="false"
+          class="dialog-button"
+        >
           <v-icon color="#000">
             {{ dialog ? 'mdi-close' : 'mdi-menu' }}
           </v-icon>
@@ -81,6 +88,10 @@ import {useDisplay} from 'vuetify';
 const {mdAndUp} = useDisplay();
 
 const props = defineProps({
+  dialog: {
+    type: Boolean,
+    default: false
+  },
   env: {
     type: String,
     default: ''
@@ -88,16 +99,10 @@ const props = defineProps({
   topic: {
     type: String,
     default: ''
-  },
-  title: {
-    type: String,
-    default: ''
   }
 });
 
-defineEmits({});
-
-const dialog = ref(false);
+defineEmits<{(e: 'changeDialog', value: boolean): void}>();
 
 const projects = ref([
   {
@@ -223,6 +228,12 @@ const linkTo = (projectTitle: {
   height: auto;
   width: auto;
   min-width: auto;
+  .v-ripple__container {
+    display: none;
+  }
+  .v-btn__overlay {
+    opacity: 1;
+  }
 }
 </style>
 

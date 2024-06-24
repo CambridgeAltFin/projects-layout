@@ -40,10 +40,6 @@ import {defineProps, computed, PropType} from 'vue';
 import {ActiveProject} from './mobile-menu.type';
 
 const props = defineProps({
-  dialogModel: {
-    type: Boolean,
-    required: true
-  },
   env: {
     type: String,
     default: ''
