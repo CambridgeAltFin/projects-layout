@@ -10,7 +10,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/components/index.ts'),
       name: 'projects-layout',
-      fileName: (format) => `projects-layout.${format}.ts`
+      fileName: (format) => `projects-layout.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
