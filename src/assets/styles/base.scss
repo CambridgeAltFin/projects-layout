@@ -43,7 +43,7 @@ html body .v-application {
   font-family: $body-font !important;
   color: $body-text !important;
   font-size: $font-size !important;
-  line-height: 1.25rem !important;
+  line-height: $line-height !important;
   h1,
   h2,
   h3,
