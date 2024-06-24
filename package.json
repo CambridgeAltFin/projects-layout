@@ -8,8 +8,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/dragonekui.es.ts",
-      "require": "./dist/dragonekui.umd.ts"
+      "import": "./dist/projects-layout.es.ts",
+      "require": "./dist/projects-layout.umd.ts"
     },
     "./styles": "./dist/style.css"
   },
