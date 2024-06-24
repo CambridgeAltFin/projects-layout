@@ -8,8 +8,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/projects-layout.es.ts",
-      "require": "./dist/projects-layout.umd.ts"
+      "import": "./dist/projects-layout.es.js",
+      "require": "./dist/projects-layout.umd.js"
     },
     "./styles": "./dist/style.css"
   },
