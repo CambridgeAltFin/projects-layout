@@ -18,6 +18,12 @@
           alt="Cambridge Centre for Alternative Finance (CCAF.io)"
         />
       </a>
+      <h4
+        class="ma-0 ml-8 d-none d-sm-flex header__title"
+        style="font-family: MyriadPro"
+      >
+        {{ title }}
+      </h4>
 
       <v-spacer />
       <div class="project-selector">
@@ -25,8 +31,10 @@
           v-if="mdAndUp"
           variant="solo"
           class="project-selector__select"
+          :class="{'is-long': !!project && !project.tag}"
           :model-value="project"
           :items="projects"
+          :loading="!projects.length"
           :menu-props="{
             contentClass: 'project-selector__menu'
           }"
@@ -40,8 +48,10 @@
           flat
           @update:modelValue="linkTo"
         >
-          <template #selection>
-            <strong style="font-size: 14px; font-weight: 600">CBNSI</strong>
+          <template #selection="{item}">
+            <strong style="font-size: 14px; font-weight: 600">{{
+              item.title || item.value
+            }}</strong>
           </template>
           <template #item="{item, props}">
             <v-list-item
@@ -82,8 +92,9 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps, defineEmits, ref} from 'vue';
+import {defineProps, defineEmits, ref, onMounted} from 'vue';
 import {useDisplay} from 'vuetify';
+import type {Project} from './LayoutHeader.type';
 
 const {mdAndUp} = useDisplay();
 
@@ -91,6 +102,14 @@ const props = defineProps({
   dialog: {
     type: Boolean,
     default: false
+  },
+  title: {
+    type: String,
+    default: ''
+  },
+  activeSelect: {
+    type: String,
+    default: ''
   },
   env: {
     type: String,
@@ -104,61 +123,13 @@ const props = defineProps({
 
 defineEmits<{(e: 'changeDialog', value: boolean): void}>();
 
-const projects = ref([
-  {
-    title: 'Alternative Finance Benchmarks',
-    id: 'cafb',
-    tag: 'CAFB',
-    link: 'cafb'
-  },
-  {
-    title: 'Blockchain Network Sustainability Index',
-    id: 'cbnsi',
-    tag: 'CBNSI',
-    link: 'cbnsi'
-  },
-  {
-    title: 'Digital Money Dashboard',
-    id: 'dmd',
-    tag: 'DMD',
-    link: 'cdmd'
-  },
-  {
-    title: 'Fintech Ecosystem Atlas',
-    id: 'atlas',
-    tag: 'Atlas',
-    link: 'atlas'
-  },
-  {
-    title: 'Global Regulatory Innovation Dashboard',
-    id: 'grid',
-    tag: 'GRID',
-    link: 'grid'
-  },
-  {
-    title: 'SupTech Vendor Database',
-    id: 'svd',
-    link: 'suptechlab/vendor_database',
-    tag: ''
-  },
-  {
-    title: 'SupTech Solutions Tracker',
-    id: 'ssr',
-    link: 'suptechlab/solutions_tracker',
-    tag: ''
-  }
-]);
+const projects = ref<Project[]>([]);
 
-const project = ref(projects.value[1]);
+const project = ref();
 
-const linkTo = (projectTitle: {
-  title: string;
-  id: string;
-  tag: string;
-  link: string;
-}) => {
+const linkTo = (projectTitle: {title: string; tag: string; link: string}) => {
   const project = projects.value.find(
-    (project: {title: string; id: string; tag: string; link: string}) => {
+    (project: {title: string; tag: string; link: string}) => {
       if (typeof projectTitle === 'string') {
         return project.title === projectTitle;
       }
@@ -170,6 +141,22 @@ const linkTo = (projectTitle: {
   }
   window.location.href = `https://${props.env}ccaf.io/${project.link}`;
 };
+
+onMounted(async () => {
+  const {data}: {data: Project[]} = await fetch(
+    'https://demo-api.ccaf.io/v1/projects'
+  ).then((data) => {
+    return data.json();
+  });
+  projects.value = data;
+
+  project.value =
+    projects.value.find(
+      (project: Project) =>
+        project.title === props.activeSelect ||
+        (!!project.tag && project.tag === props.activeSelect)
+    ) || projects.value[0];
+});
 </script>
 
 <style lang="scss" scoped>
@@ -294,6 +281,11 @@ header .v-toolbar__content {
 
 .project-selector {
   height: 40px;
+  &__select {
+    &.is-long {
+      width: auto !important;
+    }
+  }
   .v-input__control {
     width: 100%;
   }
