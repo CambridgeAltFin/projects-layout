@@ -11,8 +11,7 @@
         })
       "
     >
-      <v-icon size="16" color="#FFB71A" class="mr-2" icon="mdi-arrow-up">
-      </v-icon>
+      <v-icon size="18" color="#FFB71A" icon="mdi-arrow-up"> </v-icon>
     </div>
     <v-container fluid>
       <div class="footer__pre-footer" align="start" justify="start" no-gutters>
@@ -166,7 +165,6 @@ defineProps({
     type: String,
     default: ''
   },
-
   env: {
     type: String,
     default: ''
@@ -228,6 +226,9 @@ onMounted(() => {
   position: fixed;
   right: 10px;
   bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 6px;
 }
 .footer {

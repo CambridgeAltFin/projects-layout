@@ -8739,7 +8739,7 @@ const bu = E({
       }, e.style]
     }, t)), e.app ? d : {};
   }
-}), Bu = (e) => (Nn("data-v-249590a8"), e = e(), Dn(), e), Tu = {
+}), Bu = (e) => (Nn("data-v-4b180594"), e = e(), Dn(), e), Tu = {
   class: "footer__pre-footer",
   align: "start",
   justify: "start",
@@ -8845,9 +8845,8 @@ const bu = E({
           }))
         }, [
           u(ae, {
-            size: "16",
+            size: "18",
             color: "#FFB71A",
-            class: "mr-2",
             icon: "mdi-arrow-up"
           })
         ])) : ut("", !0),
@@ -8978,7 +8977,7 @@ const bu = E({
       _: 3
     }));
   }
-}), cc = /* @__PURE__ */ vn(Wu, [["__scopeId", "data-v-249590a8"]]), Gu = N()({
+}), cc = /* @__PURE__ */ vn(Wu, [["__scopeId", "data-v-4b180594"]]), Gu = N()({
   name: "VCardActions",
   props: Y(),
   setup(e, n) {
