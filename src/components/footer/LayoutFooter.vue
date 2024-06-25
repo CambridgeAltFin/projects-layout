@@ -11,119 +11,115 @@
         })
       "
     >
-      <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-arrow-up">
+      <v-icon size="16" color="#FFB71A" class="mr-2" icon="mdi-arrow-up">
       </v-icon>
     </div>
     <v-container fluid>
-      <v-row
-        class="footer__pre-footer"
-        align="start"
-        justify="start"
-        no-gutters
-      >
-        <v-col cols="auto" class="mb-4 pa-4">
-          <a
-            class="footer__link mb-2 link-icon"
-            :href="webLink"
-            target="_blank"
-          >
-            <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-web" />
-            <p>{{ webLink }}</p>
-          </a>
-          <a class="footer__link mb-2 link-icon" :href="`mailto:${email}`">
-            <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-email" />
-            <p>{{ email }}</p>
-          </a>
-          <a
-            :href="locationLink"
-            class="footer__link footer__link--location mb-2 link-icon"
-          >
-            <v-icon
-              size="16"
-              color="#0e1436"
-              class="mr-2"
-              icon="mdi-map-marker"
+      <div class="footer__pre-footer" align="start" justify="start" no-gutters>
+        <div class="footer__info">
+          <div class="footer__pre-links mb-4 pa-4" cols="auto">
+            <a
+              class="footer__link mb-2 link-icon"
+              :href="webLink"
+              target="_blank"
             >
-            </v-icon>
-            <p>{{ location }}</p>
-          </a>
-          <div class="ml-7">
-            <v-row>
-              <v-col>
-                <a
-                  v-if="linkedinLink"
-                  class="link-icon"
-                  :href="linkedinLink"
-                  target="_blank"
-                >
-                  <v-icon
-                    size="24"
-                    color="#0e1436"
-                    class="mr-2"
-                    icon="mdi-linkedin"
+              <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-web" />
+              <p>{{ webLink }}</p>
+            </a>
+            <a class="footer__link mb-2 link-icon" :href="`mailto:${email}`">
+              <v-icon size="16" color="#0e1436" class="mr-2" icon="mdi-email" />
+              <p>{{ email }}</p>
+            </a>
+            <a
+              :href="locationLink"
+              class="footer__link footer__link--location mb-2 link-icon"
+            >
+              <v-icon
+                size="16"
+                color="#0e1436"
+                class="mr-2"
+                icon="mdi-map-marker"
+              >
+              </v-icon>
+              <p>{{ location }}</p>
+            </a>
+            <div class="ml-7">
+              <v-row>
+                <v-col>
+                  <a
+                    v-if="linkedinLink"
+                    class="link-icon"
+                    :href="linkedinLink"
+                    target="_blank"
                   >
-                  </v-icon>
-                </a>
-                <a
-                  v-if="twitterLink"
-                  class="link-icon"
-                  :href="twitterLink"
-                  target="_blank"
-                >
-                  <v-icon
-                    size="24"
-                    color="#0e1436"
-                    class="mr-2"
-                    icon="mdi-twitter"
+                    <v-icon
+                      size="24"
+                      color="#0e1436"
+                      class="mr-2"
+                      icon="mdi-linkedin"
+                    >
+                    </v-icon>
+                  </a>
+                  <a
+                    v-if="twitterLink"
+                    class="link-icon"
+                    :href="twitterLink"
+                    target="_blank"
                   >
-                  </v-icon>
-                </a>
-                <a
-                  v-if="facebookLink"
-                  class="link-icon"
-                  href="facebookLink"
-                  target="_blank"
-                >
-                  <v-icon
-                    size="24"
-                    color="#0e1436"
-                    class="mr-2"
-                    icon="mdi-facebook"
+                    <v-icon
+                      size="24"
+                      color="#0e1436"
+                      class="mr-2"
+                      icon="mdi-twitter"
+                    >
+                    </v-icon>
+                  </a>
+                  <a
+                    v-if="facebookLink"
+                    class="link-icon"
+                    href="facebookLink"
+                    target="_blank"
                   >
-                  </v-icon>
-                </a>
-              </v-col>
-            </v-row>
+                    <v-icon
+                      size="24"
+                      color="#0e1436"
+                      class="mr-2"
+                      icon="mdi-facebook"
+                    >
+                    </v-icon>
+                  </a>
+                </v-col>
+              </v-row>
+            </div>
           </div>
-        </v-col>
-        <v-col cols="auto" class="mb-4 pa-4">
-          <a
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            target="_blank"
-          >
-            <img
-              alt="Creative Commons License"
-              style="border-width: 0"
-              src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg"
-            /> </a
-          ><br />
-          <p style="font-size: 12px; max-width: 280px">
-            This work is licensed under a
+          <div class="footer__pre-commons mb-4 pa-4" cols="auto">
             <a
               rel="license"
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
-              style="color: #262b4a"
             >
-              Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-              International License
-            </a>
-          </p>
-        </v-col>
-        <v-spacer class="hidden-sm-and-down" />
+              <img
+                alt="Creative Commons License"
+                style="border-width: 0"
+                src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg"
+              /> </a
+            ><br />
+            <p style="font-size: 12px; max-width: 280px">
+              This work is licensed under a
+              <a
+                rel="license"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+                style="color: #262b4a"
+              >
+                Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+                International License
+              </a>
+            </p>
+          </div>
+        </div>
         <slot name="supported" />
-      </v-row>
+      </div>
       <v-row
         class="footer__main-footer"
         align="center"
@@ -244,8 +240,13 @@ onMounted(() => {
     }
   }
   &__pre-footer {
+    display: flex;
+    align-items: center;
     padding: 12px 63px 0;
     border-top: 1px rgba(0, 0, 0, 0.12) solid;
+    @media (width < 960px) {
+      flex-direction: column;
+    }
   }
   &__main-footer {
     a {
@@ -259,6 +260,13 @@ onMounted(() => {
     padding: 0 75px;
     background: #292829;
     height: 45px;
+  }
+  &__info {
+    display: flex;
+    @media (width < 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }
 .link-icon:hover {

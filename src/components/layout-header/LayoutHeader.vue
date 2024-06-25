@@ -78,7 +78,7 @@
           :ripple="false"
           class="dialog-button"
         >
-          <v-icon color="#000">
+          <v-icon color="#000" size="24">
             {{ dialog ? 'mdi-close' : 'mdi-menu' }}
           </v-icon>
         </v-btn>
@@ -218,9 +218,6 @@ onMounted(async () => {
   .v-ripple__container {
     display: none;
   }
-  .v-btn__overlay {
-    opacity: 1;
-  }
 }
 </style>
 
@@ -341,6 +338,11 @@ header .v-toolbar__content {
       border: 1px solid #ffb71a;
       border-radius: 5px;
     }
+  }
+}
+.dialog-button {
+  .v-btn__overlay {
+    opacity: 0;
   }
 }
 </style>
