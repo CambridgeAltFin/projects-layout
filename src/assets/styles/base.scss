@@ -55,7 +55,7 @@ html body .v-application {
     max-height: calc(100% - 72px) !important;
     display: block !important;
     overflow-y: auto !important;
-    top: 72px;
+    top: 72px !important;
     position: fixed;
     overflow-y: auto;
     padding-bottom: 40px;
