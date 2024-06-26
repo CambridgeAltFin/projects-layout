@@ -1,29 +1,88 @@
 <template>
-    <v-btn @click="onClick">{{ text }}</v-btn>
-  </template>
-  
-  <script lang="ts">
-  import { defineComponent } from 'vue';
-  
-  export default defineComponent({
-    name: 'MyComponent',
-    props: {
-      text: {
-        type: String,
-        required: true
-      }
-    },
-    methods: {
-      onClick() {
-        this.$emit('click');
-      }
+  <v-card>
+    <v-list-item :href="`https://${env}ccaf.io/`">
+      <v-list-item-title class="list__title"> CCAF Home </v-list-item-title>
+    </v-list-item>
+    <v-divider />
+    <v-list-item :href="`https://${env}ccaf.io/about_ccaf`">
+      <v-list-item-title class="list__title"> CCAF About </v-list-item-title>
+    </v-list-item>
+    <v-divider />
+    <v-list-item :href="`https://${env}ccaf.io/contact?topic=cbeci`">
+      <v-list-item-title class="list__title"> CCAF Contact </v-list-item-title>
+    </v-list-item>
+    <v-divider />
+    <v-list-item>
+      <v-list-item-title class="list__title">
+        CCAF Digital Tools:
+      </v-list-item-title>
+    </v-list-item>
+    <div class="chips">
+      <v-chip class="chips__item chips__item-active"> CBECI </v-chip>
+      <v-chip class="chips__item" :href="`https://${env}ccaf.io/atlas`">
+        Atlas
+      </v-chip>
+      <v-chip class="chips__item" :href="`https://${env}ccaf.io/cafb`">
+        Benchmarks
+      </v-chip>
+    </div>
+  </v-card>
+</template>
+
+<script>
+export default {
+  name: 'MobileMenu',
+  props: {
+    env: {
+      type: String,
+      default: ''
     }
-  });
-  </script>
-  
-  <style lang="scss">
-  .v-btn {
-    background-color: #1976d2;
-    color: #fff;
   }
-  </style>
+};
+</script>
+
+<style lang="scss" scoped>
+.list {
+  &__title {
+    font-family: MyriadProSemiBold, sans-serif;
+    height: 66px;
+    padding: 24px 8px;
+  }
+  &__link {
+    &-active {
+      background-color: #f7f8fa !important;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+.chips {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+  padding: 0 24px 24px;
+  &__item {
+    flex: 0 0 auto;
+    height: 48px;
+    padding: 16px 24px;
+    border-radius: 24px;
+    background-color: #0f1434 !important;
+    color: white;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    &-active {
+      background: rgba(255, 184, 28, 0.16) !important;
+      border: 2px solid #ffb81c !important;
+      color: #ffb81c !important;
+    }
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}
+</style>
