@@ -1,15 +1,10 @@
 @mixin header-height() {
-  @media only screen and (max-width: 960px) {
-    height: 60px !important;
-  }
+
   @media only screen and (min-width: 900px) {
     height: 72px !important;
   }
 }
 @mixin header-top() {
-  @media only screen and (max-width: 960px) {
-    top: 60px !important;
-  }
   @media only screen and (min-width: 900px) {
     top: 72px !important;
   }

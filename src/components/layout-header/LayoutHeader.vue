@@ -19,13 +19,24 @@
         />
       </a>
       <h4
-        class="ma-0 ml-8 d-none d-sm-flex header__title"
+        class="ma-0 ml-6 d-none d-sm-flex header__title"
         style="font-family: MyriadPro"
       >
         {{ title }}
       </h4>
 
       <v-spacer />
+      <ul class="header-links" >
+        <li class="header-links__element" >
+          <a class="header-links__element-link" title="Home" href="https://ccaf.io/" >Home </a>
+        </li>
+        <li class="header-links__element" >
+          <a class="header-links__element-link" title="Home" href="https://ccaf.io/about_ccaf" >About CCAF </a>
+        </li>
+        <li class="header-links__element" >
+          <a class="header-links__element-link" title="Home" href="https://ccaf.io/contact?topic=dmd" >Contact </a>
+        </li>
+      </ul>
       <div class="project-selector">
         <v-select
           v-if="mdAndUp"
@@ -139,7 +150,7 @@ const linkTo = (projectTitle: {title: string; tag: string; link: string}) => {
   if (!project) {
     return;
   }
-  window.location.href = `https://${props.env}ccaf.io/${project.link}`;
+  window.location.href = `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : '' }ccaf.io/${project.link}`;
 };
 
 onMounted(async () => {
@@ -219,6 +230,13 @@ onMounted(async () => {
     display: none;
   }
 }
+
+.header-overlay{
+  display: none;
+  @media (width < 960px) {
+    display: block;
+  }
+}
 </style>
 
 <style lang="scss">
@@ -267,6 +285,12 @@ header .v-toolbar__content {
       background-color: black !important;
       color: white !important;
     }
+  }
+}
+
+@media screen and (width < 1200px) {
+  header .v-toolbar__content {
+    padding: 4px 35px;
   }
 }
 
@@ -343,6 +367,41 @@ header .v-toolbar__content {
 .dialog-button {
   .v-btn__overlay {
     opacity: 0;
+  }
+}
+.header-links {
+  padding: 0;
+  margin-left: -30px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  &__element {
+    list-style-type: none;
+
+    padding: 2px 2px 2px 6px;
+    margin-left: 30px;
+    @media (width < 1230px) {
+      margin-left: 8px;
+    }
+  }
+  &__element-link {
+    font-size: 14px !important;
+    line-height: 18px;
+    color: #000 !important;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: 0.33 cubic-bezier(0.25, 0.8, 0.5, 1) text-shadow;
+    &:hover {
+      text-shadow:
+        -0.2px -0.2px 0 #000,
+        0.2px 0.2px #000;
+    }
+  }
+  @media (width < 1230px) {
+    margin-left: -5px;
+  }
+  @media (width < 960px) {
+    display: none;
   }
 }
 </style>

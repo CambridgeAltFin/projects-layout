@@ -297,6 +297,9 @@ onMounted(() => {
   display: flex;
   text-decoration: none;
   color: $base-color;
+  i{
+    margin-top: 5.5px;
+  }
   &--location {
     max-width: 250px;
   }
