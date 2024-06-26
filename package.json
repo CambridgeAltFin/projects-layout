@@ -1,50 +1,36 @@
 {
   "name": "projects-layout",
-  "private": false,
-  "version": "0.1.4",
-  "type": "module",
-  "files": [
-    "dist"
-  ],
-  "exports": {
-    ".": {
-      "import": "./dist/projects-layout.es.js",
-      "require": "./dist/projects-layout.umd.js"
-    },
-    "./styles": "./dist/style.css"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build": "vite build"
   },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^1.5.0",
-    "@storybook/addon-essentials": "^8.1.6",
-    "@storybook/addon-interactions": "^8.1.6",
-    "@storybook/addon-links": "^8.1.6",
-    "@storybook/addon-styling-webpack": "^1.0.0",
-    "@storybook/blocks": "^8.1.6",
-    "@storybook/test": "^8.1.6",
-    "@storybook/vue3": "^8.1.6",
-    "@storybook/vue3-vite": "^8.1.6",
-    "@vitejs/plugin-vue": "^5.0.4",
-    "sass": "^1.77.4",
-    "storybook": "^8.1.6",
-    "storybook-vue3-router": "^5.0.0",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0",
-    "vite-plugin-dts": "^3.9.1",
-    "vite-plugin-vuetify": "^2.0.3",
-    "vue": "^3.4.21",
-    "vue-tsc": "^2.0.6"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CambridgeAltFin/projects-layout.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CambridgeAltFin/projects-layout/issues"
+  },
+  "homepage": "https://github.com/CambridgeAltFin/projects-layout#readme",
   "peerDependencies": {
-    "vue": ">=3"
+    "vue": "^2.7.0",
+    "vuetify": "^2.6.0"
   },
   "dependencies": {
-    "@mdi/font": "^7.4.47"
+    "vue": "^2.7.0",
+    "vuetify": "^2.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue2": "^2.3.1",
+    "sass": "^1.32",
+    "sass-loader": "^10.3.1",
+    "typescript": "^4.7.4",
+    "vite": "^3.0.0",
+    "vue-template-compiler": "^2.7.0"
   }
 }
