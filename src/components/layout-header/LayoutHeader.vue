@@ -158,13 +158,14 @@ const linkTo = (projectTitle: {title: string; tag: string; link: string}) => {
 };
 
 onMounted(async () => {
-  if(props.url){
+ 
+  if(!props.url){
     projects.value = [];
     return
   }
 
   const {data}: {data: Project[]} = await fetch(
-    props.url + 'projects'
+    `${props.url}/projects`
   ).then((data) => {
     return data.json();
   });

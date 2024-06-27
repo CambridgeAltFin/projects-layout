@@ -21,7 +21,7 @@ export default {
 export const DefaultHeader: StoryFn<typeof LayoutHeader> = (args) => ({
   components: {LayoutHeader},
   setup() {
-    return {args};
+    return {args:{...args, url:'https://demo-api.ccaf.io/v1'}};
   },
 
   template: '<div><LayoutHeader v-bind="args" /></div>'
