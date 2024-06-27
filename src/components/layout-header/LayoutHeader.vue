@@ -129,6 +129,10 @@ const props = defineProps({
   topic: {
     type: String,
     default: ''
+  },
+  url:{
+    type: String,
+    default: ''
   }
 });
 
@@ -154,8 +158,13 @@ const linkTo = (projectTitle: {title: string; tag: string; link: string}) => {
 };
 
 onMounted(async () => {
+  if(props.url){
+    projects.value = [];
+    return
+  }
+
   const {data}: {data: Project[]} = await fetch(
-    'https://demo-api.ccaf.io/v1/projects'
+    props.url + 'projects'
   ).then((data) => {
     return data.json();
   });
