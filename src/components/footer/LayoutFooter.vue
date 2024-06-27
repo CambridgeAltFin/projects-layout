@@ -13,7 +13,7 @@
     >
       <v-icon size="18" color="#FFB71A" icon="mdi-arrow-up"> </v-icon>
     </div>
-    <v-container fluid>
+    <v-container fluid style="height: 100%">
       <div class="footer__pre-footer" align="start" justify="start" no-gutters>
         <div class="footer__info">
           <div class="footer__pre-links mb-4 pa-4" cols="auto">
@@ -243,6 +243,7 @@ onMounted(() => {
   &__pre-footer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 12px 63px 0;
     border-top: 1px rgba(0, 0, 0, 0.12) solid;
     @media (width < 960px) {
@@ -297,7 +298,7 @@ onMounted(() => {
   display: flex;
   text-decoration: none;
   color: $base-color;
-  i{
+  i {
     margin-top: 5.5px;
   }
   &--location {
