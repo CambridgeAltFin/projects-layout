@@ -19,6 +19,10 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    url: {
+        type: StringConstructor;
+        default: string;
+    };
 }, {}, unknown, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     changeDialog: (value: boolean) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -42,6 +46,10 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    url: {
+        type: StringConstructor;
+        default: string;
+    };
 }>> & {
     onChangeDialog?: ((value: boolean) => any) | undefined;
 }, {
@@ -50,6 +58,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
     title: string;
     activeSelect: string;
     topic: string;
+    url: string;
 }, {}>, {
     default?(_: {
         close: () => boolean;

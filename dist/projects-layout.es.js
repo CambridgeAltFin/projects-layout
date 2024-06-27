@@ -8526,7 +8526,7 @@ const bu = E({
       select: A
     }, a);
   }
-}), dl = (e) => (Nn("data-v-556ebd10"), e = e(), Dn(), e), ku = ["href"], wu = /* @__PURE__ */ dl(() => /* @__PURE__ */ X("img", {
+}), dl = (e) => (Nn("data-v-7fe74f95"), e = e(), Dn(), e), ku = ["href"], wu = /* @__PURE__ */ dl(() => /* @__PURE__ */ X("img", {
   src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf",
   width: "179",
   height: "52",
@@ -8580,6 +8580,10 @@ const bu = E({
     topic: {
       type: String,
       default: ""
+    },
+    url: {
+      type: String,
+      default: ""
     }
   },
   emits: ["changeDialog"],
@@ -8594,8 +8598,12 @@ const bu = E({
       s && (window.location.href = `https://${t.env === "demo" || t.env === "develop" ? "demo." : ""}ccaf.io/${s.link}`);
     };
     return Ke(async () => {
+      if (t.url) {
+        l.value = [];
+        return;
+      }
       const { data: o } = await fetch(
-        "https://demo-api.ccaf.io/v1/projects"
+        t.url + "projects"
       ).then((s) => s.json());
       l.value = o, a.value = l.value.find(
         (s) => s.title === t.activeSelect || !!s.tag && s.tag === t.activeSelect
@@ -8704,7 +8712,7 @@ const bu = E({
   for (const [l, a] of n)
     t[l] = a;
   return t;
-}, uc = /* @__PURE__ */ vn(Pu, [["__scopeId", "data-v-556ebd10"]]), Eu = E({
+}, uc = /* @__PURE__ */ vn(Pu, [["__scopeId", "data-v-7fe74f95"]]), Eu = E({
   app: Boolean,
   color: String,
   height: {
