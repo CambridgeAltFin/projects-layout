@@ -17,5 +17,5 @@
       },
       "types": ["vite/client"]
     },
-    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/index.js", "src/index.js", "src/plugins/vuetify.js", "src/plugins/vuetify.js"]
+    "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/index.js", "src/index.js", "src/plugins/vuetify.js", "src/plugins/vuetify.js", "src/components/LayoutHeader.story.js", "src/components/LayoutFooter.story.js", "src/components/LayoutFooter.story.js"]
   }

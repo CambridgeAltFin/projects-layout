@@ -4,8 +4,8 @@ import Vuetify from './plugins/vuetify';
 export {Vuetify};
 
 import MobileMenu from './components/MobileMenu.vue';
-import LayoutFooter from './components/Footer.vue';
-import LayoutHeader from './components/Header.vue';
+import LayoutFooter from './components/LayoutFooter.vue';
+import LayoutHeader from './components/LayoutHeader.vue';
 import Loader from './components/Loader.vue';
 
 export {MobileMenu, LayoutFooter, LayoutHeader, Loader};
