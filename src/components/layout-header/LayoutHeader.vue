@@ -26,15 +26,30 @@
       </h4>
 
       <v-spacer />
-      <ul class="header-links" >
-        <li class="header-links__element" >
-          <a class="header-links__element-link" title="Home" href="https://ccaf.io/" >Home </a>
+      <ul class="header-links">
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            href="https://ccaf.io/"
+            >Home
+          </a>
         </li>
-        <li class="header-links__element" >
-          <a class="header-links__element-link" title="Home" href="https://ccaf.io/about_ccaf" >About CCAF </a>
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            href="https://ccaf.io/about_ccaf"
+            >About CCAF
+          </a>
         </li>
-        <li class="header-links__element" >
-          <a class="header-links__element-link" title="Home" href="https://ccaf.io/contact?topic=dmd" >Contact </a>
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            href="https://ccaf.io/contact?topic=dmd"
+            >Contact
+          </a>
         </li>
       </ul>
       <div class="project-selector">
@@ -130,7 +145,7 @@ const props = defineProps({
     type: String,
     default: ''
   },
-  url:{
+  url: {
     type: String,
     default: ''
   }
@@ -154,21 +169,15 @@ const linkTo = (projectTitle: {title: string; tag: string; link: string}) => {
   if (!project) {
     return;
   }
-  window.location.href = `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : '' }ccaf.io/${project.link}`;
+  window.location.href = `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/${project.link}`;
 };
 
 onMounted(async () => {
- 
-  if(!props.url){
-    projects.value = [];
-    return
-  }
-
-  const {data}: {data: Project[]} = await fetch(
-    `${props.url}/projects`
-  ).then((data) => {
-    return data.json();
-  });
+  const {data}: {data: Project[]} = await fetch(`${props.url}/projects`).then(
+    (data) => {
+      return data.json();
+    }
+  );
   projects.value = data;
 
   project.value =
@@ -241,7 +250,7 @@ onMounted(async () => {
   }
 }
 
-.header-overlay{
+.header-overlay {
   display: none;
   @media (width < 960px) {
     display: block;
