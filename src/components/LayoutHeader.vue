@@ -10,7 +10,7 @@
     app
   >
     <v-row align="center" justify="start" class="header__logo">
-      <a title="CCAF.io" :href="`https://${env}ccaf.io/`">
+      <a title="CCAF.io" :href="`https://${env_project}ccaf.io/`">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf"
           width="179"
@@ -62,7 +62,7 @@
         </v-select>
       </div>
     </v-row>
-    <v-dialog v-model="dialog" fullscreen>
+    <v-dialog :value="dialog" fullscreen>
       <template #activator="{on}">
         <div class="header__nav-icon hidden-lg-and-up" v-on="on">
           <v-icon color="#000">
@@ -77,11 +77,32 @@
 
 <script>
 export default {
-  name: 'LayoutHeader',
+  name: 'layout-header',
+  props: {
+    dialog: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    activeSelect: {
+      type: String,
+      default: ''
+    },
+    env: {
+      type: String,
+      default: ''
+    },
+    topic: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
-      dialog: false,
-      env: '',
+      env_project: '',
       projects: [
         {
           title: 'Alternative Finance Benchmarks',
@@ -132,40 +153,31 @@ export default {
       }
     };
   },
-  computed: {
-    topic() {
-      return this.$route.path.includes('ethereum')
-        ? 'cbnsi_eth'
-        : this.$route.path.includes('cbeci')
-        ? 'cbnsi_btc'
-        : 'cbnsi';
-    },
-    title() {
-      return this.$route.path.includes('ethereum')
-        ? 'Cambridge Blockchain Network Sustainability Index'
-        : 'Cambridge Bitcoin Electricity Consumption Index';
-    }
+  async beforeMount() {
+    const {data} = await fetch('https://demo-api.ccaf.io/v1/projects').then(
+      (data) => {
+        return data.json();
+      }
+    );
+    this.projects = data;
+    this.project =
+      this.projects.find(
+        (project) =>
+          project.title === this.activeSelect ||
+          (!!project.tag && project.tag === this.activeSelect)
+      ) || this.projects[0];
   },
   mounted() {
-    this.env = process.env.ENV === 'demo' ? 'demo.' : '';
+    this.env_project = this.env === 'demo' ? 'demo.' : '';
   },
   methods: {
-    setDialog(v) {
-      this.dialog = v;
-    },
-    linkTo(project) {
-      let link = '';
-      switch (project) {
-        case 'CBECI':
-          link = 'cbeci/cbeci';
-          break;
-        case 'Benchmarks':
-          link = 'cafb';
-          break;
-        case 'Atlas':
-          link = 'atlas';
+    linkTo(projectTitle) {
+      const project = this.projects.find(
+        (project) => project.title === projectTitle.title
+      );
+      if (project) {
+        window.location.href = `https://${this.env_project}ccaf.io/${project.link}`;
       }
-      window.location.href = `https://${this.env}ccaf.io/${link}`;
     }
   }
 };

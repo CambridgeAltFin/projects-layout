@@ -62,3 +62,52 @@ html body .v-application {
     left: 0;
   }
 }
+header .v-toolbar__content {
+  padding: 4px 75px;
+  .v-select {
+    display: inline-flex;
+    width: 100px;
+    margin-left: 30px;
+    border-radius: 6px;
+  }
+  a.logo {
+    height: 52px;
+    img.logo {
+      height: 52px;
+    }
+  }
+  .navigation a {
+    text-decoration-line: none !important;
+    color: #000000 !important;
+    font-size: 15px !important;
+    letter-spacing: 0;
+    line-height: 18px;
+    padding: 2px 8px 2px 16px;
+    margin-left: 15px;
+    border-left: 2px solid transparent;
+    &.active {
+      border-left: 2px solid #000000;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+    }
+    &:hover {
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+    }
+  }
+  .mobile-menu a {
+    border-radius: 0 !important;
+    background-color: #ffffff !important;
+    height: 40px !important;
+    text-transform: none !important;
+    font-family: 'MyriadProSemiBold', sans-serif;
+    &.v-btn--active {
+      background-color: black !important;
+      color: white !important;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  header .v-toolbar__content {
+    padding: 4px 20px;
+  }
+}

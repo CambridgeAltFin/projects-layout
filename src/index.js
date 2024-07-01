@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import Vuetify from './plugins/vuetify';
 
+import 'vuetify/dist/vuetify.min.css';
+import '@mdi/font/css/materialdesignicons.min.css';
+
 export {Vuetify};
 
 import MobileMenu from './components/MobileMenu.vue';
