@@ -1,34 +1,36 @@
 {
   "name": "projects-layout",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
+  "main": "dist/projects-layout.es.js",
   "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "https://github.com/CambridgeAltFin/projects-layout#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CambridgeAltFin/projects-layout.git"
+  },
   "files": [
     "dist"
   ],
-  "exports": {
-    ".": {
-      "import": "./dist/projects-layout.es.js",
-      "require": "./dist/projects-layout.umd.js"
-    },
-    "./styles": "./dist/style.css"
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": "",
+    "email": "",
+    "url": ""
   },
+  "contributors": [],
   "scripts": {
     "build": "vite build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CambridgeAltFin/projects-layout.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/CambridgeAltFin/projects-layout/issues"
-  },
-  "homepage": "https://github.com/CambridgeAltFin/projects-layout#readme",
   "peerDependencies": {
     "vue": "^2.7.0",
     "vuetify": "^2.4.2"
