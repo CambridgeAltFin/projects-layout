@@ -2,20 +2,21 @@
   <div class="app-loader" :class="{'app-loader--visible': visible}">
     <v-container>
       <v-row align="center" justify="center" class="flex-column">
-        <v-col cols="12">
+        <v-col v-if="title" cols="12">
           <h1 class="app-loader__title">
             {{ title }}
           </h1>
         </v-col>
         <v-col cols="12" class="d-flex justify-center">
           <div class="lds-ring">
-            <div /><div /><div /><div />
+            <div />
+            <div />
+            <div />
+            <div />
           </div>
         </v-col>
         <v-col cols="12">
-          <p class="app-loader__state">
-            LOADING
-          </p>
+          <p class="app-loader__state">LOADING</p>
         </v-col>
       </v-row>
     </v-container>
@@ -29,14 +30,13 @@ export default {
     visible: {
       type: Boolean,
       default: false
-    }
-  },
-  computed: {
-    title () {
-      return ''
+    },
+    title: {
+      type: String,
+      default: ''
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -44,7 +44,7 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #F7F8FA;
+  background: #f7f8fa;
   transition: opacity 0.3s ease;
   opacity: 0;
   z-index: -10;
@@ -62,7 +62,7 @@ export default {
   }
 
   &__title {
-    color: #0E1436;
+    color: #0e1436;
     font-weight: 600;
     font-size: 21px;
     line-height: 100%;
@@ -97,10 +97,10 @@ export default {
   width: 64px;
   height: 64px;
   margin: 8px;
-  border: 4px solid #0E1436;
+  border: 4px solid #0e1436;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #0E1436 transparent transparent transparent;
+  border-color: #0e1436 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -119,5 +119,4 @@ export default {
     transform: rotate(360deg);
   }
 }
-
 </style>

@@ -1,17 +1,17 @@
-import LayoutHeader from '../components/LayoutHeader.vue';
+import Loader from '../components/Loader.vue';
 
 export default {
-  title: 'Example/LayoutHeader',
-  component: LayoutHeader,
+  title: 'Example/Loader',
+  component: Loader,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   render: (args, {argTypes}) => ({
     props: Object.keys(argTypes),
     components: {
-      LayoutHeader
+      Loader
     },
     template:
-      '<layout-header v-bind="$props" env="demo" url="https://demo-api.ccaf.io/v1" />'
+      '<div style="position: relative; width: 400px; height: 400px;"><loader v-bind="$props" env="demo" url="https://demo-api.ccaf.io/v1" /></div>'
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
@@ -20,7 +20,5 @@ export default {
 };
 
 export const Default = {
-  args: {
-    activeSelect: 'SupTech Vendor Database'
-  }
+  args: {visible: true}
 };

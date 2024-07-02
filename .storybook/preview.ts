@@ -9,14 +9,13 @@ export const globalTypes = {
     name: 'Theme',
     description: 'Global theme for components',
     defaultValue: 'light',
+
     toolbar: {
       icon: 'circlehollow',
       items: ['light', 'dark']
     }
   }
 };
-
-
 
 const preview: Preview = {
   parameters: {

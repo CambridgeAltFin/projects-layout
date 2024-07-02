@@ -19,18 +19,50 @@
         />
       </a>
       <h4
-        class="ma-0 ml-8 d-none d-sm-flex"
+        class="d-none d-sm-flex header__title"
         style="font-family: MyriadProSemiBold !important"
       >
         {{ title }}
       </h4>
       <v-spacer />
-      <div class="project-selector">
+      <ul
+        class="header-links"
+        :class="{'is-long-title': !!project && !project.tag}"
+      >
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            href="https://ccaf.io/"
+            >Home
+          </a>
+        </li>
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            href="https://ccaf.io/about_ccaf"
+            >About CCAF
+          </a>
+        </li>
+        <li class="header-links__element">
+          <a
+            class="header-links__element-link"
+            title="Home"
+            :href="`https://ccaf.io/contact?topic=${topic}`"
+            >Contact
+          </a>
+        </li>
+      </ul>
+      <div
+        class="project-selector"
+        :class="{'is-title': !!project && !project.tag}"
+      >
         <v-select
           v-if="$vuetify.breakpoint.mdAndUp"
-          value="cbnsi"
+          :value="project"
           :items="projects"
-          item-value="id"
+          item-value="title"
           item-text="tag"
           :menu-props="{
             offsetY: true,
@@ -49,8 +81,10 @@
           flat
           @change="linkTo"
         >
-          <template v-slot:selection>
-            <strong style="font-size: 14px; font-weight: 600">CBNSI</strong>
+          <template v-slot:selection="{item}">
+            <strong class="project-selector__active-element">{{
+              item.tag || item.title
+            }}</strong>
           </template>
           <template v-slot:item="{item}">
             {{ item.title }}
@@ -62,15 +96,20 @@
         </v-select>
       </div>
     </v-row>
-    <v-dialog :value="dialog" fullscreen>
-      <template #activator="{on}">
-        <div class="header__nav-icon hidden-lg-and-up" v-on="on">
+    <v-dialog
+      v-if="!$vuetify.breakpoint.mdAndUp"
+      :value="dialog"
+      @input="(value) => $emit('changeDialog', value)"
+      fullscreen
+    >
+      <template #activator="{on, value}">
+        <div class="header__nav-icon" v-on="on">
           <v-icon color="#000">
-            {{ dialog ? 'mdi-close' : 'mdi-menu' }}
+            {{ value ? 'mdi-close' : 'mdi-menu' }}
           </v-icon>
         </div>
       </template>
-      <slot />
+      <slot :close="() => (isActive.value = false)" />
     </v-dialog>
   </v-app-bar>
 </template>
@@ -103,54 +142,8 @@ export default {
   data() {
     return {
       env_project: '',
-      projects: [
-        {
-          title: 'Alternative Finance Benchmarks',
-          id: 'cafb',
-          tag: 'CAFB',
-          link: 'cafb'
-        },
-        {
-          title: 'Blockchain Network Sustainability Index',
-          id: 'cbnsi',
-          tag: 'CBNSI',
-          link: 'cbnsi'
-        },
-        {
-          title: 'Digital Money Dashboard',
-          id: 'dmd',
-          tag: 'DMD',
-          link: 'cdmd'
-        },
-        {
-          title: 'Fintech Ecosystem Atlas',
-          id: 'atlas',
-          tag: 'Atlas',
-          link: 'atlas'
-        },
-        {
-          title: 'Global Regulatory Innovation Dashboard',
-          id: 'grid',
-          tag: 'GRID',
-          link: 'grid'
-        },
-        {
-          title: 'SupTech Vendor Database',
-          id: 'svd',
-          link: 'suptechlab/vendor_database'
-        },
-        {
-          title: 'SupTech Solutions Tracker',
-          id: 'ssr',
-          link: 'suptechlab/solutions_tracker'
-        }
-      ],
-      project: {
-        title: 'Cambridge Blockchain Network Sustainability Index',
-        id: 'cbnsi',
-        tag: 'CBNSI',
-        link: 'cbnsi'
-      }
+      projects: [],
+      project: null
     };
   },
   async beforeMount() {
@@ -160,6 +153,7 @@ export default {
       }
     );
     this.projects = data;
+    console.log(data);
     this.project =
       this.projects.find(
         (project) =>
@@ -204,6 +198,14 @@ export default {
     position: absolute;
     right: 16px;
   }
+  &__title {
+    margin-left: 24px;
+    font-size: 1.3rem;
+    line-height: 1.4rem;
+    @media (width < 1230px) {
+      margin-left: 11px;
+    }
+  }
   &__navigation a {
     text-decoration-line: none !important;
     color: #000000 !important;
@@ -242,6 +244,10 @@ export default {
 }
 
 .project-selector {
+  &__active-element {
+    font-size: 14px;
+    font-weight: 600;
+  }
   ::v-deep {
     .v-input {
       width: 100px;
@@ -256,6 +262,138 @@ export default {
     .theme--light.v-text-field--solo > .v-input__control > .v-input__slot {
       background-color: #fccf65 !important;
     }
+  }
+  &.is-title {
+    .project-selector__active-element {
+      font-size: 12px;
+      font-weight: 600;
+    }
+    ::v-deep {
+      .v-input__slot {
+        padding: 5px !important;
+      }
+      .v-input {
+        width: 190px;
+        font-size: 12px;
+      }
+      .v-select {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+.header-links {
+  padding: 0;
+  margin-left: -30px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  &__element {
+    list-style-type: none;
+
+    padding: 2px 2px 2px 6px;
+    margin-left: 30px;
+    @media (width < 1230px) {
+      margin-left: 8px;
+    }
+  }
+  &__element-link {
+    font-size: 14px !important;
+    line-height: 18px;
+    color: #000 !important;
+    letter-spacing: 0;
+    text-decoration: none;
+    transition: 0.33 cubic-bezier(0.25, 0.8, 0.5, 1) text-shadow;
+    &:hover {
+      text-shadow: -0.2px -0.2px 0 #000, 0.2px 0.2px #000;
+    }
+  }
+  &.is-long-title {
+    margin-right: 10px;
+    @media (width < 1230px) {
+      margin-right: 5px;
+    }
+  }
+  @media (width < 1230px) {
+    margin-left: -5px;
+  }
+  @media (width < 960px) {
+    display: none;
+  }
+}
+</style>
+
+<style lang="scss">
+.header-overlay {
+  .v-overlay__content {
+    border-radius: 0;
+    margin: 0;
+    height: calc(100% - 72px) !important;
+    max-height: calc(100% - 72px) !important;
+    display: block !important;
+    overflow-y: auto !important;
+    top: 72px !important;
+    position: fixed;
+    overflow-y: auto;
+    padding-bottom: 40px;
+    left: 0;
+  }
+}
+header .v-toolbar__content {
+  padding: 4px 75px;
+
+  .v-select {
+    display: inline-flex;
+    width: 100px;
+    margin-left: 30px;
+    border-radius: 6px;
+  }
+  a.logo {
+    height: 52px;
+    img.logo {
+      height: 52px;
+    }
+  }
+  .navigation a {
+    text-decoration-line: none !important;
+    color: #000000 !important;
+    font-size: 15px !important;
+    letter-spacing: 0;
+    line-height: 18px;
+    padding: 2px 8px 2px 16px;
+    margin-left: 15px;
+    border-left: 2px solid transparent;
+    &.active {
+      border-left: 2px solid #000000;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+    }
+    &:hover {
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+    }
+  }
+  .mobile-menu a {
+    border-radius: 0 !important;
+    background-color: #ffffff !important;
+    height: 40px !important;
+    text-transform: none !important;
+    font-family: 'MyriadProSemiBold', sans-serif;
+    &.v-btn--active {
+      background-color: black !important;
+      color: white !important;
+    }
+  }
+}
+
+@media screen and (width < 1200px) {
+  header .v-toolbar__content {
+    padding: 4px 24px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  header .v-toolbar__content {
+    padding: 4px 20px;
   }
 }
 </style>

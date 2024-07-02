@@ -4,112 +4,120 @@
       v-if="scrollUp"
       class="goup"
       @click="
-        $vuetify.goTo(0, {
+        goTo(0, {
           duration: 300,
           offset: 0,
           easing: 'easeInOutCubic'
         })
       "
     >
-      <icons-arrow-top />
+      <v-icon size="18" color="#FFB71A"> mdi-arrow-up </v-icon>
     </div>
-    <v-container class="pa-4" fluid>
-      <v-row
-        class="footer__pre-footer"
-        align="start"
-        justify="start"
-        no-gutters
-      >
-        <v-col cols="auto" class="mb-4 pa-4">
-          <div class="mb-2 link-icon">
-            <v-icon size="16" color="#0e1436" class="mr-2"> language </v-icon>
-            <a href="https://www.jbs.cam.ac.uk/ccaf" target="_blank">
-              https://www.jbs.cam.ac.uk/ccaf
+    <v-container fluid style="height: 100%">
+      <div class="footer__pre-footer" align="start" justify="start" no-gutters>
+        <div class="footer__info">
+          <div class="footer__pre-links mb-4 pa-4" cols="auto">
+            <a
+              class="footer__link mb-2 link-icon"
+              :href="webLink"
+              target="_blank"
+            >
+              <v-icon size="16" color="#0e1436" class="mr-2"> mdi-web </v-icon>
+              <p>{{ webLink }}</p>
             </a>
+            <a class="footer__link mb-2 link-icon" :href="`mailto:${email}`">
+              <v-icon size="16" color="#0e1436" class="mr-2">
+                mdi-email
+              </v-icon>
+              <p>{{ email }}</p>
+            </a>
+            <a
+              :href="locationLink"
+              class="footer__link footer__link--location mb-2 link-icon"
+            >
+              <v-icon size="16" color="#0e1436" class="mr-2">
+                mdi-map-marker
+              </v-icon>
+              <p>{{ location }}</p>
+            </a>
+            <div class="ml-7">
+              <v-row>
+                <v-col>
+                  <a
+                    v-if="linkedinLink"
+                    class="link-icon"
+                    :href="linkedinLink"
+                    target="_blank"
+                  >
+                    <v-icon size="24" color="#0e1436" class="mr-2">
+                      mdi-linkedin
+                    </v-icon>
+                  </a>
+                  <a
+                    v-if="twitterLink"
+                    class="link-icon"
+                    :href="twitterLink"
+                    target="_blank"
+                  >
+                    <v-icon size="24" color="#0e1436" class="mr-2">
+                      mdi-twitter
+                    </v-icon>
+                  </a>
+                  <a
+                    v-if="facebookLink"
+                    class="link-icon"
+                    :href="facebookLink"
+                    target="_blank"
+                  >
+                    <v-icon size="24" color="#0e1436" class="mr-2">
+                      mdi-facebook
+                    </v-icon>
+                  </a>
+                </v-col>
+              </v-row>
+            </div>
           </div>
-          <div class="mb-2 link-icon">
-            <v-icon size="16" color="#0e1436" class="mr-2"> email </v-icon>
-            <a href="mailto:ccaf@jbs.cam.ac.uk"> ccaf@jbs.cam.ac.uk </a>
-          </div>
-          <div class="link-icon">
-            <v-icon size="16" color="#0e1436" class="mr-2"> place </v-icon>
-            10 Trumpington Street
-            <div class="ml-7">Cambridge</div>
-            <div class="ml-7 mb-2">CB2 1QA, UK</div>
-          </div>
-          <div class="ml-7">
-            <v-row>
-              <v-col>
-                <a
-                  href="https://www.linkedin.com/company/cambridge-centre-for-alternative-finance"
-                  target="_blank"
-                >
-                  <icons-socialLinkedin
-                    class="mr-2 hover hover-linkedin"
-                    style="width: 24px; height: 24px"
-                  />
-                </a>
-                <a href="https://twitter.com/CambridgeAltFin" target="_blank">
-                  <icons-socialTwitter
-                    class="hover hover-twitter"
-                    style="width: 24px; height: 24px"
-                  />
-                </a>
-              </v-col>
-            </v-row>
-          </div>
-        </v-col>
-        <v-col cols="auto" class="mb-4 pa-4">
-          <a
-            rel="license"
-            href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            target="_blank"
-          >
-            <img
-              alt="Creative Commons License"
-              style="border-width: 0"
-              src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg"
-            />
-          </a>
-          <br />
-          <p style="font-size: 12px; max-width: 280px">
-            This work is licensed under a
+          <div class="footer__pre-commons mb-4 pa-4" cols="auto">
             <a
               rel="license"
               href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
               target="_blank"
             >
-              Creative Commons Attribution-NonCommercial-ShareAlike 4.0
-              International License
-            </a>
-          </p>
-        </v-col>
-        <v-spacer class="hidden-sm-and-down" />
-        <v-col cols="auto" class="pa-4">
-          <div class="mb-2" style="font-size: 16px; height: 20px">
-            <strong> Supported by: </strong>
+              <img
+                alt="Creative Commons License"
+                style="border-width: 0"
+                src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg"
+              /> </a
+            ><br />
+            <p style="font-size: 12px; max-width: 280px">
+              This work is licensed under a
+              <a
+                rel="license"
+                href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+                target="_blank"
+                style="color: #262b4a"
+              >
+                Creative Commons Attribution-NonCommercial-ShareAlike 4.0
+                International License
+              </a>
+            </p>
           </div>
-          <a
-            href="https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
-            target="_blank"
-          >
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/sponsors%2FAID.webp?alt=media&token=520c95b9-b895-4d3b-8060-6d4b09de3c02"
-              width="92"
-              height="101"
-              alt="UK AID"
-            />
-          </a>
-        </v-col>
-      </v-row>
+        </div>
+        <slot name="supported" />
+      </div>
       <v-row
         class="footer__main-footer"
         align="center"
         :justify="$vuetify.breakpoint.smAndDown ? 'center' : 'space-between'"
         no-gutters
       >
-        <v-col cols="auto">
-          <a :href="`https://${env}ccaf.io/privacy_policy`"> Privacy Policy </a>
+        <v-col
+          :class="{'footer-privacy': $vuetify.breakpoint.smAndDown}"
+          cols="auto"
+        >
+          <a :href="`https://${env_project}ccaf.io/privacy_policy`">
+            Privacy Policy
+          </a>
         </v-col>
         <v-col cols="auto">
           <span
@@ -128,15 +136,49 @@ export default {
   name: 'LayoutFooter',
   data() {
     return {
-      env: '',
+      env_project: '',
       scrollUp: false
     };
+  },
+  props: {
+    webLink: {
+      type: String,
+      default: ''
+    },
+    email: {
+      type: String,
+      default: ''
+    },
+    location: {
+      type: String,
+      default: ''
+    },
+    locationLink: {
+      type: String,
+      default: ''
+    },
+    env: {
+      type: String,
+      default: ''
+    },
+    linkedinLink: {
+      type: String,
+      default: ''
+    },
+    twitterLink: {
+      type: String,
+      default: ''
+    },
+    facebookLink: {
+      type: String,
+      default: ''
+    }
   },
   computed: {},
   mounted() {
     const isClientSide = typeof window !== 'undefined';
     if (isClientSide) {
-      this.env = process.env.ENV === 'demo' ? 'demo.' : '';
+      this.env_project = this.env === 'demo' ? 'demo.' : '';
       window.onscroll = () => {
         this.scrollUp =
           document.body.scrollTop > 50 ||
@@ -177,10 +219,14 @@ export default {
   position: fixed;
   right: 10px;
   bottom: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 6px;
 }
 .footer {
   z-index: 6 !important;
+
   a {
     text-decoration: none;
     &:hover {
@@ -188,12 +234,13 @@ export default {
     }
   }
   &__pre-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 12px 63px 0;
     border-top: 1px rgba(0, 0, 0, 0.12) solid;
-    .link-icon:hover {
-      i {
-        color: #ffb71a !important;
-      }
+    @media (width < 960px) {
+      flex-direction: column;
     }
   }
   &__main-footer {
@@ -209,7 +256,23 @@ export default {
     background: #292829;
     height: 45px;
   }
+  &__info {
+    display: flex;
+    @media (width < 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
 }
+.link-icon:hover {
+  i {
+    color: #ffb71a !important;
+  }
+}
+.link-icon__location {
+  max-width: 250px;
+}
+
 @media screen and (max-width: 960px) {
   .footer {
     &__pre-footer {
@@ -219,6 +282,38 @@ export default {
       padding: 0 20px;
       height: 90px;
     }
+  }
+}
+.footer-privacy {
+  margin-right: 20px;
+}
+.footer__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $base-color;
+  p {
+    margin: 0;
+  }
+  i {
+    margin-top: 0px;
+  }
+  &--location {
+    max-width: 250px;
+  }
+
+  &:hover {
+    text-decoration: none !important;
+    p {
+      text-decoration: underline;
+    }
+  }
+}
+</style>
+<style lang="scss">
+.v-footer {
+  .v-container {
+    padding: 0;
   }
 }
 </style>

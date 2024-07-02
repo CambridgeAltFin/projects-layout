@@ -1,5 +1,7 @@
 <template>
   <v-card>
+    <slot name="switcher" />
+    <slot />
     <v-list-item :href="`https://${env}ccaf.io/`">
       <v-list-item-title class="list__title"> CCAF Home </v-list-item-title>
     </v-list-item>
@@ -18,12 +20,20 @@
       </v-list-item-title>
     </v-list-item>
     <div class="chips">
-      <v-chip class="chips__item chips__item-active"> CBECI </v-chip>
-      <v-chip class="chips__item" :href="`https://${env}ccaf.io/atlas`">
-        Atlas
-      </v-chip>
-      <v-chip class="chips__item" :href="`https://${env}ccaf.io/cafb`">
-        Benchmarks
+      <v-chip
+        class="chips__item"
+        v-for="(project, index) in projects"
+        :key="project.id"
+        :class="{
+          'chips__item-active': projectLoc && project.title === projectLoc.title
+        }"
+        :href="
+          !index
+            ? undefined
+            : `https://${env === 'demo' ? 'demo.' : ''}ccaf.io/${project.link}`
+        "
+      >
+        {{ project.tag || project.title }}
       </v-chip>
     </div>
   </v-card>
@@ -36,7 +46,38 @@ export default {
     env: {
       type: String,
       default: ''
+    },
+    title: {
+      type: String,
+      default: ''
+    },
+    activeProject: {
+      type: String,
+      default: ''
     }
+  },
+  data: () => ({
+    projects: []
+  }),
+  computed: {
+    projectLoc() {
+      const active = this.projects.find((project) => {
+        return (
+          project.title === this.activeProject ||
+          (!!project.tag && project.tag === this.activeProject)
+        );
+      });
+
+      return active;
+    }
+  },
+  async beforeMount() {
+    const {data} = await fetch('https://demo-api.ccaf.io/v1/projects').then(
+      (data) => {
+        return data.json();
+      }
+    );
+    this.projects = data;
   }
 };
 </script>

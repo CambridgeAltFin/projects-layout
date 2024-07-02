@@ -1,17 +1,17 @@
-import LayoutHeader from '../components/LayoutHeader.vue';
+import MobileMenu from '../components/MobileMenu.vue';
 
 export default {
-  title: 'Example/LayoutHeader',
-  component: LayoutHeader,
+  title: 'Example/MobileMenu',
+  component: MobileMenu,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   render: (args, {argTypes}) => ({
     props: Object.keys(argTypes),
     components: {
-      LayoutHeader
+      MobileMenu
     },
     template:
-      '<layout-header v-bind="$props" env="demo" url="https://demo-api.ccaf.io/v1" />'
+      '<mobile-menu v-bind="$props" env="demo" url="https://demo-api.ccaf.io/v1" />'
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
@@ -21,6 +21,6 @@ export default {
 
 export const Default = {
   args: {
-    activeSelect: 'SupTech Vendor Database'
+    activeProject: 'SupTech Vendor Database'
   }
 };
