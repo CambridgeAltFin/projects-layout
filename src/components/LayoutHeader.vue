@@ -137,6 +137,10 @@ export default {
     topic: {
       type: String,
       default: ''
+    },
+    url: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -147,7 +151,7 @@ export default {
     };
   },
   async beforeMount() {
-    const {data} = await fetch('https://demo-api.ccaf.io/v1/projects').then(
+    const {data} = await fetch(`${url}/projects`).then(
       (data) => {
         return data.json();
       }
