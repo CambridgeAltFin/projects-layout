@@ -3,7 +3,6 @@ import Vuetify from './plugins/vuetify';
 
 import 'vuetify/dist/vuetify.min.css';
 import '@mdi/font/css/materialdesignicons.min.css';
-import '/src/assets/styles/index.scss';
 
 export {Vuetify};
 

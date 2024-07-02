@@ -12,7 +12,7 @@ try {
 } catch (s) {
   console.warn(s);
 }
-function P(s, e, t) {
+function j(s, e, t) {
   const n = e.length - 1;
   if (n < 0)
     return s === void 0 ? t : s;
@@ -24,7 +24,7 @@ function P(s, e, t) {
   return s == null || s[e[n]] === void 0 ? t : s[e[n]];
 }
 function ee(s, e, t) {
-  return s == null || !e || typeof e != "string" ? t : s[e] !== void 0 ? s[e] : (e = e.replace(/\[(\w+)\]/g, ".$1"), e = e.replace(/^\./, ""), P(s, e.split("."), t));
+  return s == null || !e || typeof e != "string" ? t : s[e] !== void 0 ? s[e] : (e = e.replace(/\[(\w+)\]/g, ".$1"), e = e.replace(/^\./, ""), j(s, e.split("."), t));
 }
 function E(s) {
   return s !== null && typeof s == "object";
@@ -54,21 +54,21 @@ function te(s) {
 function se(s, e = 0, t = 1) {
   return Math.max(e, Math.min(t, s));
 }
-function v(s = {}, e = {}) {
+function _(s = {}, e = {}) {
   for (const t in e) {
     const n = s[t], i = e[t];
     if (E(n) && E(i)) {
-      s[t] = v(n, i);
+      s[t] = _(n, i);
       continue;
     }
     s[t] = i;
   }
   return s;
 }
-function V(s, e = {}) {
-  if (V.installed)
+function S(s, e = {}) {
+  if (S.installed)
     return;
-  V.installed = !0, F !== s && K(`Multiple instances of Vue detected
+  S.installed = !0, F !== s && K(`Multiple instances of Vue detected
 See https://github.com/vuetifyjs/vuetify/issues/4068
 
 If you're seeing "$attrs is readonly", it's caused by this`);
@@ -79,9 +79,9 @@ If you're seeing "$attrs is readonly", it's caused by this`);
   }
   (function i(a) {
     if (a) {
-      for (const o in a) {
-        const c = a[o];
-        c && !i(c.$_vuetify_subcomponents) && s.component(o, c);
+      for (const r in a) {
+        const c = a[r];
+        c && !i(c.$_vuetify_subcomponents) && s.component(r, c);
       }
       return !0;
     }
@@ -106,7 +106,7 @@ class m {
   init(e, t) {
   }
 }
-class I extends m {
+class B extends m {
   constructor() {
     super(...arguments), this.bar = 0, this.top = 0, this.left = 0, this.insetFooter = 0, this.right = 0, this.bottom = 0, this.footer = 0, this.application = {
       bar: {},
@@ -128,15 +128,15 @@ class I extends m {
     this[e] = Object.values(this.application[e]).reduce((t, n) => t + n, 0);
   }
 }
-I.property = "application";
-class k extends m {
+B.property = "application";
+class w extends m {
   constructor(e) {
     super(), this.xs = !1, this.sm = !1, this.md = !1, this.lg = !1, this.xl = !1, this.xsOnly = !1, this.smOnly = !1, this.smAndDown = !1, this.smAndUp = !1, this.mdOnly = !1, this.mdAndDown = !1, this.mdAndUp = !1, this.lgOnly = !1, this.lgAndDown = !1, this.lgAndUp = !1, this.xlOnly = !1, this.name = "xs", this.height = 0, this.width = 0, this.mobile = !0, this.resizeTimeout = 0;
     const {
       mobileBreakpoint: t,
       scrollBarWidth: n,
       thresholds: i
-    } = e[k.property];
+    } = e[w.property];
     this.mobileBreakpoint = t, this.scrollBarWidth = n, this.thresholds = i;
   }
   init() {
@@ -145,15 +145,15 @@ class k extends m {
     });
   }
   update(e = !1) {
-    const t = e ? 0 : this.getClientHeight(), n = e ? 0 : this.getClientWidth(), i = n < this.thresholds.xs, a = n < this.thresholds.sm && !i, o = n < this.thresholds.md - this.scrollBarWidth && !(a || i), c = n < this.thresholds.lg - this.scrollBarWidth && !(o || a || i), r = n >= this.thresholds.lg - this.scrollBarWidth;
-    switch (this.height = t, this.width = n, this.xs = i, this.sm = a, this.md = o, this.lg = c, this.xl = r, this.xsOnly = i, this.smOnly = a, this.smAndDown = (i || a) && !(o || c || r), this.smAndUp = !i && (a || o || c || r), this.mdOnly = o, this.mdAndDown = (i || a || o) && !(c || r), this.mdAndUp = !(i || a) && (o || c || r), this.lgOnly = c, this.lgAndDown = (i || a || o || c) && !r, this.lgAndUp = !(i || a || o) && (c || r), this.xlOnly = r, !0) {
+    const t = e ? 0 : this.getClientHeight(), n = e ? 0 : this.getClientWidth(), i = n < this.thresholds.xs, a = n < this.thresholds.sm && !i, r = n < this.thresholds.md - this.scrollBarWidth && !(a || i), c = n < this.thresholds.lg - this.scrollBarWidth && !(r || a || i), o = n >= this.thresholds.lg - this.scrollBarWidth;
+    switch (this.height = t, this.width = n, this.xs = i, this.sm = a, this.md = r, this.lg = c, this.xl = o, this.xsOnly = i, this.smOnly = a, this.smAndDown = (i || a) && !(r || c || o), this.smAndUp = !i && (a || r || c || o), this.mdOnly = r, this.mdAndDown = (i || a || r) && !(c || o), this.mdAndUp = !(i || a) && (r || c || o), this.lgOnly = c, this.lgAndDown = (i || a || r || c) && !o, this.lgAndUp = !(i || a || r) && (c || o), this.xlOnly = o, !0) {
       case i:
         this.name = "xs";
         break;
       case a:
         this.name = "sm";
         break;
-      case o:
+      case r:
         this.name = "md";
         break;
       case c:
@@ -186,14 +186,14 @@ class k extends m {
     return typeof document > "u" ? 0 : Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
   }
 }
-k.property = "breakpoint";
-const ne = (s) => s, ie = (s) => s ** 2, ae = (s) => s * (2 - s), re = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, oe = (s) => s ** 3, ce = (s) => --s ** 3 + 1, le = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, fe = (s) => s ** 4, de = (s) => 1 - --s ** 4, ue = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, he = (s) => s ** 5, pe = (s) => 1 + --s ** 5, me = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, ge = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+w.property = "breakpoint";
+const ne = (s) => s, ie = (s) => s ** 2, ae = (s) => s * (2 - s), oe = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, re = (s) => s ** 3, ce = (s) => --s ** 3 + 1, le = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, fe = (s) => s ** 4, de = (s) => 1 - --s ** 4, ue = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, he = (s) => s ** 5, pe = (s) => 1 + --s ** 5, me = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, ge = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   linear: ne,
   easeInQuad: ie,
   easeOutQuad: ae,
-  easeInOutQuad: re,
-  easeInCubic: oe,
+  easeInOutQuad: oe,
+  easeInCubic: re,
   easeOutCubic: ce,
   easeInOutCubic: le,
   easeInQuart: fe,
@@ -203,30 +203,30 @@ const ne = (s) => s, ie = (s) => s ** 2, ae = (s) => s * (2 - s), re = (s) => s 
   easeOutQuint: pe,
   easeInOutQuint: me
 }, Symbol.toStringTag, { value: "Module" }));
-function H(s) {
+function T(s) {
   if (typeof s == "number")
     return s;
-  let e = Z(s);
+  let e = N(s);
   if (!e)
-    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${N(s)} instead.`);
+    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${Z(s)} instead.`);
   let t = 0;
   for (; e; )
     t += e.offsetTop, e = e.offsetParent;
   return t;
 }
-function ve(s) {
-  const e = Z(s);
+function _e(s) {
+  const e = N(s);
   if (e)
     return e;
-  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${N(s)} instead.`);
-}
-function N(s) {
-  return s == null ? s : s.constructor.name;
+  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${Z(s)} instead.`);
 }
 function Z(s) {
+  return s == null ? s : s.constructor.name;
+}
+function N(s) {
   return typeof s == "string" ? document.querySelector(s) : s && s._isVue ? s.$el : s instanceof HTMLElement ? s : null;
 }
-function _(s, e = {}) {
+function L(s, e = {}) {
   const t = {
     container: document.scrollingElement || document.body || document.documentElement,
     duration: 500,
@@ -234,42 +234,42 @@ function _(s, e = {}) {
     easing: "easeInOutCubic",
     appOffset: !0,
     ...e
-  }, n = ve(t.container);
-  if (t.appOffset && _.framework.application) {
-    const r = n.classList.contains("v-navigation-drawer"), l = n.classList.contains("v-navigation-drawer--clipped"), {
+  }, n = _e(t.container);
+  if (t.appOffset && L.framework.application) {
+    const o = n.classList.contains("v-navigation-drawer"), l = n.classList.contains("v-navigation-drawer--clipped"), {
       bar: d,
       top: u
-    } = _.framework.application;
-    t.offset += d, (!r || l) && (t.offset += u);
+    } = L.framework.application;
+    t.offset += d, (!o || l) && (t.offset += u);
   }
   const i = performance.now();
   let a;
-  typeof s == "number" ? a = H(s) - t.offset : a = H(s) - H(n) - t.offset;
-  const o = n.scrollTop;
-  if (a === o)
+  typeof s == "number" ? a = T(s) - t.offset : a = T(s) - T(n) - t.offset;
+  const r = n.scrollTop;
+  if (a === r)
     return Promise.resolve(a);
   const c = typeof t.easing == "function" ? t.easing : ge[t.easing];
   if (!c)
     throw new TypeError(`Easing function "${t.easing}" not found.`);
-  return new Promise((r) => requestAnimationFrame(function l(d) {
+  return new Promise((o) => requestAnimationFrame(function l(d) {
     const u = d - i, f = Math.abs(t.duration ? Math.min(u / t.duration, 1) : 1);
-    n.scrollTop = Math.floor(o + (a - o) * c(f));
+    n.scrollTop = Math.floor(r + (a - r) * c(f));
     const p = (n === document.body ? document.documentElement.clientHeight : n.clientHeight) + n.scrollTop >= n.scrollHeight;
     if (f === 1 || a > n.scrollTop && p)
-      return r(a);
+      return o(a);
     requestAnimationFrame(l);
   }));
 }
-_.framework = {};
-_.init = () => {
+L.framework = {};
+L.init = () => {
 };
-class D extends m {
+class I extends m {
   constructor() {
-    return super(), _;
+    return super(), L;
   }
 }
-D.property = "goTo";
-const be = {
+I.property = "goTo";
+const ve = {
   complete: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z",
   cancel: "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
   close: "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
@@ -303,7 +303,7 @@ const be = {
   file: "M16.5,6V17.5C16.5,19.71 14.71,21.5 12.5,21.5C10.29,21.5 8.5,19.71 8.5,17.5V5C8.5,3.62 9.62,2.5 11,2.5C12.38,2.5 13.5,3.62 13.5,5V15.5C13.5,16.05 13.05,16.5 12.5,16.5C11.95,16.5 11.5,16.05 11.5,15.5V6H10V15.5C10,16.88 11.12,18 12.5,18C13.88,18 15,16.88 15,15.5V5C15,2.79 13.21,1 11,1C8.79,1 7,2.79 7,5V17.5C7,20.54 9.46,23 12.5,23C15.54,23 18,20.54 18,17.5V6H16.5Z",
   plus: "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
   minus: "M19,13H5V11H19V13Z"
-}, ye = be, _e = {
+}, ye = ve, Le = {
   complete: "check",
   cancel: "cancel",
   close: "close",
@@ -337,7 +337,7 @@ const be = {
   file: "attach_file",
   plus: "add",
   minus: "remove"
-}, Le = _e, Ce = {
+}, be = Le, Ce = {
   complete: "mdi-check",
   cancel: "mdi-close-circle",
   close: "mdi-close",
@@ -371,7 +371,7 @@ const be = {
   file: "mdi-paperclip",
   plus: "mdi-plus",
   minus: "mdi-minus"
-}, we = Ce, ke = {
+}, ke = Ce, we = {
   complete: "fas fa-check",
   cancel: "fas fa-times-circle",
   close: "fas fa-times",
@@ -405,7 +405,7 @@ const be = {
   file: "fas fa-paperclip",
   plus: "fas fa-plus",
   minus: "fas fa-minus"
-}, R = ke, xe = {
+}, R = we, $e = {
   complete: "fa fa-check",
   cancel: "fa fa-times-circle",
   close: "fa fa-times",
@@ -439,7 +439,7 @@ const be = {
   file: "fa fa-paperclip",
   plus: "fa fa-plus",
   minus: "fa fa-minus"
-}, $e = xe;
+}, xe = $e;
 function Me(s, e) {
   const t = {};
   for (const n in e)
@@ -451,40 +451,40 @@ function Me(s, e) {
     };
   return t;
 }
-const Te = Me("font-awesome-icon", R), He = Object.freeze({
+const He = Me("font-awesome-icon", R), Te = Object.freeze({
   mdiSvg: ye,
-  md: Le,
-  mdi: we,
+  md: be,
+  mdi: ke,
   fa: R,
-  fa4: $e,
-  faSvg: Te
+  fa4: xe,
+  faSvg: He
 });
-class x extends m {
+class $ extends m {
   constructor(e) {
     super();
     const {
       iconfont: t,
       values: n,
       component: i
-    } = e[x.property];
-    this.component = i, this.iconfont = t, this.values = v(He[t], n);
+    } = e[$.property];
+    this.component = i, this.iconfont = t, this.values = _(Te[t], n);
   }
 }
-x.property = "icons";
-const j = "$vuetify.", B = Symbol("Lang fallback");
+$.property = "icons";
+const D = "$vuetify.", P = Symbol("Lang fallback");
 function W(s, e, t = !1, n) {
-  const i = e.replace(j, "");
-  let a = ee(s, i, B);
-  return a === B && (t ? (K(`Translation key "${i}" not found in fallback`), a = e) : (y(`Translation key "${i}" not found, falling back to default`), a = W(n, e, !0, n))), a;
+  const i = e.replace(D, "");
+  let a = ee(s, i, P);
+  return a === P && (t ? (K(`Translation key "${i}" not found in fallback`), a = e) : (y(`Translation key "${i}" not found, falling back to default`), a = W(n, e, !0, n))), a;
 }
-class $ extends m {
+class x extends m {
   constructor(e) {
     super(), this.defaultLocale = "en";
     const {
       current: t,
       locales: n,
       t: i
-    } = e[$.property];
+    } = e[x.property];
     this.current = t, this.locales = n, this.translator = i || this.defaultTranslator;
   }
   currentLocale(e) {
@@ -492,7 +492,7 @@ class $ extends m {
     return W(t, e, !1, n);
   }
   t(e, ...t) {
-    return e.startsWith(j) ? this.translator(e, ...t) : this.replace(e, t);
+    return e.startsWith(D) ? this.translator(e, ...t) : this.replace(e, t);
   }
   defaultTranslator(e, ...t) {
     return this.replace(this.currentLocale(e), t);
@@ -501,7 +501,7 @@ class $ extends m {
     return e.replace(/\{(\d+)\}/g, (n, i) => String(t[+i]));
   }
 }
-$.property = "lang";
+x.property = "lang";
 const Ae = {
   badge: "Badge",
   close: "Close",
@@ -635,30 +635,30 @@ const Ae = {
 class z extends m {
   constructor(e, t) {
     super();
-    const n = v({}, Oe), {
+    const n = _({}, Oe), {
       userPreset: i
     } = t, {
       preset: a = {},
-      ...o
+      ...r
     } = i;
-    a.preset != null && y("Global presets do not support the **preset** option, it can be safely omitted"), t.preset = v(v(n, a), o);
+    a.preset != null && y("Global presets do not support the **preset** option, it can be safely omitted"), t.preset = _(_(n, a), r);
   }
 }
 z.property = "presets";
-const Ve = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], Se = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Fe = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Ee = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+const Se = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], Ve = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Fe = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Ee = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
 function U(s) {
-  const e = Array(3), t = Se, n = Ve;
+  const e = Array(3), t = Ve, n = Se;
   for (let i = 0; i < 3; ++i)
     e[i] = Math.round(se(t(n[i][0] * s[0] + n[i][1] * s[1] + n[i][2] * s[2])) * 255);
   return (e[0] << 16) + (e[1] << 8) + (e[2] << 0);
 }
 function q(s) {
-  const e = [0, 0, 0], t = Ee, n = Fe, i = t((s >> 16 & 255) / 255), a = t((s >> 8 & 255) / 255), o = t((s >> 0 & 255) / 255);
+  const e = [0, 0, 0], t = Ee, n = Fe, i = t((s >> 16 & 255) / 255), a = t((s >> 8 & 255) / 255), r = t((s >> 0 & 255) / 255);
   for (let c = 0; c < 3; ++c)
-    e[c] = n[c][0] * i + n[c][1] * a + n[c][2] * o;
+    e[c] = n[c][0] * i + n[c][1] * a + n[c][2] * r;
   return e;
 }
-function S(s) {
+function V(s) {
   let e;
   if (typeof s == "number")
     e = s;
@@ -669,36 +669,36 @@ function S(s) {
     throw new TypeError(`Colors can only be numbers or strings, recieved ${s == null ? s : s.constructor.name} instead`);
   return e < 0 ? (y(`Colors cannot be negative: '${s}'`), e = 0) : (e > 16777215 || isNaN(e)) && (y(`'${s}' is not a valid rgb color`), e = 16777215), e;
 }
-function b(s) {
+function v(s) {
   let e = s.toString(16);
   return e.length < 6 && (e = "0".repeat(6 - e.length) + e), "#" + e;
 }
-function Be(s) {
-  return b(S(s));
+function Pe(s) {
+  return v(V(s));
 }
-const w = 0.20689655172413793, Pe = (s) => s > w ** 3 ? Math.cbrt(s) : s / (3 * w ** 2) + 4 / 29, Ie = (s) => s > w ? s ** 3 : 3 * w ** 2 * (s - 4 / 29);
+const k = 0.20689655172413793, je = (s) => s > k ** 3 ? Math.cbrt(s) : s / (3 * k ** 2) + 4 / 29, Be = (s) => s > k ? s ** 3 : 3 * k ** 2 * (s - 4 / 29);
 function Q(s) {
-  const e = Pe, t = e(s[1]);
+  const e = je, t = e(s[1]);
   return [116 * t - 16, 500 * (e(s[0] / 0.95047) - t), 200 * (t - e(s[2] / 1.08883))];
 }
 function Y(s) {
-  const e = Ie, t = (s[0] + 16) / 116;
+  const e = Be, t = (s[0] + 16) / 116;
   return [e(t + s[1] / 500) * 0.95047, e(t), e(t - s[2] / 200) * 1.08883];
 }
 function X(s, e = !1, t = !0) {
   const {
     anchor: n,
     ...i
-  } = s, a = Object.keys(i), o = {};
+  } = s, a = Object.keys(i), r = {};
   for (let c = 0; c < a.length; ++c) {
-    const r = a[c], l = s[r];
-    l != null && (t ? e ? (r === "base" || r.startsWith("lighten") || r.startsWith("darken")) && (o[r] = Be(l)) : typeof l == "object" ? o[r] = X(l, !0, t) : o[r] = Re(r, S(l)) : o[r] = {
-      base: b(S(l))
+    const o = a[c], l = s[o];
+    l != null && (t ? e ? (o === "base" || o.startsWith("lighten") || o.startsWith("darken")) && (r[o] = Pe(l)) : typeof l == "object" ? r[o] = X(l, !0, t) : r[o] = Re(o, V(l)) : r[o] = {
+      base: v(V(l))
     });
   }
-  return e || (o.anchor = n || o.base || o.primary.base), o;
+  return e || (r.anchor = n || r.base || r.primary.base), r;
 }
-const Ne = (s, e) => `
+const Ze = (s, e) => `
 .v-application .${s} {
   background-color: ${e} !important;
   border-color: ${e} !important;
@@ -706,7 +706,7 @@ const Ne = (s, e) => `
 .v-application .${s}--text {
   color: ${e} !important;
   caret-color: ${e} !important;
-}`, Ze = (s, e, t) => {
+}`, Ne = (s, e, t) => {
   const [n, i] = e.split(/(\d)/, 2);
   return `
 .v-application .${s}.${n}-${i} {
@@ -718,44 +718,44 @@ const Ne = (s, e) => `
   caret-color: ${t} !important;
 }`;
 }, C = (s, e = "base") => `--v-${s}-${e}`, A = (s, e = "base") => `var(${C(s, e)})`;
-function De(s, e = !1) {
+function Ie(s, e = !1) {
   const {
     anchor: t,
     ...n
   } = s, i = Object.keys(n);
   if (!i.length)
     return "";
-  let a = "", o = "";
+  let a = "", r = "";
   const c = e ? A("anchor") : t;
-  o += `.v-application a { color: ${c}; }`, e && (a += `  ${C("anchor")}: ${t};
+  r += `.v-application a { color: ${c}; }`, e && (a += `  ${C("anchor")}: ${t};
 `);
-  for (let r = 0; r < i.length; ++r) {
-    const l = i[r], d = s[l];
-    o += Ne(l, e ? A(l) : d.base), e && (a += `  ${C(l)}: ${d.base};
+  for (let o = 0; o < i.length; ++o) {
+    const l = i[o], d = s[l];
+    r += Ze(l, e ? A(l) : d.base), e && (a += `  ${C(l)}: ${d.base};
 `);
     const u = te(d);
     for (let f = 0; f < u.length; ++f) {
       const h = u[f], p = d[h];
-      h !== "base" && (o += Ze(l, h, e ? A(l, h) : p), e && (a += `  ${C(l, h)}: ${p};
+      h !== "base" && (r += Ne(l, h, e ? A(l, h) : p), e && (a += `  ${C(l, h)}: ${p};
 `));
     }
   }
   return e && (a = `:root {
 ${a}}
 
-`), a + o;
+`), a + r;
 }
 function Re(s, e) {
   const t = {
-    base: b(e)
+    base: v(e)
   };
   for (let n = 5; n > 0; --n)
-    t[`lighten${n}`] = b(je(e, n));
+    t[`lighten${n}`] = v(De(e, n));
   for (let n = 1; n <= 4; ++n)
-    t[`darken${n}`] = b(We(e, n));
+    t[`darken${n}`] = v(We(e, n));
   return t;
 }
-function je(s, e) {
+function De(s, e) {
   const t = Q(q(s));
   return t[0] = t[0] + e * 10, U(Y(t));
 }
@@ -875,10 +875,10 @@ class M extends m {
   get generatedStyles() {
     const e = this.parsedTheme, t = this.options || {};
     let n;
-    return t.themeCache != null && (n = t.themeCache.get(e), n != null) || (n = De(e, t.customProperties), t.minifyTheme != null && (n = t.minifyTheme(n)), t.themeCache != null && t.themeCache.set(e, n)), n;
+    return t.themeCache != null && (n = t.themeCache.get(e), n != null) || (n = Ie(e, t.customProperties), t.minifyTheme != null && (n = t.minifyTheme(n)), t.themeCache != null && t.themeCache.set(e, n)), n;
   }
   get parsedTheme() {
-    return X(this.currentTheme || {}, void 0, P(this.options, ["variations"], !0));
+    return X(this.currentTheme || {}, void 0, j(this.options, ["variations"], !0));
   }
   get isVueMeta23() {
     return typeof this.vueMeta.addApp == "function";
@@ -889,7 +889,7 @@ class g {
   constructor(e = {}) {
     this.framework = {
       isHydrating: !1
-    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = e, this.use(z), this.use(I), this.use(k), this.use(D), this.use(x), this.use($), this.use(M);
+    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = e, this.use(z), this.use(B), this.use(w), this.use(I), this.use($), this.use(x), this.use(M);
   }
   init(e, t) {
     this.installed.forEach((n) => {
@@ -902,7 +902,7 @@ class g {
     this.installed.includes(t) || (this.framework[t] = new e(this.preset, this), this.installed.push(t));
   }
 }
-g.install = V;
+g.install = S;
 g.installed = !1;
 g.version = "2.7.2";
 g.config = {
@@ -970,32 +970,46 @@ found in
 (found in ${O(s)})`;
 }
 F.use(g);
-const Qe = {}, ht = new g(Qe);
-function T(s, e, t, n, i, a, o, c) {
-  var r = typeof s == "function" ? s.options : s;
-  e && (r.render = e, r.staticRenderFns = t, r._compiled = !0), n && (r.functional = !0), a && (r._scopeId = "data-v-" + a);
+const Qe = {
+  ssr: !1,
+  components,
+  directives,
+  theme: {
+    themes: {
+      dark: !1,
+      light: {
+        primary: "#0E1436",
+        accent: "#FFB71A",
+        secondary: "#828597"
+      }
+    }
+  }
+}, ht = new g(Qe);
+function H(s, e, t, n, i, a, r, c) {
+  var o = typeof s == "function" ? s.options : s;
+  e && (o.render = e, o.staticRenderFns = t, o._compiled = !0), n && (o.functional = !0), a && (o._scopeId = "data-v-" + a);
   var l;
-  if (o ? (l = function(f) {
-    f = f || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !f && typeof __VUE_SSR_CONTEXT__ < "u" && (f = __VUE_SSR_CONTEXT__), i && i.call(this, f), f && f._registeredComponents && f._registeredComponents.add(o);
-  }, r._ssrRegister = l) : i && (l = c ? function() {
+  if (r ? (l = function(f) {
+    f = f || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !f && typeof __VUE_SSR_CONTEXT__ < "u" && (f = __VUE_SSR_CONTEXT__), i && i.call(this, f), f && f._registeredComponents && f._registeredComponents.add(r);
+  }, o._ssrRegister = l) : i && (l = c ? function() {
     i.call(
       this,
-      (r.functional ? this.parent : this).$root.$options.shadowRoot
+      (o.functional ? this.parent : this).$root.$options.shadowRoot
     );
   } : i), l)
-    if (r.functional) {
-      r._injectStyles = l;
-      var d = r.render;
-      r.render = function(h, p) {
+    if (o.functional) {
+      o._injectStyles = l;
+      var d = o.render;
+      o.render = function(h, p) {
         return l.call(p), d(h, p);
       };
     } else {
-      var u = r.beforeCreate;
-      r.beforeCreate = u ? [].concat(u, l) : [l];
+      var u = o.beforeCreate;
+      o.beforeCreate = u ? [].concat(u, l) : [l];
     }
   return {
     exports: s,
-    options: r
+    options: o
   };
 }
 const Ye = {
@@ -1004,40 +1018,103 @@ const Ye = {
     env: {
       type: String,
       default: ""
+    },
+    title: {
+      type: String,
+      default: ""
+    },
+    activeProject: {
+      type: String,
+      default: ""
     }
+  },
+  data: () => ({
+    projects: []
+  }),
+  computed: {
+    projectLoc() {
+      return this.projects.find((e) => e.title === this.activeProject || !!e.tag && e.tag === this.activeProject);
+    }
+  },
+  async beforeMount() {
+    const { data: s } = await fetch("https://demo-api.ccaf.io/v1/projects").then(
+      (e) => e.json()
+    );
+    this.projects = s;
   }
 };
 var Xe = function() {
   var e = this, t = e._self._c;
-  return t("v-card", [t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Home ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/about_ccaf` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF About ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/contact?topic=cbeci` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Contact ")])], 1), t("v-divider"), t("v-list-item", [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Digital Tools: ")])], 1), t("div", { staticClass: "chips" }, [t("v-chip", { staticClass: "chips__item chips__item-active" }, [e._v(" CBECI ")]), t("v-chip", { staticClass: "chips__item", attrs: { href: `https://${e.env}ccaf.io/atlas` } }, [e._v(" Atlas ")]), t("v-chip", { staticClass: "chips__item", attrs: { href: `https://${e.env}ccaf.io/cafb` } }, [e._v(" Benchmarks ")])], 1)], 1);
-}, Ge = [], Ke = /* @__PURE__ */ T(
+  return t("v-card", [e._t("switcher"), e._t("default"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Home ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/about_ccaf` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF About ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/contact?topic=cbeci` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Contact ")])], 1), t("v-divider"), t("v-list-item", [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Digital Tools: ")])], 1), t("div", { staticClass: "chips" }, e._l(e.projects, function(n, i) {
+    return t("v-chip", { key: n.id, staticClass: "chips__item", class: {
+      "chips__item-active": e.projectLoc && n.title === e.projectLoc.title
+    }, attrs: { href: i ? `https://${e.env === "demo" ? "demo." : ""}ccaf.io/${n.link}` : void 0 } }, [e._v(" " + e._s(n.tag || n.title) + " ")]);
+  }), 1)], 2);
+}, Ge = [], Ke = /* @__PURE__ */ H(
   Ye,
   Xe,
   Ge,
   !1,
   null,
-  "5f5d415c",
+  "59e2fbd3",
   null,
   null
 );
-const L = Ke.exports;
+const b = Ke.exports;
 const Je = {
-  name: "Footer",
+  name: "LayoutFooter",
   data() {
     return {
-      env: "",
+      env_project: "",
       scrollUp: !1
     };
   },
+  props: {
+    webLink: {
+      type: String,
+      default: ""
+    },
+    email: {
+      type: String,
+      default: ""
+    },
+    location: {
+      type: String,
+      default: ""
+    },
+    locationLink: {
+      type: String,
+      default: ""
+    },
+    env: {
+      type: String,
+      default: ""
+    },
+    linkedinLink: {
+      type: String,
+      default: ""
+    },
+    twitterLink: {
+      type: String,
+      default: ""
+    },
+    facebookLink: {
+      type: String,
+      default: ""
+    }
+  },
   computed: {},
   mounted() {
-    typeof window < "u" && (this.env = process.env.ENV === "demo" ? "demo." : "", window.onscroll = () => {
+    typeof window < "u" && (this.env_project = this.env === "demo" ? "demo." : "", window.onscroll = () => {
       this.scrollUp = document.body.scrollTop > 50 || document.documentElement.scrollTop > 50;
       const e = document.getElementById("sidebar"), t = document.getElementById("sidebar__menu"), n = document.getElementById("footer");
       if (t && e && n) {
-        const i = window.innerHeight < t.getBoundingClientRect().height + 72 ? window.innerHeight - 72 : t.getBoundingClientRect().height, a = n.getBoundingClientRect().top, o = t.getBoundingClientRect().top, c = document.body.scrollTop;
-        let r = Math.max(72, o - c);
-        c + i + 72 > a && (r = Math.min(r, a - c - i)), e.style.top = r + "px";
+        const i = window.innerHeight < t.getBoundingClientRect().height + 72 ? window.innerHeight - 72 : t.getBoundingClientRect().height, a = n.getBoundingClientRect().top, r = t.getBoundingClientRect().top, c = document.body.scrollTop;
+        let o = Math.max(72, r - c);
+        c + i + 72 > a && (o = Math.min(
+          o,
+          a - c - i
+        )), e.style.top = o + "px";
       }
     });
   }
@@ -1045,174 +1122,135 @@ const Je = {
 var et = function() {
   var e = this, t = e._self._c;
   return t("v-footer", { staticClass: "footer pa-0", attrs: { id: "footer", color: "white", width: "100vw" } }, [e.scrollUp ? t("div", { staticClass: "goup", on: { click: function(n) {
-    return e.$vuetify.goTo(0, {
+    return e.goTo(0, {
       duration: 300,
       offset: 0,
       easing: "easeInOutCubic"
     });
-  } } }, [t("icons-arrow-top")], 1) : e._e(), t("v-container", { staticClass: "pa-4", attrs: { fluid: "" } }, [t("v-row", { staticClass: "footer__pre-footer", attrs: { align: "start", justify: "start", "no-gutters": "" } }, [t("v-col", { staticClass: "mb-4 pa-4", attrs: { cols: "auto" } }, [t("div", { staticClass: "mb-2 link-icon" }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" language ")]), t("a", { attrs: { href: "https://www.jbs.cam.ac.uk/ccaf", target: "_blank" } }, [e._v(" https://www.jbs.cam.ac.uk/ccaf ")])], 1), t("div", { staticClass: "mb-2 link-icon" }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" email ")]), t("a", { attrs: { href: "mailto:ccaf@jbs.cam.ac.uk" } }, [e._v(" ccaf@jbs.cam.ac.uk ")])], 1), t("div", { staticClass: "link-icon" }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" place ")]), e._v(" 10 Trumpington Street "), t("div", { staticClass: "ml-7" }, [e._v(" Cambridge ")]), t("div", { staticClass: "ml-7 mb-2" }, [e._v(" CB2 1QA, UK ")])], 1), t("div", { staticClass: "ml-7" }, [t("v-row", [t("v-col", [t("a", { attrs: { href: "https://www.linkedin.com/company/cambridge-centre-for-alternative-finance", target: "_blank" } }, [t("icons-socialLinkedin", { staticClass: "mr-2 hover hover-linkedin", staticStyle: { width: "24px", height: "24px" } })], 1), t("a", { attrs: { href: "https://twitter.com/CambridgeAltFin", target: "_blank" } }, [t("icons-socialTwitter", { staticClass: "hover hover-twitter", staticStyle: { width: "24px", height: "24px" } })], 1)])], 1)], 1)]), t("v-col", { staticClass: "mb-4 pa-4", attrs: { cols: "auto" } }, [t("a", { attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [t("img", { staticStyle: { "border-width": "0" }, attrs: { alt: "Creative Commons License", src: "https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" } })]), t("br"), t("p", { staticStyle: { "font-size": "12px", "max-width": "280px" } }, [e._v(" This work is licensed under a "), t("a", { attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [e._v(" Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ")])])]), t("v-spacer", { staticClass: "hidden-sm-and-down" }), t("v-col", { staticClass: "pa-4", attrs: { cols: "auto" } }, [t("div", { staticClass: "mb-2", staticStyle: { "font-size": "16px", height: "20px" } }, [t("strong", [e._v(" Supported by: ")])]), t("a", { attrs: { href: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office", target: "_blank" } }, [t("img", { attrs: { src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/sponsors%2FAID.webp?alt=media&token=520c95b9-b895-4d3b-8060-6d4b09de3c02", width: "92", height: "101", alt: "UK AID" } })])])], 1), t("v-row", { staticClass: "footer__main-footer", attrs: { align: "center", justify: e.$vuetify.breakpoint.smAndDown ? "center" : "space-between", "no-gutters": "" } }, [t("v-col", { attrs: { cols: "auto" } }, [t("a", { attrs: { href: `https://${e.env}ccaf.io/privacy_policy` } }, [e._v(" Privacy Policy ")])]), t("v-col", { attrs: { cols: "auto" } }, [t("span", [e._v("Cambridge Centre for Alternative Finance \xA9\xA0" + e._s(" " + new Date().getFullYear()))])])], 1)], 1)], 1);
-}, tt = [], st = /* @__PURE__ */ T(
+  } } }, [t("v-icon", { attrs: { size: "18", color: "#FFB71A" } }, [e._v(" mdi-arrow-up ")])], 1) : e._e(), t("v-container", { staticStyle: { height: "100%" }, attrs: { fluid: "" } }, [t("div", { staticClass: "footer__pre-footer", attrs: { align: "start", justify: "start", "no-gutters": "" } }, [t("div", { staticClass: "footer__info" }, [t("div", { staticClass: "footer__pre-links mb-4 pa-4", attrs: { cols: "auto" } }, [t("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: e.webLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-web ")]), t("p", [e._v(e._s(e.webLink))])], 1), t("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: `mailto:${e.email}` } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-email ")]), t("p", [e._v(e._s(e.email))])], 1), t("a", { staticClass: "footer__link footer__link--location mb-2 link-icon", attrs: { href: e.locationLink } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-map-marker ")]), t("p", [e._v(e._s(e.location))])], 1), t("div", { staticClass: "ml-7" }, [t("v-row", [t("v-col", [e.linkedinLink ? t("a", { staticClass: "link-icon", attrs: { href: e.linkedinLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-linkedin ")])], 1) : e._e(), e.twitterLink ? t("a", { staticClass: "link-icon", attrs: { href: e.twitterLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-twitter ")])], 1) : e._e(), e.facebookLink ? t("a", { staticClass: "link-icon", attrs: { href: e.facebookLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-facebook ")])], 1) : e._e()])], 1)], 1)]), t("div", { staticClass: "footer__pre-commons mb-4 pa-4", attrs: { cols: "auto" } }, [t("a", { attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [t("img", { staticStyle: { "border-width": "0" }, attrs: { alt: "Creative Commons License", src: "https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" } })]), t("br"), t("p", { staticStyle: { "font-size": "12px", "max-width": "280px" } }, [e._v(" This work is licensed under a "), t("a", { staticStyle: { color: "#262b4a" }, attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [e._v(" Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ")])])])]), e._t("supported")], 2), t("v-row", { staticClass: "footer__main-footer", attrs: { align: "center", justify: e.$vuetify.breakpoint.smAndDown ? "center" : "space-between", "no-gutters": "" } }, [t("v-col", { class: { "footer-privacy": e.$vuetify.breakpoint.smAndDown }, attrs: { cols: "auto" } }, [t("a", { attrs: { href: `https://${e.env_project}ccaf.io/privacy_policy` } }, [e._v(" Privacy Policy ")])]), t("v-col", { attrs: { cols: "auto" } }, [t("span", [e._v("Cambridge Centre for Alternative Finance \xA9\xA0" + e._s(" " + new Date().getFullYear()))])])], 1)], 1)], 1);
+}, tt = [], st = /* @__PURE__ */ H(
   Je,
   et,
   tt,
   !1,
   null,
-  "8a2fabb3",
+  "bca5b23e",
   null,
   null
 );
 const pt = st.exports;
 const nt = {
-  name: "Header",
-  data() {
-    return {
-      dialog: !1,
-      env: "",
-      projects: [
-        {
-          title: "Alternative Finance Benchmarks",
-          id: "cafb",
-          tag: "CAFB",
-          link: "cafb"
-        },
-        {
-          title: "Blockchain Network Sustainability Index",
-          id: "cbnsi",
-          tag: "CBNSI",
-          link: "cbnsi"
-        },
-        {
-          title: "Digital Money Dashboard",
-          id: "dmd",
-          tag: "DMD",
-          link: "cdmd"
-        },
-        {
-          title: "Fintech Ecosystem Atlas",
-          id: "atlas",
-          tag: "Atlas",
-          link: "atlas"
-        },
-        {
-          title: "Global Regulatory Innovation Dashboard",
-          id: "grid",
-          tag: "GRID",
-          link: "grid"
-        },
-        {
-          title: "SupTech Vendor Database",
-          id: "svd",
-          link: "suptechlab/vendor_database"
-        },
-        {
-          title: "SupTech Solutions Tracker",
-          id: "ssr",
-          link: "suptechlab/solutions_tracker"
-        }
-      ],
-      project: {
-        title: "Cambridge Blockchain Network Sustainability Index",
-        id: "cbnsi",
-        tag: "CBNSI",
-        link: "cbnsi"
-      }
-    };
-  },
-  computed: {
-    topic() {
-      return this.$route.path.includes("ethereum") ? "cbnsi_eth" : this.$route.path.includes("cbeci") ? "cbnsi_btc" : "cbnsi";
+  name: "layout-header",
+  props: {
+    dialog: {
+      type: Boolean,
+      default: !1
     },
-    title() {
-      return this.$route.path.includes("ethereum") ? "Cambridge Blockchain Network Sustainability Index" : "Cambridge Bitcoin Electricity Consumption Index";
+    title: {
+      type: String,
+      default: ""
+    },
+    activeSelect: {
+      type: String,
+      default: ""
+    },
+    env: {
+      type: String,
+      default: ""
+    },
+    topic: {
+      type: String,
+      default: ""
     }
   },
+  data() {
+    return {
+      env_project: "",
+      projects: [],
+      project: null
+    };
+  },
+  async beforeMount() {
+    const { data: s } = await fetch("https://demo-api.ccaf.io/v1/projects").then(
+      (e) => e.json()
+    );
+    this.projects = s, console.log(s), this.project = this.projects.find(
+      (e) => e.title === this.activeSelect || !!e.tag && e.tag === this.activeSelect
+    ) || this.projects[0];
+  },
   mounted() {
-    this.env = process.env.ENV === "demo" ? "demo." : "";
+    this.env_project = this.env === "demo" ? "demo." : "";
   },
   methods: {
-    setDialog(s) {
-      this.dialog = s;
-    },
     linkTo(s) {
-      let e = "";
-      switch (s) {
-        case "CBECI":
-          e = "cbeci/cbeci";
-          break;
-        case "Benchmarks":
-          e = "cafb";
-          break;
-        case "Atlas":
-          e = "atlas";
-      }
-      window.location.href = `https://${this.env}ccaf.io/${e}`;
+      const e = this.projects.find(
+        (t) => t.title === s.title
+      );
+      e && (window.location.href = `https://${this.env_project}ccaf.io/${e.link}`);
     }
   }
 };
 var it = function() {
   var e = this, t = e._self._c;
-  return t("v-app-bar", { staticClass: "header noselect", attrs: { id: "header", color: "#FFB71A", height: "72", "clipped-right": "", "clipped-left": "", flat: "", app: "" } }, [t("v-row", { staticClass: "header__logo", attrs: { align: "center", justify: "start" } }, [t("a", { attrs: { title: "CCAF.io", href: `https://${e.env}ccaf.io/` } }, [t("img", { attrs: { src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf", width: "179", height: "52", alt: "Cambridge Centre for Alternative Finance (CCAF.io)" } })]), t("h4", { staticClass: "ma-0 ml-8 d-none d-sm-flex", staticStyle: { "font-family": "MyriadProSemiBold !important" } }, [e._v(" " + e._s(e.title) + " ")]), t("v-spacer"), t("div", { staticClass: "project-selector" }, [e.$vuetify.breakpoint.mdAndUp ? t("v-select", { attrs: { value: "cbnsi", items: e.projects, "item-value": "id", "item-text": "tag", "menu-props": {
+  return t("v-app-bar", { staticClass: "header noselect", attrs: { id: "header", color: "#FFB71A", height: "72", "clipped-right": "", "clipped-left": "", flat: "", app: "" } }, [t("v-row", { staticClass: "header__logo", attrs: { align: "center", justify: "start" } }, [t("a", { attrs: { title: "CCAF.io", href: `https://${e.env_project}ccaf.io/` } }, [t("img", { attrs: { src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf", width: "179", height: "52", alt: "Cambridge Centre for Alternative Finance (CCAF.io)" } })]), t("h4", { staticClass: "d-none d-sm-flex header__title", staticStyle: { "font-family": "MyriadProSemiBold !important" } }, [e._v(" " + e._s(e.title) + " ")]), t("v-spacer"), t("ul", { staticClass: "header-links", class: { "is-long-title": !!e.project && !e.project.tag } }, [t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/" } }, [e._v("Home ")])]), t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/about_ccaf" } }, [e._v("About CCAF ")])]), t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: `https://ccaf.io/contact?topic=${e.topic}` } }, [e._v("Contact ")])])]), t("div", { staticClass: "project-selector", class: { "is-title": !!e.project && !e.project.tag } }, [e.$vuetify.breakpoint.mdAndUp ? t("v-select", { attrs: { value: e.project, items: e.projects, "item-value": "title", "item-text": "tag", "menu-props": {
     offsetY: !0,
     offsetX: !0,
     nudgeBottom: "10px",
     nudgeLeft: "355px",
     maxHeight: 500,
     contentClass: "my-custom-select"
-  }, "background-color": "rgba(255, 183, 26, 0.32);", color: "#333333", height: "40", "append-icon": "mdi-chevron-down", "hide-details": "", solo: "", flat: "" }, on: { change: e.linkTo }, scopedSlots: e._u([{ key: "selection", fn: function() {
-    return [t("strong", { staticStyle: { "font-size": "14px", "font-weight": "600" } }, [e._v("CBNSI")])];
-  }, proxy: !0 }, { key: "item", fn: function({ item: n }) {
+  }, "background-color": "rgba(255, 183, 26, 0.32);", color: "#333333", height: "40", "append-icon": "mdi-chevron-down", "hide-details": "", solo: "", flat: "" }, on: { change: e.linkTo }, scopedSlots: e._u([{ key: "selection", fn: function({ item: n }) {
+    return [t("strong", { staticClass: "project-selector__active-element" }, [e._v(e._s(n.tag || n.title))])];
+  } }, { key: "item", fn: function({ item: n }) {
     return [e._v(" " + e._s(n.title) + " "), t("v-spacer"), n.tag ? t("div", { staticClass: "ml-4 chips" }, [e._v(" " + e._s(n.tag) + " ")]) : e._e()];
-  } }], null, !1, 1306900918) }) : e._e()], 1)], 1), t("v-dialog", { attrs: { fullscreen: "" }, scopedSlots: e._u([{ key: "activator", fn: function({ on: n }) {
-    return [t("div", e._g({ staticClass: "header__nav-icon hidden-lg-and-up" }, n), [t("v-icon", { attrs: { color: "#000" } }, [e._v(" " + e._s(e.dialog ? "mdi-close" : "mdi-menu") + " ")])], 1)];
-  } }]), model: { value: e.dialog, callback: function(n) {
-    e.dialog = n;
-  }, expression: "dialog" } }, [e._t("default")], 2)], 1);
-}, at = [], rt = /* @__PURE__ */ T(
+  } }], null, !1, 2944779132) }) : e._e()], 1)], 1), e.$vuetify.breakpoint.mdAndUp ? e._e() : t("v-dialog", { attrs: { value: e.dialog, fullscreen: "" }, on: { input: (n) => e.$emit("changeDialog", n) }, scopedSlots: e._u([{ key: "activator", fn: function({ on: n, value: i }) {
+    return [t("div", e._g({ staticClass: "header__nav-icon" }, n), [t("v-icon", { attrs: { color: "#000" } }, [e._v(" " + e._s(i ? "mdi-close" : "mdi-menu") + " ")])], 1)];
+  } }], null, !1, 485362672) }, [e._t("default", null, { close: () => e.isActive.value = !1 })], 2)], 1);
+}, at = [], ot = /* @__PURE__ */ H(
   nt,
   it,
   at,
   !1,
   null,
-  "58f0b239",
+  "99de8553",
   null,
   null
 );
-const mt = rt.exports;
-const ot = {
+const mt = ot.exports;
+const rt = {
   name: "Loader",
   props: {
     visible: {
       type: Boolean,
       default: !1
-    }
-  },
-  computed: {
-    title() {
-      return "";
+    },
+    title: {
+      type: String,
+      default: ""
     }
   }
 };
 var ct = function() {
   var e = this, t = e._self._c;
-  return t("div", { staticClass: "app-loader", class: { "app-loader--visible": e.visible } }, [t("v-container", [t("v-row", { staticClass: "flex-column", attrs: { align: "center", justify: "center" } }, [t("v-col", { attrs: { cols: "12" } }, [t("h1", { staticClass: "app-loader__title" }, [e._v(" " + e._s(e.title) + " ")])]), t("v-col", { staticClass: "d-flex justify-center", attrs: { cols: "12" } }, [t("div", { staticClass: "lds-ring" }, [t("div"), t("div"), t("div"), t("div")])]), t("v-col", { attrs: { cols: "12" } }, [t("p", { staticClass: "app-loader__state" }, [e._v(" LOADING ")])])], 1)], 1)], 1);
-}, lt = [], ft = /* @__PURE__ */ T(
-  ot,
+  return t("div", { staticClass: "app-loader", class: { "app-loader--visible": e.visible } }, [t("v-container", [t("v-row", { staticClass: "flex-column", attrs: { align: "center", justify: "center" } }, [e.title ? t("v-col", { attrs: { cols: "12" } }, [t("h1", { staticClass: "app-loader__title" }, [e._v(" " + e._s(e.title) + " ")])]) : e._e(), t("v-col", { staticClass: "d-flex justify-center", attrs: { cols: "12" } }, [t("div", { staticClass: "lds-ring" }, [t("div"), t("div"), t("div"), t("div")])]), t("v-col", { attrs: { cols: "12" } }, [t("p", { staticClass: "app-loader__state" }, [e._v("LOADING")])])], 1)], 1)], 1);
+}, lt = [], ft = /* @__PURE__ */ H(
+  rt,
   ct,
   lt,
   !1,
   null,
-  "86f41919",
+  "c10ef48b",
   null,
   null
 );
 const gt = ft.exports, dt = (s) => {
-  s.component("MobileMenu", L), s.component("LayoutFooter", L), s.component("LayoutHeader", L), s.component("Loader", L);
-}, vt = { install: dt };
+  s.component("MobileMenu", b), s.component("LayoutFooter", b), s.component("LayoutHeader", b), s.component("Loader", b);
+}, _t = { install: dt };
 export {
   pt as LayoutFooter,
   mt as LayoutHeader,
   gt as Loader,
-  L as MobileMenu,
+  b as MobileMenu,
   ht as Vuetify,
-  vt as default
+  _t as default
 };
