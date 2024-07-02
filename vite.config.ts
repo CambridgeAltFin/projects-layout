@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue2';
 import {resolve} from 'path';
 import config from './package.json';
 
+import postcssImport from 'postcss-import';
+import postcss from 'postcss';
+
 export default defineConfig({
   plugins: [vue()],
   build: {
@@ -22,6 +25,9 @@ export default defineConfig({
     }
   },
   css: {
+    postcss: {
+      plugins: [postcss(), postcssImport()]
+    },
     preprocessorOptions: {
       scss: {
         additionalData: `@import "@/assets/styles/index.scss";`

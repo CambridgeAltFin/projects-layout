@@ -65,10 +65,10 @@ function _(s = {}, e = {}) {
   }
   return s;
 }
-function S(s, e = {}) {
-  if (S.installed)
+function O(s, e = {}) {
+  if (O.installed)
     return;
-  S.installed = !0, F !== s && K(`Multiple instances of Vue detected
+  O.installed = !0, F !== s && K(`Multiple instances of Vue detected
 See https://github.com/vuetifyjs/vuetify/issues/4068
 
 If you're seeing "$attrs is readonly", it's caused by this`);
@@ -576,7 +576,7 @@ const Ae = {
     }
   },
   loading: "Loading..."
-}, Oe = {
+}, Se = {
   breakpoint: {
     mobileBreakpoint: 1264,
     scrollBarWidth: 16,
@@ -635,7 +635,7 @@ const Ae = {
 class z extends m {
   constructor(e, t) {
     super();
-    const n = _({}, Oe), {
+    const n = _({}, Se), {
       userPreset: i
     } = t, {
       preset: a = {},
@@ -645,9 +645,9 @@ class z extends m {
   }
 }
 z.property = "presets";
-const Se = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], Ve = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Fe = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Ee = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+const Oe = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], Ve = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Fe = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Ee = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
 function U(s) {
-  const e = Array(3), t = Ve, n = Se;
+  const e = Array(3), t = Ve, n = Oe;
   for (let i = 0; i < 3; ++i)
     e[i] = Math.round(se(t(n[i][0] * s[0] + n[i][1] * s[1] + n[i][2] * s[2])) * 255);
   return (e[0] << 16) + (e[1] << 8) + (e[2] << 0);
@@ -902,7 +902,7 @@ class g {
     this.installed.includes(t) || (this.framework[t] = new e(this.preset, this), this.installed.push(t));
   }
 }
-g.install = S;
+g.install = O;
 g.installed = !1;
 g.version = "2.7.2";
 g.config = {
@@ -931,7 +931,7 @@ function K(s, e, t) {
   n != null && console.error(n);
 }
 const ze = /(?:^|[-_])(\w)/g, Ue = (s) => s.replace(ze, (e) => e.toUpperCase()).replace(/[-_]/g, "");
-function O(s, e) {
+function S(s, e) {
   if (s.$root === s)
     return "<Root>";
   const t = typeof s == "function" && s.cid != null ? s.options : s._isVue ? s.$options || s.constructor.options : s || {};
@@ -962,12 +962,12 @@ function qe(s) {
 
 found in
 
-` + e.map((n, i) => `${i === 0 ? "---> " : " ".repeat(5 + i * 2)}${Array.isArray(n) ? `${O(n[0])}... (${n[1]} recursive calls)` : O(n)}`).join(`
+` + e.map((n, i) => `${i === 0 ? "---> " : " ".repeat(5 + i * 2)}${Array.isArray(n) ? `${S(n[0])}... (${n[1]} recursive calls)` : S(n)}`).join(`
 `);
   } else
     return `
 
-(found in ${O(s)})`;
+(found in ${S(s)})`;
 }
 F.use(g);
 const Qe = {
@@ -1026,6 +1026,10 @@ const Ye = {
     activeProject: {
       type: String,
       default: ""
+    },
+    url: {
+      type: String,
+      default: ""
     }
   },
   data: () => ({
@@ -1037,7 +1041,7 @@ const Ye = {
     }
   },
   async beforeMount() {
-    const { data: s } = await fetch("https://demo-api.ccaf.io/v1/projects").then(
+    const { data: s } = await fetch(`${url}/projects`).then(
       (e) => e.json()
     );
     this.projects = s;
@@ -1056,7 +1060,7 @@ var Xe = function() {
   Ge,
   !1,
   null,
-  "59e2fbd3",
+  "af97d061",
   null,
   null
 );
@@ -1161,6 +1165,10 @@ const nt = {
     topic: {
       type: String,
       default: ""
+    },
+    url: {
+      type: String,
+      default: ""
     }
   },
   data() {
@@ -1171,7 +1179,7 @@ const nt = {
     };
   },
   async beforeMount() {
-    const { data: s } = await fetch("https://demo-api.ccaf.io/v1/projects").then(
+    const { data: s } = await fetch(`${url}/projects`).then(
       (e) => e.json()
     );
     this.projects = s, console.log(s), this.project = this.projects.find(
@@ -1212,7 +1220,7 @@ var it = function() {
   at,
   !1,
   null,
-  "99de8553",
+  "a237708b",
   null,
   null
 );
