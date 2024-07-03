@@ -1,7 +1,53 @@
 import V from "vue";
-function A(s, t = {}) {
-  if (A.installed) return;
-  A.installed = !0, V !== s && G(`Multiple instances of Vue detected
+let K = !1;
+try {
+  if (typeof window < "u") {
+    const s = Object.defineProperty({}, "passive", {
+      get: () => {
+        K = !0;
+      }
+    });
+    window.addEventListener("testListener", s, s), window.removeEventListener("testListener", s, s);
+  }
+} catch (s) {
+  console.warn(s);
+}
+function E(s, t, e) {
+  const i = t.length - 1;
+  if (i < 0) return s === void 0 ? e : s;
+  for (let n = 0; n < i; n++) {
+    if (s == null)
+      return e;
+    s = s[t[n]];
+  }
+  return s == null || s[t[i]] === void 0 ? e : s[t[i]];
+}
+function J(s, t, e) {
+  return s == null || !t || typeof t != "string" ? e : s[t] !== void 0 ? s[t] : (t = t.replace(/\[(\w+)\]/g, ".$1"), t = t.replace(/^\./, ""), E(s, t.split("."), e));
+}
+function F(s) {
+  return s !== null && typeof s == "object";
+}
+function tt(s) {
+  return Object.keys(s);
+}
+function et(s, t = 0, e = 1) {
+  return Math.max(t, Math.min(e, s));
+}
+function g(s = {}, t = {}) {
+  for (const e in t) {
+    const i = s[e], n = t[e];
+    if (F(i) && F(n)) {
+      s[e] = g(i, n);
+      continue;
+    }
+    s[e] = n;
+  }
+  return s;
+}
+function S(s, t = {}) {
+  if (S.installed) return;
+  S.installed = !0, V !== s && G(`Multiple instances of Vue detected
 See https://github.com/vuetifyjs/vuetify/issues/4068
 
 If you're seeing "$attrs is readonly", it's caused by this`);
@@ -39,7 +85,7 @@ class u {
   init(t, e) {
   }
 }
-class E extends u {
+class j extends u {
   constructor() {
     super(...arguments), this.bar = 0, this.top = 0, this.left = 0, this.insetFooter = 0, this.right = 0, this.bottom = 0, this.footer = 0, this.application = {
       bar: {},
@@ -61,7 +107,7 @@ class E extends u {
     this[t] = Object.values(this.application[t]).reduce((e, i) => e + i, 0);
   }
 }
-E.property = "application";
+j.property = "application";
 class w extends u {
   constructor(t) {
     super(), this.xs = !1, this.sm = !1, this.md = !1, this.lg = !1, this.xl = !1, this.xsOnly = !1, this.smOnly = !1, this.smAndDown = !1, this.smAndUp = !1, this.mdOnly = !1, this.mdAndDown = !1, this.mdAndUp = !1, this.lgOnly = !1, this.lgAndDown = !1, this.lgAndUp = !1, this.xlOnly = !1, this.name = "xs", this.height = 0, this.width = 0, this.mobile = !0, this.resizeTimeout = 0;
@@ -123,42 +169,42 @@ class w extends u {
   }
 }
 w.property = "breakpoint";
-const K = (s) => s, J = (s) => s ** 2, tt = (s) => s * (2 - s), et = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, st = (s) => s ** 3, it = (s) => --s ** 3 + 1, nt = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, at = (s) => s ** 4, rt = (s) => 1 - --s ** 4, ot = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, ct = (s) => s ** 5, lt = (s) => 1 + --s ** 5, ft = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, dt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const st = (s) => s, it = (s) => s ** 2, nt = (s) => s * (2 - s), at = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, rt = (s) => s ** 3, ot = (s) => --s ** 3 + 1, ct = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, lt = (s) => s ** 4, ft = (s) => 1 - --s ** 4, dt = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, ut = (s) => s ** 5, ht = (s) => 1 + --s ** 5, pt = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, mt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  easeInCubic: st,
-  easeInOutCubic: nt,
-  easeInOutQuad: et,
-  easeInOutQuart: ot,
-  easeInOutQuint: ft,
-  easeInQuad: J,
-  easeInQuart: at,
-  easeInQuint: ct,
-  easeOutCubic: it,
-  easeOutQuad: tt,
-  easeOutQuart: rt,
-  easeOutQuint: lt,
-  linear: K
+  easeInCubic: rt,
+  easeInOutCubic: ct,
+  easeInOutQuad: at,
+  easeInOutQuart: dt,
+  easeInOutQuint: pt,
+  easeInQuad: it,
+  easeInQuart: lt,
+  easeInQuint: ut,
+  easeOutCubic: ot,
+  easeOutQuad: nt,
+  easeOutQuart: ft,
+  easeOutQuint: ht,
+  linear: st
 }, Symbol.toStringTag, { value: "Module" }));
 function T(s) {
   if (typeof s == "number")
     return s;
-  let t = B(s);
+  let t = Z(s);
   if (!t)
-    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${j(s)} instead.`);
+    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${B(s)} instead.`);
   let e = 0;
   for (; t; )
     e += t.offsetTop, t = t.offsetParent;
   return e;
 }
-function ut(s) {
-  const t = B(s);
+function gt(s) {
+  const t = Z(s);
   if (t) return t;
-  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${j(s)} instead.`);
-}
-function j(s) {
-  return s == null ? s : s.constructor.name;
+  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${B(s)} instead.`);
 }
 function B(s) {
+  return s == null ? s : s.constructor.name;
+}
+function Z(s) {
   return typeof s == "string" ? document.querySelector(s) : s && s._isVue ? s.$el : s instanceof HTMLElement ? s : null;
 }
 function L(s, t = {}) {
@@ -169,7 +215,7 @@ function L(s, t = {}) {
     easing: "easeInOutCubic",
     appOffset: !0,
     ...t
-  }, i = ut(e.container);
+  }, i = gt(e.container);
   if (e.appOffset && L.framework.application) {
     const o = i.classList.contains("v-navigation-drawer"), l = i.classList.contains("v-navigation-drawer--clipped"), {
       bar: f,
@@ -182,7 +228,7 @@ function L(s, t = {}) {
   typeof s == "number" ? a = T(s) - e.offset : a = T(s) - T(i) - e.offset;
   const r = i.scrollTop;
   if (a === r) return Promise.resolve(a);
-  const c = typeof e.easing == "function" ? e.easing : dt[e.easing];
+  const c = typeof e.easing == "function" ? e.easing : mt[e.easing];
   if (!c) throw new TypeError(`Easing function "${e.easing}" not found.`);
   return new Promise((o) => requestAnimationFrame(function l(f) {
     const d = f - n, p = Math.abs(e.duration ? Math.min(d / e.duration, 1) : 1);
@@ -197,58 +243,12 @@ function L(s, t = {}) {
 L.framework = {};
 L.init = () => {
 };
-class Z extends u {
+class I extends u {
   constructor() {
     return super(), L;
   }
 }
-Z.property = "goTo";
-let ht = !1;
-try {
-  if (typeof window < "u") {
-    const s = Object.defineProperty({}, "passive", {
-      get: () => {
-        ht = !0;
-      }
-    });
-    window.addEventListener("testListener", s, s), window.removeEventListener("testListener", s, s);
-  }
-} catch (s) {
-  console.warn(s);
-}
-function I(s, t, e) {
-  const i = t.length - 1;
-  if (i < 0) return s === void 0 ? e : s;
-  for (let n = 0; n < i; n++) {
-    if (s == null)
-      return e;
-    s = s[t[n]];
-  }
-  return s == null || s[t[i]] === void 0 ? e : s[t[i]];
-}
-function pt(s, t, e) {
-  return s == null || !t || typeof t != "string" ? e : s[t] !== void 0 ? s[t] : (t = t.replace(/\[(\w+)\]/g, ".$1"), t = t.replace(/^\./, ""), I(s, t.split("."), e));
-}
-function F(s) {
-  return s !== null && typeof s == "object";
-}
-function mt(s) {
-  return Object.keys(s);
-}
-function gt(s, t = 0, e = 1) {
-  return Math.max(t, Math.min(e, s));
-}
-function g(s = {}, t = {}) {
-  for (const e in t) {
-    const i = s[e], n = t[e];
-    if (F(i) && F(n)) {
-      s[e] = g(i, n);
-      continue;
-    }
-    s[e] = n;
-  }
-  return s;
-}
+I.property = "goTo";
 const vt = {
   complete: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z",
   cancel: "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
@@ -454,7 +454,7 @@ x.property = "icons";
 const D = "$vuetify.", P = Symbol("Lang fallback");
 function R(s, t, e = !1, i) {
   const n = t.replace(D, "");
-  let a = pt(s, n, P);
+  let a = J(s, n, P);
   return a === P && (e ? (G(`Translation key "${n}" not found in fallback`), a = t) : (y(`Translation key "${n}" not found, falling back to default`), a = R(i, t, !0, i))), a;
 }
 class M extends u {
@@ -528,6 +528,11 @@ const wt = {
   calendar: {
     moreEvents: "{0} more"
   },
+  input: {
+    clear: "Clear {0}",
+    prependAction: "{0} prepended action",
+    appendAction: "{0} appended action"
+  },
   fileInput: {
     counter: "{0} files",
     counterSize: "{0} files ({1} in total)"
@@ -549,7 +554,8 @@ const wt = {
     ariaLabel: {
       icon: "Rating {0} of {1}"
     }
-  }
+  },
+  loading: "Loading..."
 }, xt = {
   breakpoint: {
     // TODO: update to MD2 spec in v3 - 1280
@@ -626,7 +632,7 @@ const Mt = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.2
 function W(s) {
   const t = Array(3), e = $t, i = Mt;
   for (let n = 0; n < 3; ++n)
-    t[n] = Math.round(gt(e(i[n][0] * s[0] + i[n][1] * s[1] + i[n][2] * s[2])) * 255);
+    t[n] = Math.round(et(e(i[n][0] * s[0] + i[n][1] * s[1] + i[n][2] * s[2])) * 255);
   return (t[0] << 16) + (t[1] << 8) + (t[2] << 0);
 }
 function U(s) {
@@ -650,12 +656,12 @@ function v(s) {
   let t = s.toString(16);
   return t.length < 6 && (t = "0".repeat(6 - t.length) + t), "#" + t;
 }
-function St(s) {
+function At(s) {
   return v(O(s));
 }
-const k = 0.20689655172413793, At = (s) => s > k ** 3 ? Math.cbrt(s) : s / (3 * k ** 2) + 4 / 29, Ot = (s) => s > k ? s ** 3 : 3 * k ** 2 * (s - 4 / 29);
+const k = 0.20689655172413793, St = (s) => s > k ** 3 ? Math.cbrt(s) : s / (3 * k ** 2) + 4 / 29, Ot = (s) => s > k ? s ** 3 : 3 * k ** 2 * (s - 4 / 29);
 function q(s) {
-  const t = At, e = t(s[1]);
+  const t = St, e = t(s[1]);
   return [116 * e - 16, 500 * (t(s[0] / 0.95047) - e), 200 * (e - t(s[2] / 1.08883))];
 }
 function Q(s) {
@@ -669,7 +675,7 @@ function Y(s, t = !1, e = !0) {
   } = s, a = Object.keys(n), r = {};
   for (let c = 0; c < a.length; ++c) {
     const o = a[c], l = s[o];
-    l != null && (e ? t ? (o === "base" || o.startsWith("lighten") || o.startsWith("darken")) && (r[o] = St(l)) : typeof l == "object" ? r[o] = Y(l, !0, e) : r[o] = Et(o, O(l)) : r[o] = {
+    l != null && (e ? t ? (o === "base" || o.startsWith("lighten") || o.startsWith("darken")) && (r[o] = At(l)) : typeof l == "object" ? r[o] = Y(l, !0, e) : r[o] = Et(o, O(l)) : r[o] = {
       base: v(O(l))
     });
   }
@@ -694,7 +700,7 @@ const Vt = (s, t) => `
   color: ${e} !important;
   caret-color: ${e} !important;
 }`;
-}, C = (s, t = "base") => `--v-${s}-${t}`, S = (s, t = "base") => `var(${C(s, t)})`;
+}, C = (s, t = "base") => `--v-${s}-${t}`, A = (s, t = "base") => `var(${C(s, t)})`;
 function Pt(s, t = !1) {
   const {
     anchor: e,
@@ -702,17 +708,17 @@ function Pt(s, t = !1) {
   } = s, n = Object.keys(i);
   if (!n.length) return "";
   let a = "", r = "";
-  const c = t ? S("anchor") : e;
+  const c = t ? A("anchor") : e;
   r += `.v-application a { color: ${c}; }`, t && (a += `  ${C("anchor")}: ${e};
 `);
   for (let o = 0; o < n.length; ++o) {
     const l = n[o], f = s[l];
-    r += Vt(l, t ? S(l) : f.base), t && (a += `  ${C(l)}: ${f.base};
+    r += Vt(l, t ? A(l) : f.base), t && (a += `  ${C(l)}: ${f.base};
 `);
-    const d = mt(f);
+    const d = tt(f);
     for (let p = 0; p < d.length; ++p) {
       const m = d[p], _ = f[m];
-      m !== "base" && (r += Ft(l, m, t ? S(l, m) : _), t && (a += `  ${C(l, m)}: ${_};
+      m !== "base" && (r += Ft(l, m, t ? A(l, m) : _), t && (a += `  ${C(l, m)}: ${_};
 `));
     }
   }
@@ -865,7 +871,7 @@ class $ extends u {
     return e.themeCache != null && (i = e.themeCache.get(t), i != null) || (i = Pt(t, e.customProperties), e.minifyTheme != null && (i = e.minifyTheme(i)), e.themeCache != null && e.themeCache.set(t, i)), i;
   }
   get parsedTheme() {
-    return Y(this.currentTheme || {}, void 0, I(this.options, ["variations"], !0));
+    return Y(this.currentTheme || {}, void 0, E(this.options, ["variations"], !0));
   }
   // Is using v2.3 of vue-meta
   // https://github.com/nuxt/vue-meta/releases/tag/v2.3.0
@@ -878,7 +884,7 @@ class h {
   constructor(t = {}) {
     this.framework = {
       isHydrating: !1
-    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = t, this.use(z), this.use(E), this.use(w), this.use(Z), this.use(x), this.use(M), this.use($);
+    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = t, this.use(z), this.use(j), this.use(w), this.use(I), this.use(x), this.use(M), this.use($);
   }
   // Called on the new vuetify instance
   // bootstrap in install beforeCreate
@@ -895,9 +901,9 @@ class h {
     this.installed.includes(e) || (this.framework[e] = new t(this.preset, this), this.installed.push(e));
   }
 }
-h.install = A;
+h.install = S;
 h.installed = !1;
-h.version = "2.6.16";
+h.version = "2.7.2";
 h.config = {
   silent: !1
 };

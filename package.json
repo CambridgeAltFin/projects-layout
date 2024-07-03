@@ -40,7 +40,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "vue": "^2.7.0",
-    "vuetify": "2.6"
+    "vuetify": "^2.7.2"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.6.20",
