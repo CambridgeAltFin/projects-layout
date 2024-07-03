@@ -24,7 +24,11 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/styles/index.scss";`
+        additionalData: `
+        @import "@/assets/styles/index.scss"; 
+        @import "vuetify/dist/vuetify.min.css";
+        @import '@mdi/font/css/materialdesignicons.min.css';
+        `
       }
     }
   },
