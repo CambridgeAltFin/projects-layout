@@ -1,10 +1,10 @@
-import F from "vue";
-let J = !1;
+import V from "vue";
+let K = !1;
 try {
   if (typeof window < "u") {
     const s = Object.defineProperty({}, "passive", {
       get: () => {
-        J = !0;
+        K = !0;
       }
     });
     window.addEventListener("testListener", s, s), window.removeEventListener("testListener", s, s);
@@ -12,84 +12,63 @@ try {
 } catch (s) {
   console.warn(s);
 }
-function j(s, e, t) {
-  const n = e.length - 1;
-  if (n < 0)
-    return s === void 0 ? t : s;
-  for (let i = 0; i < n; i++) {
+function E(s, t, e) {
+  const i = t.length - 1;
+  if (i < 0) return s === void 0 ? e : s;
+  for (let n = 0; n < i; n++) {
     if (s == null)
-      return t;
-    s = s[e[i]];
+      return e;
+    s = s[t[n]];
   }
-  return s == null || s[e[n]] === void 0 ? t : s[e[n]];
+  return s == null || s[t[i]] === void 0 ? e : s[t[i]];
 }
-function ee(s, e, t) {
-  return s == null || !e || typeof e != "string" ? t : s[e] !== void 0 ? s[e] : (e = e.replace(/\[(\w+)\]/g, ".$1"), e = e.replace(/^\./, ""), j(s, e.split("."), t));
+function J(s, t, e) {
+  return s == null || !t || typeof t != "string" ? e : s[t] !== void 0 ? s[t] : (t = t.replace(/\[(\w+)\]/g, ".$1"), t = t.replace(/^\./, ""), E(s, t.split("."), e));
 }
-function E(s) {
+function F(s) {
   return s !== null && typeof s == "object";
 }
-Object.freeze({
-  enter: 13,
-  tab: 9,
-  delete: 46,
-  esc: 27,
-  space: 32,
-  up: 38,
-  down: 40,
-  left: 37,
-  right: 39,
-  end: 35,
-  home: 36,
-  del: 46,
-  backspace: 8,
-  insert: 45,
-  pageup: 33,
-  pagedown: 34,
-  shift: 16
-});
-function te(s) {
+function tt(s) {
   return Object.keys(s);
 }
-function se(s, e = 0, t = 1) {
-  return Math.max(e, Math.min(t, s));
+function et(s, t = 0, e = 1) {
+  return Math.max(t, Math.min(e, s));
 }
-function _(s = {}, e = {}) {
-  for (const t in e) {
-    const n = s[t], i = e[t];
-    if (E(n) && E(i)) {
-      s[t] = _(n, i);
+function g(s = {}, t = {}) {
+  for (const e in t) {
+    const i = s[e], n = t[e];
+    if (F(i) && F(n)) {
+      s[e] = g(i, n);
       continue;
     }
-    s[t] = i;
+    s[e] = n;
   }
   return s;
 }
-function O(s, e = {}) {
-  if (O.installed)
-    return;
-  O.installed = !0, F !== s && K(`Multiple instances of Vue detected
+function S(s, t = {}) {
+  if (S.installed) return;
+  S.installed = !0, V !== s && G(`Multiple instances of Vue detected
 See https://github.com/vuetifyjs/vuetify/issues/4068
 
 If you're seeing "$attrs is readonly", it's caused by this`);
-  const t = e.components || {}, n = e.directives || {};
-  for (const i in n) {
-    const a = n[i];
-    s.directive(i, a);
+  const e = t.components || {}, i = t.directives || {};
+  for (const n in i) {
+    const a = i[n];
+    s.directive(n, a);
   }
-  (function i(a) {
+  (function n(a) {
     if (a) {
       for (const r in a) {
         const c = a[r];
-        c && !i(c.$_vuetify_subcomponents) && s.component(r, c);
+        c && !n(c.$_vuetify_subcomponents) && s.component(r, c);
       }
       return !0;
     }
     return !1;
-  })(t), !s.$_vuetify_installed && (s.$_vuetify_installed = !0, s.mixin({
+  })(e), !s.$_vuetify_installed && (s.$_vuetify_installed = !0, s.mixin({
     beforeCreate() {
-      const i = this.$options;
-      i.vuetify ? (i.vuetify.init(this, this.$ssrContext), this.$vuetify = s.observable(i.vuetify.framework)) : this.$vuetify = i.parent && i.parent.$vuetify || this;
+      const n = this.$options;
+      n.vuetify ? (n.vuetify.init(this, this.$ssrContext), this.$vuetify = s.observable(n.vuetify.framework)) : this.$vuetify = n.parent && n.parent.$vuetify || this;
     },
     beforeMount() {
       this.$options.vuetify && this.$el && this.$el.hasAttribute("data-server-rendered") && (this.$vuetify.isHydrating = !0, this.$vuetify.breakpoint.update(!0));
@@ -99,14 +78,14 @@ If you're seeing "$attrs is readonly", it's caused by this`);
     }
   }));
 }
-class m {
+class u {
   constructor() {
     this.framework = {};
   }
-  init(e, t) {
+  init(t, e) {
   }
 }
-class B extends m {
+class j extends u {
   constructor() {
     super(...arguments), this.bar = 0, this.top = 0, this.left = 0, this.insetFooter = 0, this.right = 0, this.bottom = 0, this.footer = 0, this.application = {
       bar: {},
@@ -118,36 +97,37 @@ class B extends m {
       footer: {}
     };
   }
-  register(e, t, n) {
-    this.application[t][e] = n, this.update(t);
+  register(t, e, i) {
+    this.application[e][t] = i, this.update(e);
   }
-  unregister(e, t) {
-    this.application[t][e] != null && (delete this.application[t][e], this.update(t));
+  unregister(t, e) {
+    this.application[e][t] != null && (delete this.application[e][t], this.update(e));
   }
-  update(e) {
-    this[e] = Object.values(this.application[e]).reduce((t, n) => t + n, 0);
+  update(t) {
+    this[t] = Object.values(this.application[t]).reduce((e, i) => e + i, 0);
   }
 }
-B.property = "application";
-class w extends m {
-  constructor(e) {
+j.property = "application";
+class w extends u {
+  constructor(t) {
     super(), this.xs = !1, this.sm = !1, this.md = !1, this.lg = !1, this.xl = !1, this.xsOnly = !1, this.smOnly = !1, this.smAndDown = !1, this.smAndUp = !1, this.mdOnly = !1, this.mdAndDown = !1, this.mdAndUp = !1, this.lgOnly = !1, this.lgAndDown = !1, this.lgAndUp = !1, this.xlOnly = !1, this.name = "xs", this.height = 0, this.width = 0, this.mobile = !0, this.resizeTimeout = 0;
     const {
-      mobileBreakpoint: t,
-      scrollBarWidth: n,
-      thresholds: i
-    } = e[w.property];
-    this.mobileBreakpoint = t, this.scrollBarWidth = n, this.thresholds = i;
+      mobileBreakpoint: e,
+      scrollBarWidth: i,
+      thresholds: n
+    } = t[w.property];
+    this.mobileBreakpoint = e, this.scrollBarWidth = i, this.thresholds = n;
   }
   init() {
     this.update(), !(typeof window > "u") && window.addEventListener("resize", this.onResize.bind(this), {
       passive: !0
     });
   }
-  update(e = !1) {
-    const t = e ? 0 : this.getClientHeight(), n = e ? 0 : this.getClientWidth(), i = n < this.thresholds.xs, a = n < this.thresholds.sm && !i, r = n < this.thresholds.md - this.scrollBarWidth && !(a || i), c = n < this.thresholds.lg - this.scrollBarWidth && !(r || a || i), o = n >= this.thresholds.lg - this.scrollBarWidth;
-    switch (this.height = t, this.width = n, this.xs = i, this.sm = a, this.md = r, this.lg = c, this.xl = o, this.xsOnly = i, this.smOnly = a, this.smAndDown = (i || a) && !(r || c || o), this.smAndUp = !i && (a || r || c || o), this.mdOnly = r, this.mdAndDown = (i || a || r) && !(c || o), this.mdAndUp = !(i || a) && (r || c || o), this.lgOnly = c, this.lgAndDown = (i || a || r || c) && !o, this.lgAndUp = !(i || a || r) && (c || o), this.xlOnly = o, !0) {
-      case i:
+  /* eslint-disable-next-line max-statements */
+  update(t = !1) {
+    const e = t ? 0 : this.getClientHeight(), i = t ? 0 : this.getClientWidth(), n = i < this.thresholds.xs, a = i < this.thresholds.sm && !n, r = i < this.thresholds.md - this.scrollBarWidth && !(a || n), c = i < this.thresholds.lg - this.scrollBarWidth && !(r || a || n), o = i >= this.thresholds.lg - this.scrollBarWidth;
+    switch (this.height = e, this.width = i, this.xs = n, this.sm = a, this.md = r, this.lg = c, this.xl = o, this.xsOnly = n, this.smOnly = a, this.smAndDown = (n || a) && !(r || c || o), this.smAndUp = !n && (a || r || c || o), this.mdOnly = r, this.mdAndDown = (n || a || r) && !(c || o), this.mdAndUp = !(n || a) && (r || c || o), this.lgOnly = c, this.lgAndDown = (n || a || r || c) && !o, this.lgAndUp = !(n || a || r) && (c || o), this.xlOnly = o, !0) {
+      case n:
         this.name = "xs";
         break;
       case a:
@@ -164,7 +144,7 @@ class w extends m {
         break;
     }
     if (typeof this.mobileBreakpoint == "number") {
-      this.mobile = n < parseInt(this.mobileBreakpoint, 10);
+      this.mobile = i < parseInt(this.mobileBreakpoint, 10);
       return;
     }
     const l = {
@@ -173,12 +153,14 @@ class w extends m {
       md: 2,
       lg: 3,
       xl: 4
-    }, d = l[this.name], u = l[this.mobileBreakpoint];
-    this.mobile = d <= u;
+    }, f = l[this.name], d = l[this.mobileBreakpoint];
+    this.mobile = f <= d;
   }
   onResize() {
     clearTimeout(this.resizeTimeout), this.resizeTimeout = window.setTimeout(this.update.bind(this), 200);
   }
+  // Cross-browser support as described in:
+  // https://stackoverflow.com/questions/1248081
   getClientWidth() {
     return typeof document > "u" ? 0 : Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   }
@@ -187,75 +169,73 @@ class w extends m {
   }
 }
 w.property = "breakpoint";
-const ne = (s) => s, ie = (s) => s ** 2, ae = (s) => s * (2 - s), oe = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, re = (s) => s ** 3, ce = (s) => --s ** 3 + 1, le = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, fe = (s) => s ** 4, de = (s) => 1 - --s ** 4, ue = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, he = (s) => s ** 5, pe = (s) => 1 + --s ** 5, me = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, ge = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+const st = (s) => s, it = (s) => s ** 2, nt = (s) => s * (2 - s), at = (s) => s < 0.5 ? 2 * s ** 2 : -1 + (4 - 2 * s) * s, rt = (s) => s ** 3, ot = (s) => --s ** 3 + 1, ct = (s) => s < 0.5 ? 4 * s ** 3 : (s - 1) * (2 * s - 2) * (2 * s - 2) + 1, lt = (s) => s ** 4, ft = (s) => 1 - --s ** 4, dt = (s) => s < 0.5 ? 8 * s * s * s * s : 1 - 8 * --s * s * s * s, ut = (s) => s ** 5, ht = (s) => 1 + --s ** 5, pt = (s) => s < 0.5 ? 16 * s ** 5 : 1 + 16 * --s ** 5, mt = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  linear: ne,
-  easeInQuad: ie,
-  easeOutQuad: ae,
-  easeInOutQuad: oe,
-  easeInCubic: re,
-  easeOutCubic: ce,
-  easeInOutCubic: le,
-  easeInQuart: fe,
-  easeOutQuart: de,
-  easeInOutQuart: ue,
-  easeInQuint: he,
-  easeOutQuint: pe,
-  easeInOutQuint: me
+  easeInCubic: rt,
+  easeInOutCubic: ct,
+  easeInOutQuad: at,
+  easeInOutQuart: dt,
+  easeInOutQuint: pt,
+  easeInQuad: it,
+  easeInQuart: lt,
+  easeInQuint: ut,
+  easeOutCubic: ot,
+  easeOutQuad: nt,
+  easeOutQuart: ft,
+  easeOutQuint: ht,
+  linear: st
 }, Symbol.toStringTag, { value: "Module" }));
 function T(s) {
   if (typeof s == "number")
     return s;
-  let e = N(s);
-  if (!e)
-    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${Z(s)} instead.`);
-  let t = 0;
-  for (; e; )
-    t += e.offsetTop, e = e.offsetParent;
-  return t;
+  let t = Z(s);
+  if (!t)
+    throw typeof s == "string" ? new Error(`Target element "${s}" not found.`) : new TypeError(`Target must be a Number/Selector/HTMLElement/VueComponent, received ${B(s)} instead.`);
+  let e = 0;
+  for (; t; )
+    e += t.offsetTop, t = t.offsetParent;
+  return e;
 }
-function _e(s) {
-  const e = N(s);
-  if (e)
-    return e;
-  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${Z(s)} instead.`);
+function gt(s) {
+  const t = Z(s);
+  if (t) return t;
+  throw typeof s == "string" ? new Error(`Container element "${s}" not found.`) : new TypeError(`Container must be a Selector/HTMLElement/VueComponent, received ${B(s)} instead.`);
 }
-function Z(s) {
+function B(s) {
   return s == null ? s : s.constructor.name;
 }
-function N(s) {
+function Z(s) {
   return typeof s == "string" ? document.querySelector(s) : s && s._isVue ? s.$el : s instanceof HTMLElement ? s : null;
 }
-function L(s, e = {}) {
-  const t = {
+function L(s, t = {}) {
+  const e = {
     container: document.scrollingElement || document.body || document.documentElement,
     duration: 500,
     offset: 0,
     easing: "easeInOutCubic",
     appOffset: !0,
-    ...e
-  }, n = _e(t.container);
-  if (t.appOffset && L.framework.application) {
-    const o = n.classList.contains("v-navigation-drawer"), l = n.classList.contains("v-navigation-drawer--clipped"), {
-      bar: d,
-      top: u
+    ...t
+  }, i = gt(e.container);
+  if (e.appOffset && L.framework.application) {
+    const o = i.classList.contains("v-navigation-drawer"), l = i.classList.contains("v-navigation-drawer--clipped"), {
+      bar: f,
+      top: d
     } = L.framework.application;
-    t.offset += d, (!o || l) && (t.offset += u);
+    e.offset += f, (!o || l) && (e.offset += d);
   }
-  const i = performance.now();
+  const n = performance.now();
   let a;
-  typeof s == "number" ? a = T(s) - t.offset : a = T(s) - T(n) - t.offset;
-  const r = n.scrollTop;
-  if (a === r)
-    return Promise.resolve(a);
-  const c = typeof t.easing == "function" ? t.easing : ge[t.easing];
-  if (!c)
-    throw new TypeError(`Easing function "${t.easing}" not found.`);
-  return new Promise((o) => requestAnimationFrame(function l(d) {
-    const u = d - i, f = Math.abs(t.duration ? Math.min(u / t.duration, 1) : 1);
-    n.scrollTop = Math.floor(r + (a - r) * c(f));
-    const p = (n === document.body ? document.documentElement.clientHeight : n.clientHeight) + n.scrollTop >= n.scrollHeight;
-    if (f === 1 || a > n.scrollTop && p)
+  typeof s == "number" ? a = T(s) - e.offset : a = T(s) - T(i) - e.offset;
+  const r = i.scrollTop;
+  if (a === r) return Promise.resolve(a);
+  const c = typeof e.easing == "function" ? e.easing : mt[e.easing];
+  if (!c) throw new TypeError(`Easing function "${e.easing}" not found.`);
+  return new Promise((o) => requestAnimationFrame(function l(f) {
+    const d = f - n, p = Math.abs(e.duration ? Math.min(d / e.duration, 1) : 1);
+    i.scrollTop = Math.floor(r + (a - r) * c(p));
+    const _ = (i === document.body ? document.documentElement.clientHeight : i.clientHeight) + i.scrollTop >= i.scrollHeight;
+    if (p === 1 || // Need to go lower but reach bottom
+    a > i.scrollTop && _)
       return o(a);
     requestAnimationFrame(l);
   }));
@@ -263,13 +243,13 @@ function L(s, e = {}) {
 L.framework = {};
 L.init = () => {
 };
-class I extends m {
+class I extends u {
   constructor() {
     return super(), L;
   }
 }
 I.property = "goTo";
-const ve = {
+const vt = {
   complete: "M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z",
   cancel: "M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z",
   close: "M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z",
@@ -303,7 +283,7 @@ const ve = {
   file: "M16.5,6V17.5C16.5,19.71 14.71,21.5 12.5,21.5C10.29,21.5 8.5,19.71 8.5,17.5V5C8.5,3.62 9.62,2.5 11,2.5C12.38,2.5 13.5,3.62 13.5,5V15.5C13.5,16.05 13.05,16.5 12.5,16.5C11.95,16.5 11.5,16.05 11.5,15.5V6H10V15.5C10,16.88 11.12,18 12.5,18C13.88,18 15,16.88 15,15.5V5C15,2.79 13.21,1 11,1C8.79,1 7,2.79 7,5V17.5C7,20.54 9.46,23 12.5,23C15.54,23 18,20.54 18,17.5V6H16.5Z",
   plus: "M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z",
   minus: "M19,13H5V11H19V13Z"
-}, ye = ve, Le = {
+}, yt = {
   complete: "check",
   cancel: "cancel",
   close: "close",
@@ -337,7 +317,7 @@ const ve = {
   file: "attach_file",
   plus: "add",
   minus: "remove"
-}, be = Le, Ce = {
+}, Lt = {
   complete: "mdi-check",
   cancel: "mdi-close-circle",
   close: "mdi-close",
@@ -371,7 +351,7 @@ const ve = {
   file: "mdi-paperclip",
   plus: "mdi-plus",
   minus: "mdi-minus"
-}, ke = Ce, we = {
+}, N = {
   complete: "fas fa-check",
   cancel: "fas fa-times-circle",
   close: "fas fa-times",
@@ -405,7 +385,7 @@ const ve = {
   file: "fas fa-paperclip",
   plus: "fas fa-plus",
   minus: "fas fa-minus"
-}, R = we, $e = {
+}, _t = {
   complete: "fa fa-check",
   cancel: "fa fa-times-circle",
   close: "fa fa-times",
@@ -439,70 +419,70 @@ const ve = {
   file: "fa fa-paperclip",
   plus: "fa fa-plus",
   minus: "fa fa-minus"
-}, xe = $e;
-function Me(s, e) {
-  const t = {};
-  for (const n in e)
-    t[n] = {
+};
+function bt(s, t) {
+  const e = {};
+  for (const i in t)
+    e[i] = {
       component: s,
       props: {
-        icon: e[n].split(" fa-")
+        icon: t[i].split(" fa-")
       }
     };
-  return t;
+  return e;
 }
-const He = Me("font-awesome-icon", R), Te = Object.freeze({
-  mdiSvg: ye,
-  md: be,
-  mdi: ke,
-  fa: R,
-  fa4: xe,
-  faSvg: He
+const Ct = bt("font-awesome-icon", N), kt = Object.freeze({
+  mdiSvg: vt,
+  md: yt,
+  mdi: Lt,
+  fa: N,
+  fa4: _t,
+  faSvg: Ct
 });
-class $ extends m {
-  constructor(e) {
+class x extends u {
+  constructor(t) {
     super();
     const {
-      iconfont: t,
-      values: n,
-      component: i
-    } = e[$.property];
-    this.component = i, this.iconfont = t, this.values = _(Te[t], n);
+      iconfont: e,
+      values: i,
+      component: n
+    } = t[x.property];
+    this.component = n, this.iconfont = e, this.values = g(kt[e], i);
   }
 }
-$.property = "icons";
+x.property = "icons";
 const D = "$vuetify.", P = Symbol("Lang fallback");
-function W(s, e, t = !1, n) {
-  const i = e.replace(D, "");
-  let a = ee(s, i, P);
-  return a === P && (t ? (K(`Translation key "${i}" not found in fallback`), a = e) : (y(`Translation key "${i}" not found, falling back to default`), a = W(n, e, !0, n))), a;
+function R(s, t, e = !1, i) {
+  const n = t.replace(D, "");
+  let a = J(s, n, P);
+  return a === P && (e ? (G(`Translation key "${n}" not found in fallback`), a = t) : (y(`Translation key "${n}" not found, falling back to default`), a = R(i, t, !0, i))), a;
 }
-class x extends m {
-  constructor(e) {
+class M extends u {
+  constructor(t) {
     super(), this.defaultLocale = "en";
     const {
-      current: t,
-      locales: n,
-      t: i
-    } = e[x.property];
-    this.current = t, this.locales = n, this.translator = i || this.defaultTranslator;
+      current: e,
+      locales: i,
+      t: n
+    } = t[M.property];
+    this.current = e, this.locales = i, this.translator = n || this.defaultTranslator;
   }
-  currentLocale(e) {
-    const t = this.locales[this.current], n = this.locales[this.defaultLocale];
-    return W(t, e, !1, n);
+  currentLocale(t) {
+    const e = this.locales[this.current], i = this.locales[this.defaultLocale];
+    return R(e, t, !1, i);
   }
-  t(e, ...t) {
-    return e.startsWith(D) ? this.translator(e, ...t) : this.replace(e, t);
+  t(t, ...e) {
+    return t.startsWith(D) ? this.translator(t, ...e) : this.replace(t, e);
   }
-  defaultTranslator(e, ...t) {
-    return this.replace(this.currentLocale(e), t);
+  defaultTranslator(t, ...e) {
+    return this.replace(this.currentLocale(t), e);
   }
-  replace(e, t) {
-    return e.replace(/\{(\d+)\}/g, (n, i) => String(t[+i]));
+  replace(t, e) {
+    return t.replace(/\{(\d+)\}/g, (i, n) => String(e[+n]));
   }
 }
-x.property = "lang";
-const Ae = {
+M.property = "lang";
+const wt = {
   badge: "Badge",
   close: "Close",
   dataIterator: {
@@ -576,8 +556,9 @@ const Ae = {
     }
   },
   loading: "Loading..."
-}, Se = {
+}, xt = {
   breakpoint: {
+    // TODO: update to MD2 spec in v3 - 1280
     mobileBreakpoint: 1264,
     scrollBarWidth: 16,
     thresholds: {
@@ -588,14 +569,16 @@ const Ae = {
     }
   },
   icons: {
+    // TODO: remove v3
     iconfont: "mdi",
     values: {}
   },
   lang: {
     current: "en",
     locales: {
-      en: Ae
+      en: wt
     },
+    // Default translator exists in lang service
     t: void 0
   },
   rtl: !1,
@@ -632,147 +615,146 @@ const Ae = {
     }
   }
 };
-class z extends m {
-  constructor(e, t) {
+class z extends u {
+  constructor(t, e) {
     super();
-    const n = _({}, Se), {
-      userPreset: i
-    } = t, {
+    const i = g({}, xt), {
+      userPreset: n
+    } = e, {
       preset: a = {},
       ...r
-    } = i;
-    a.preset != null && y("Global presets do not support the **preset** option, it can be safely omitted"), t.preset = _(_(n, a), r);
+    } = n;
+    a.preset != null && y("Global presets do not support the **preset** option, it can be safely omitted"), e.preset = g(g(i, a), r);
   }
 }
 z.property = "presets";
-const Oe = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], Ve = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Fe = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Ee = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+const Mt = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.204, 1.057]], $t = (s) => s <= 31308e-7 ? s * 12.92 : 1.055 * s ** (1 / 2.4) - 0.055, Ht = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]], Tt = (s) => s <= 0.04045 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4;
+function W(s) {
+  const t = Array(3), e = $t, i = Mt;
+  for (let n = 0; n < 3; ++n)
+    t[n] = Math.round(et(e(i[n][0] * s[0] + i[n][1] * s[1] + i[n][2] * s[2])) * 255);
+  return (t[0] << 16) + (t[1] << 8) + (t[2] << 0);
+}
 function U(s) {
-  const e = Array(3), t = Ve, n = Oe;
-  for (let i = 0; i < 3; ++i)
-    e[i] = Math.round(se(t(n[i][0] * s[0] + n[i][1] * s[1] + n[i][2] * s[2])) * 255);
-  return (e[0] << 16) + (e[1] << 8) + (e[2] << 0);
-}
-function q(s) {
-  const e = [0, 0, 0], t = Ee, n = Fe, i = t((s >> 16 & 255) / 255), a = t((s >> 8 & 255) / 255), r = t((s >> 0 & 255) / 255);
+  const t = [0, 0, 0], e = Tt, i = Ht, n = e((s >> 16 & 255) / 255), a = e((s >> 8 & 255) / 255), r = e((s >> 0 & 255) / 255);
   for (let c = 0; c < 3; ++c)
-    e[c] = n[c][0] * i + n[c][1] * a + n[c][2] * r;
-  return e;
+    t[c] = i[c][0] * n + i[c][1] * a + i[c][2] * r;
+  return t;
 }
-function V(s) {
-  let e;
+function O(s) {
+  let t;
   if (typeof s == "number")
-    e = s;
+    t = s;
   else if (typeof s == "string") {
-    let t = s[0] === "#" ? s.substring(1) : s;
-    t.length === 3 && (t = t.split("").map((n) => n + n).join("")), t.length !== 6 && y(`'${s}' is not a valid rgb color`), e = parseInt(t, 16);
+    let e = s[0] === "#" ? s.substring(1) : s;
+    e.length === 3 && (e = e.split("").map((i) => i + i).join("")), e.length !== 6 && y(`'${s}' is not a valid rgb color`), t = parseInt(e, 16);
   } else
     throw new TypeError(`Colors can only be numbers or strings, recieved ${s == null ? s : s.constructor.name} instead`);
-  return e < 0 ? (y(`Colors cannot be negative: '${s}'`), e = 0) : (e > 16777215 || isNaN(e)) && (y(`'${s}' is not a valid rgb color`), e = 16777215), e;
+  return t < 0 ? (y(`Colors cannot be negative: '${s}'`), t = 0) : (t > 16777215 || isNaN(t)) && (y(`'${s}' is not a valid rgb color`), t = 16777215), t;
 }
 function v(s) {
-  let e = s.toString(16);
-  return e.length < 6 && (e = "0".repeat(6 - e.length) + e), "#" + e;
+  let t = s.toString(16);
+  return t.length < 6 && (t = "0".repeat(6 - t.length) + t), "#" + t;
 }
-function Pe(s) {
-  return v(V(s));
+function At(s) {
+  return v(O(s));
 }
-const k = 0.20689655172413793, je = (s) => s > k ** 3 ? Math.cbrt(s) : s / (3 * k ** 2) + 4 / 29, Be = (s) => s > k ? s ** 3 : 3 * k ** 2 * (s - 4 / 29);
+const k = 0.20689655172413793, St = (s) => s > k ** 3 ? Math.cbrt(s) : s / (3 * k ** 2) + 4 / 29, Ot = (s) => s > k ? s ** 3 : 3 * k ** 2 * (s - 4 / 29);
+function q(s) {
+  const t = St, e = t(s[1]);
+  return [116 * e - 16, 500 * (t(s[0] / 0.95047) - e), 200 * (e - t(s[2] / 1.08883))];
+}
 function Q(s) {
-  const e = je, t = e(s[1]);
-  return [116 * t - 16, 500 * (e(s[0] / 0.95047) - t), 200 * (t - e(s[2] / 1.08883))];
+  const t = Ot, e = (s[0] + 16) / 116;
+  return [t(e + s[1] / 500) * 0.95047, t(e), t(e - s[2] / 200) * 1.08883];
 }
-function Y(s) {
-  const e = Be, t = (s[0] + 16) / 116;
-  return [e(t + s[1] / 500) * 0.95047, e(t), e(t - s[2] / 200) * 1.08883];
-}
-function X(s, e = !1, t = !0) {
+function Y(s, t = !1, e = !0) {
   const {
-    anchor: n,
-    ...i
-  } = s, a = Object.keys(i), r = {};
+    anchor: i,
+    ...n
+  } = s, a = Object.keys(n), r = {};
   for (let c = 0; c < a.length; ++c) {
     const o = a[c], l = s[o];
-    l != null && (t ? e ? (o === "base" || o.startsWith("lighten") || o.startsWith("darken")) && (r[o] = Pe(l)) : typeof l == "object" ? r[o] = X(l, !0, t) : r[o] = Re(o, V(l)) : r[o] = {
-      base: v(V(l))
+    l != null && (e ? t ? (o === "base" || o.startsWith("lighten") || o.startsWith("darken")) && (r[o] = At(l)) : typeof l == "object" ? r[o] = Y(l, !0, e) : r[o] = Et(o, O(l)) : r[o] = {
+      base: v(O(l))
     });
   }
-  return e || (r.anchor = n || r.base || r.primary.base), r;
+  return t || (r.anchor = i || r.base || r.primary.base), r;
 }
-const Ze = (s, e) => `
+const Vt = (s, t) => `
 .v-application .${s} {
-  background-color: ${e} !important;
-  border-color: ${e} !important;
-}
-.v-application .${s}--text {
-  color: ${e} !important;
-  caret-color: ${e} !important;
-}`, Ne = (s, e, t) => {
-  const [n, i] = e.split(/(\d)/, 2);
-  return `
-.v-application .${s}.${n}-${i} {
   background-color: ${t} !important;
   border-color: ${t} !important;
 }
-.v-application .${s}--text.text--${n}-${i} {
+.v-application .${s}--text {
   color: ${t} !important;
   caret-color: ${t} !important;
+}`, Ft = (s, t, e) => {
+  const [i, n] = t.split(/(\d)/, 2);
+  return `
+.v-application .${s}.${i}-${n} {
+  background-color: ${e} !important;
+  border-color: ${e} !important;
+}
+.v-application .${s}--text.text--${i}-${n} {
+  color: ${e} !important;
+  caret-color: ${e} !important;
 }`;
-}, C = (s, e = "base") => `--v-${s}-${e}`, A = (s, e = "base") => `var(${C(s, e)})`;
-function Ie(s, e = !1) {
+}, C = (s, t = "base") => `--v-${s}-${t}`, A = (s, t = "base") => `var(${C(s, t)})`;
+function Pt(s, t = !1) {
   const {
-    anchor: t,
-    ...n
-  } = s, i = Object.keys(n);
-  if (!i.length)
-    return "";
+    anchor: e,
+    ...i
+  } = s, n = Object.keys(i);
+  if (!n.length) return "";
   let a = "", r = "";
-  const c = e ? A("anchor") : t;
-  r += `.v-application a { color: ${c}; }`, e && (a += `  ${C("anchor")}: ${t};
+  const c = t ? A("anchor") : e;
+  r += `.v-application a { color: ${c}; }`, t && (a += `  ${C("anchor")}: ${e};
 `);
-  for (let o = 0; o < i.length; ++o) {
-    const l = i[o], d = s[l];
-    r += Ze(l, e ? A(l) : d.base), e && (a += `  ${C(l)}: ${d.base};
+  for (let o = 0; o < n.length; ++o) {
+    const l = n[o], f = s[l];
+    r += Vt(l, t ? A(l) : f.base), t && (a += `  ${C(l)}: ${f.base};
 `);
-    const u = te(d);
-    for (let f = 0; f < u.length; ++f) {
-      const h = u[f], p = d[h];
-      h !== "base" && (r += Ne(l, h, e ? A(l, h) : p), e && (a += `  ${C(l, h)}: ${p};
+    const d = tt(f);
+    for (let p = 0; p < d.length; ++p) {
+      const m = d[p], _ = f[m];
+      m !== "base" && (r += Ft(l, m, t ? A(l, m) : _), t && (a += `  ${C(l, m)}: ${_};
 `));
     }
   }
-  return e && (a = `:root {
+  return t && (a = `:root {
 ${a}}
 
 `), a + r;
 }
-function Re(s, e) {
-  const t = {
-    base: v(e)
+function Et(s, t) {
+  const e = {
+    base: v(t)
   };
-  for (let n = 5; n > 0; --n)
-    t[`lighten${n}`] = v(De(e, n));
-  for (let n = 1; n <= 4; ++n)
-    t[`darken${n}`] = v(We(e, n));
-  return t;
+  for (let i = 5; i > 0; --i)
+    e[`lighten${i}`] = v(jt(t, i));
+  for (let i = 1; i <= 4; ++i)
+    e[`darken${i}`] = v(Bt(t, i));
+  return e;
 }
-function De(s, e) {
-  const t = Q(q(s));
-  return t[0] = t[0] + e * 10, U(Y(t));
+function jt(s, t) {
+  const e = q(U(s));
+  return e[0] = e[0] + t * 10, W(Q(e));
 }
-function We(s, e) {
-  const t = Q(q(s));
-  return t[0] = t[0] - e * 10, U(Y(t));
+function Bt(s, t) {
+  const e = q(U(s));
+  return e[0] = e[0] - t * 10, W(Q(e));
 }
-class M extends m {
-  constructor(e) {
+class $ extends u {
+  constructor(t) {
     super(), this.disabled = !1, this.isDark = null, this.unwatch = null, this.vueMeta = null;
     const {
-      dark: t,
-      disable: n,
-      options: i,
+      dark: e,
+      disable: i,
+      options: n,
       themes: a
-    } = e[M.property];
-    if (this.dark = Boolean(t), this.defaults = this.themes = a, this.options = i, n) {
+    } = t[$.property];
+    if (this.dark = !!e, this.defaults = this.themes = a, this.options = n, i) {
       this.disabled = !0;
       return;
     }
@@ -781,71 +763,82 @@ class M extends m {
       light: this.fillVariant(a.light, !1)
     };
   }
-  set css(e) {
+  // When setting css, check for element and apply new values
+  /* eslint-disable-next-line accessor-pairs */
+  set css(t) {
     if (this.vueMeta) {
       this.isVueMeta23 && this.applyVueMeta23();
       return;
     }
-    this.checkOrCreateStyleElement() && (this.styleEl.innerHTML = e);
+    this.checkOrCreateStyleElement() && (this.styleEl.innerHTML = t);
   }
-  set dark(e) {
-    const t = this.isDark;
-    this.isDark = e, t != null && this.applyTheme();
+  set dark(t) {
+    const e = this.isDark;
+    this.isDark = t, e != null && this.applyTheme();
   }
   get dark() {
-    return Boolean(this.isDark);
+    return !!this.isDark;
   }
+  // Apply current theme default
+  // only called on client side
   applyTheme() {
-    if (this.disabled)
-      return this.clearCss();
+    if (this.disabled) return this.clearCss();
     this.css = this.generatedStyles;
   }
   clearCss() {
     this.css = "";
   }
-  init(e, t) {
-    this.disabled || (e.$meta ? this.initVueMeta(e) : t && this.initSSR(t), this.initTheme(e));
+  // Initialize theme for SSR and SPA
+  // Attach to ssrContext head or
+  // apply new theme to document
+  init(t, e) {
+    this.disabled || (t.$meta ? this.initVueMeta(t) : e && this.initSSR(e), this.initTheme(t));
   }
-  setTheme(e, t) {
-    this.themes[e] = Object.assign(this.themes[e], t), this.applyTheme();
+  // Allows for you to set target theme
+  setTheme(t, e) {
+    this.themes[t] = Object.assign(this.themes[t], e), this.applyTheme();
   }
+  // Reset theme defaults
   resetThemes() {
     this.themes.light = Object.assign({}, this.defaults.light), this.themes.dark = Object.assign({}, this.defaults.dark), this.applyTheme();
   }
+  // Check for existence of style element
   checkOrCreateStyleElement() {
-    return this.styleEl = document.getElementById("vuetify-theme-stylesheet"), this.styleEl ? !0 : (this.genStyleElement(), Boolean(this.styleEl));
+    return this.styleEl = document.getElementById("vuetify-theme-stylesheet"), this.styleEl ? !0 : (this.genStyleElement(), !!this.styleEl);
   }
-  fillVariant(e = {}, t) {
-    const n = this.themes[t ? "dark" : "light"];
-    return Object.assign({}, n, e);
+  fillVariant(t = {}, e) {
+    const i = this.themes[e ? "dark" : "light"];
+    return Object.assign({}, i, t);
   }
+  // Generate the style element
+  // if applicable
   genStyleElement() {
     typeof document > "u" || (this.styleEl = document.createElement("style"), this.styleEl.type = "text/css", this.styleEl.id = "vuetify-theme-stylesheet", this.options.cspNonce && this.styleEl.setAttribute("nonce", this.options.cspNonce), document.head.appendChild(this.styleEl));
   }
-  initVueMeta(e) {
-    if (this.vueMeta = e.$meta(), this.isVueMeta23) {
-      e.$nextTick(() => {
+  initVueMeta(t) {
+    if (this.vueMeta = t.$meta(), this.isVueMeta23) {
+      t.$nextTick(() => {
         this.applyVueMeta23();
       });
       return;
     }
-    const t = typeof this.vueMeta.getOptions == "function" ? this.vueMeta.getOptions().keyName : "metaInfo", n = e.$options[t] || {};
-    e.$options[t] = () => {
-      n.style = n.style || [];
-      const i = n.style.find((a) => a.id === "vuetify-theme-stylesheet");
-      return i ? i.cssText = this.generatedStyles : n.style.push({
+    const e = typeof this.vueMeta.getOptions == "function" ? this.vueMeta.getOptions().keyName : "metaInfo", i = t.$options[e] || {};
+    t.$options[e] = () => {
+      i.style = i.style || [];
+      const n = i.style.find((a) => a.id === "vuetify-theme-stylesheet");
+      return n ? n.cssText = this.generatedStyles : i.style.push({
         cssText: this.generatedStyles,
         type: "text/css",
         id: "vuetify-theme-stylesheet",
         nonce: (this.options || {}).cspNonce
-      }), n;
+      }), i;
     };
   }
   applyVueMeta23() {
     const {
-      set: e
+      set: t
     } = this.vueMeta.addApp("vuetify");
-    e({
+    t({
       style: [{
         cssText: this.generatedStyles,
         type: "text/css",
@@ -854,123 +847,80 @@ class M extends m {
       }]
     });
   }
-  initSSR(e) {
-    const t = this.options.cspNonce ? ` nonce="${this.options.cspNonce}"` : "";
-    e.head = e.head || "", e.head += `<style type="text/css" id="vuetify-theme-stylesheet"${t}>${this.generatedStyles}</style>`;
+  initSSR(t) {
+    const e = this.options.cspNonce ? ` nonce="${this.options.cspNonce}"` : "";
+    t.head = t.head || "", t.head += `<style type="text/css" id="vuetify-theme-stylesheet"${e}>${this.generatedStyles}</style>`;
   }
-  initTheme(e) {
-    typeof document > "u" || (this.unwatch && (this.unwatch(), this.unwatch = null), e.$once("hook:created", () => {
-      const t = F.observable({
+  initTheme(t) {
+    typeof document > "u" || (this.unwatch && (this.unwatch(), this.unwatch = null), t.$once("hook:created", () => {
+      const e = V.observable({
         themes: this.themes
       });
-      this.unwatch = e.$watch(() => t.themes, () => this.applyTheme(), {
+      this.unwatch = t.$watch(() => e.themes, () => this.applyTheme(), {
         deep: !0
       });
     }), this.applyTheme());
   }
   get currentTheme() {
-    const e = this.dark ? "dark" : "light";
-    return this.themes[e];
+    const t = this.dark ? "dark" : "light";
+    return this.themes[t];
   }
   get generatedStyles() {
-    const e = this.parsedTheme, t = this.options || {};
-    let n;
-    return t.themeCache != null && (n = t.themeCache.get(e), n != null) || (n = Ie(e, t.customProperties), t.minifyTheme != null && (n = t.minifyTheme(n)), t.themeCache != null && t.themeCache.set(e, n)), n;
+    const t = this.parsedTheme, e = this.options || {};
+    let i;
+    return e.themeCache != null && (i = e.themeCache.get(t), i != null) || (i = Pt(t, e.customProperties), e.minifyTheme != null && (i = e.minifyTheme(i)), e.themeCache != null && e.themeCache.set(t, i)), i;
   }
   get parsedTheme() {
-    return X(this.currentTheme || {}, void 0, j(this.options, ["variations"], !0));
+    return Y(this.currentTheme || {}, void 0, E(this.options, ["variations"], !0));
   }
+  // Is using v2.3 of vue-meta
+  // https://github.com/nuxt/vue-meta/releases/tag/v2.3.0
   get isVueMeta23() {
     return typeof this.vueMeta.addApp == "function";
   }
 }
-M.property = "theme";
-class g {
-  constructor(e = {}) {
+$.property = "theme";
+class h {
+  constructor(t = {}) {
     this.framework = {
       isHydrating: !1
-    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = e, this.use(z), this.use(B), this.use(w), this.use(I), this.use($), this.use(x), this.use(M);
+    }, this.installed = [], this.preset = {}, this.userPreset = {}, this.userPreset = t, this.use(z), this.use(j), this.use(w), this.use(I), this.use(x), this.use(M), this.use($);
   }
-  init(e, t) {
-    this.installed.forEach((n) => {
-      const i = this.framework[n];
-      i.framework = this.framework, i.init(e, t);
-    }), this.framework.rtl = Boolean(this.preset.rtl);
+  // Called on the new vuetify instance
+  // bootstrap in install beforeCreate
+  // Exposes ssrContext if available
+  init(t, e) {
+    this.installed.forEach((i) => {
+      const n = this.framework[i];
+      n.framework = this.framework, n.init(t, e);
+    }), this.framework.rtl = !!this.preset.rtl;
   }
-  use(e) {
-    const t = e.property;
-    this.installed.includes(t) || (this.framework[t] = new e(this.preset, this), this.installed.push(t));
+  // Instantiate a VuetifyService
+  use(t) {
+    const e = t.property;
+    this.installed.includes(e) || (this.framework[e] = new t(this.preset, this), this.installed.push(e));
   }
 }
-g.install = O;
-g.installed = !1;
-g.version = "2.7.2";
-g.config = {
+h.install = S;
+h.installed = !1;
+h.version = "2.7.2";
+h.config = {
   silent: !1
 };
-function G(s, e, t) {
-  if (!g.config.silent) {
-    if (t && (e = {
-      _isVue: !0,
-      $parent: t,
-      $options: e
-    }), e) {
-      if (e.$_alreadyWarned = e.$_alreadyWarned || [], e.$_alreadyWarned.includes(s))
-        return;
-      e.$_alreadyWarned.push(s);
-    }
-    return `[Vuetify] ${s}` + (e ? qe(e) : "");
-  }
+function X(s, t, e) {
+  if (!h.config.silent)
+    return `[Vuetify] ${s}`;
 }
-function y(s, e, t) {
-  const n = G(s, e, t);
-  n != null && console.warn(n);
+function y(s, t, e) {
+  const i = X(s);
+  i != null && console.warn(i);
 }
-function K(s, e, t) {
-  const n = G(s, e, t);
-  n != null && console.error(n);
+function G(s, t, e) {
+  const i = X(s);
+  i != null && console.error(i);
 }
-const ze = /(?:^|[-_])(\w)/g, Ue = (s) => s.replace(ze, (e) => e.toUpperCase()).replace(/[-_]/g, "");
-function S(s, e) {
-  if (s.$root === s)
-    return "<Root>";
-  const t = typeof s == "function" && s.cid != null ? s.options : s._isVue ? s.$options || s.constructor.options : s || {};
-  let n = t.name || t._componentTag;
-  const i = t.__file;
-  if (!n && i) {
-    const a = i.match(/([^/\\]+)\.vue$/);
-    n = a && a[1];
-  }
-  return (n ? `<${Ue(n)}>` : "<Anonymous>") + (i && e !== !1 ? ` at ${i}` : "");
-}
-function qe(s) {
-  if (s._isVue && s.$parent) {
-    const e = [];
-    let t = 0;
-    for (; s; ) {
-      if (e.length > 0) {
-        const n = e[e.length - 1];
-        if (n.constructor === s.constructor) {
-          t++, s = s.$parent;
-          continue;
-        } else
-          t > 0 && (e[e.length - 1] = [n, t], t = 0);
-      }
-      e.push(s), s = s.$parent;
-    }
-    return `
-
-found in
-
-` + e.map((n, i) => `${i === 0 ? "---> " : " ".repeat(5 + i * 2)}${Array.isArray(n) ? `${S(n[0])}... (${n[1]} recursive calls)` : S(n)}`).join(`
-`);
-  } else
-    return `
-
-(found in ${S(s)})`;
-}
-F.use(g);
-const Qe = {
+V.use(h);
+const Zt = {
   ssr: !1,
   components,
   directives,
@@ -984,35 +934,15 @@ const Qe = {
       }
     }
   }
-}, ht = new g(Qe);
-function H(s, e, t, n, i, a, r, c) {
+}, ne = new h(Zt);
+function H(s, t, e, i, n, a, r, c) {
   var o = typeof s == "function" ? s.options : s;
-  e && (o.render = e, o.staticRenderFns = t, o._compiled = !0), n && (o.functional = !0), a && (o._scopeId = "data-v-" + a);
-  var l;
-  if (r ? (l = function(f) {
-    f = f || this.$vnode && this.$vnode.ssrContext || this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext, !f && typeof __VUE_SSR_CONTEXT__ < "u" && (f = __VUE_SSR_CONTEXT__), i && i.call(this, f), f && f._registeredComponents && f._registeredComponents.add(r);
-  }, o._ssrRegister = l) : i && (l = c ? function() {
-    i.call(
-      this,
-      (o.functional ? this.parent : this).$root.$options.shadowRoot
-    );
-  } : i), l)
-    if (o.functional) {
-      o._injectStyles = l;
-      var d = o.render;
-      o.render = function(h, p) {
-        return l.call(p), d(h, p);
-      };
-    } else {
-      var u = o.beforeCreate;
-      o.beforeCreate = u ? [].concat(u, l) : [l];
-    }
-  return {
+  return t && (o.render = t, o.staticRenderFns = e, o._compiled = !0), a && (o._scopeId = "data-v-" + a), {
     exports: s,
     options: o
   };
 }
-const Ye = {
+const It = {
   name: "MobileMenu",
   props: {
     env: {
@@ -1037,35 +967,32 @@ const Ye = {
   }),
   computed: {
     projectLoc() {
-      return this.projects.find((e) => e.title === this.activeProject || !!e.tag && e.tag === this.activeProject);
+      return this.projects.find((t) => t.title === this.activeProject || !!t.tag && t.tag === this.activeProject);
     }
   },
   async beforeMount() {
     const { data: s } = await fetch(`${url}/projects`).then(
-      (e) => e.json()
+      (t) => t.json()
     );
     this.projects = s;
   }
 };
-var Xe = function() {
-  var e = this, t = e._self._c;
-  return t("v-card", [e._t("switcher"), e._t("default"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Home ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/about_ccaf` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF About ")])], 1), t("v-divider"), t("v-list-item", { attrs: { href: `https://${e.env}ccaf.io/contact?topic=cbeci` } }, [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Contact ")])], 1), t("v-divider"), t("v-list-item", [t("v-list-item-title", { staticClass: "list__title" }, [e._v(" CCAF Digital Tools: ")])], 1), t("div", { staticClass: "chips" }, e._l(e.projects, function(n, i) {
-    return t("v-chip", { key: n.id, staticClass: "chips__item", class: {
-      "chips__item-active": e.projectLoc && n.title === e.projectLoc.title
-    }, attrs: { href: i ? `https://${e.env === "demo" ? "demo." : ""}ccaf.io/${n.link}` : void 0 } }, [e._v(" " + e._s(n.tag || n.title) + " ")]);
+var Nt = function() {
+  var t = this, e = t._self._c;
+  return e("v-card", [t._t("switcher"), t._t("default"), e("v-list-item", { attrs: { href: `https://${t.env}ccaf.io/` } }, [e("v-list-item-title", { staticClass: "list__title" }, [t._v(" CCAF Home ")])], 1), e("v-divider"), e("v-list-item", { attrs: { href: `https://${t.env}ccaf.io/about_ccaf` } }, [e("v-list-item-title", { staticClass: "list__title" }, [t._v(" CCAF About ")])], 1), e("v-divider"), e("v-list-item", { attrs: { href: `https://${t.env}ccaf.io/contact?topic=cbeci` } }, [e("v-list-item-title", { staticClass: "list__title" }, [t._v(" CCAF Contact ")])], 1), e("v-divider"), e("v-list-item", [e("v-list-item-title", { staticClass: "list__title" }, [t._v(" CCAF Digital Tools: ")])], 1), e("div", { staticClass: "chips" }, t._l(t.projects, function(i, n) {
+    return e("v-chip", { key: i.id, staticClass: "chips__item", class: {
+      "chips__item-active": t.projectLoc && i.title === t.projectLoc.title
+    }, attrs: { href: n ? `https://${t.env === "demo" ? "demo." : ""}ccaf.io/${i.link}` : void 0 } }, [t._v(" " + t._s(i.tag || i.title) + " ")]);
   }), 1)], 2);
-}, Ge = [], Ke = /* @__PURE__ */ H(
-  Ye,
-  Xe,
-  Ge,
+}, Dt = [], Rt = /* @__PURE__ */ H(
+  It,
+  Nt,
+  Dt,
   !1,
   null,
-  "af97d061",
-  null,
-  null
+  "af97d061"
 );
-const b = Ke.exports;
-const Je = {
+const b = Rt.exports, zt = {
   name: "LayoutFooter",
   data() {
     return {
@@ -1111,39 +1038,36 @@ const Je = {
   mounted() {
     typeof window < "u" && (this.env_project = this.env === "demo" ? "demo." : "", window.onscroll = () => {
       this.scrollUp = document.body.scrollTop > 50 || document.documentElement.scrollTop > 50;
-      const e = document.getElementById("sidebar"), t = document.getElementById("sidebar__menu"), n = document.getElementById("footer");
-      if (t && e && n) {
-        const i = window.innerHeight < t.getBoundingClientRect().height + 72 ? window.innerHeight - 72 : t.getBoundingClientRect().height, a = n.getBoundingClientRect().top, r = t.getBoundingClientRect().top, c = document.body.scrollTop;
+      const t = document.getElementById("sidebar"), e = document.getElementById("sidebar__menu"), i = document.getElementById("footer");
+      if (e && t && i) {
+        const n = window.innerHeight < e.getBoundingClientRect().height + 72 ? window.innerHeight - 72 : e.getBoundingClientRect().height, a = i.getBoundingClientRect().top, r = e.getBoundingClientRect().top, c = document.body.scrollTop;
         let o = Math.max(72, r - c);
-        c + i + 72 > a && (o = Math.min(
+        c + n + 72 > a && (o = Math.min(
           o,
-          a - c - i
-        )), e.style.top = o + "px";
+          a - c - n
+        )), t.style.top = o + "px";
       }
     });
   }
 };
-var et = function() {
-  var e = this, t = e._self._c;
-  return t("v-footer", { staticClass: "footer pa-0", attrs: { id: "footer", color: "white", width: "100vw" } }, [e.scrollUp ? t("div", { staticClass: "goup", on: { click: function(n) {
-    return e.goTo(0, {
+var Wt = function() {
+  var t = this, e = t._self._c;
+  return e("v-footer", { staticClass: "footer pa-0", attrs: { id: "footer", color: "white", width: "100vw" } }, [t.scrollUp ? e("div", { staticClass: "goup", on: { click: function(i) {
+    return t.goTo(0, {
       duration: 300,
       offset: 0,
       easing: "easeInOutCubic"
     });
-  } } }, [t("v-icon", { attrs: { size: "18", color: "#FFB71A" } }, [e._v(" mdi-arrow-up ")])], 1) : e._e(), t("v-container", { staticStyle: { height: "100%" }, attrs: { fluid: "" } }, [t("div", { staticClass: "footer__pre-footer", attrs: { align: "start", justify: "start", "no-gutters": "" } }, [t("div", { staticClass: "footer__info" }, [t("div", { staticClass: "footer__pre-links mb-4 pa-4", attrs: { cols: "auto" } }, [t("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: e.webLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-web ")]), t("p", [e._v(e._s(e.webLink))])], 1), t("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: `mailto:${e.email}` } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-email ")]), t("p", [e._v(e._s(e.email))])], 1), t("a", { staticClass: "footer__link footer__link--location mb-2 link-icon", attrs: { href: e.locationLink } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [e._v(" mdi-map-marker ")]), t("p", [e._v(e._s(e.location))])], 1), t("div", { staticClass: "ml-7" }, [t("v-row", [t("v-col", [e.linkedinLink ? t("a", { staticClass: "link-icon", attrs: { href: e.linkedinLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-linkedin ")])], 1) : e._e(), e.twitterLink ? t("a", { staticClass: "link-icon", attrs: { href: e.twitterLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-twitter ")])], 1) : e._e(), e.facebookLink ? t("a", { staticClass: "link-icon", attrs: { href: e.facebookLink, target: "_blank" } }, [t("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [e._v(" mdi-facebook ")])], 1) : e._e()])], 1)], 1)]), t("div", { staticClass: "footer__pre-commons mb-4 pa-4", attrs: { cols: "auto" } }, [t("a", { attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [t("img", { staticStyle: { "border-width": "0" }, attrs: { alt: "Creative Commons License", src: "https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" } })]), t("br"), t("p", { staticStyle: { "font-size": "12px", "max-width": "280px" } }, [e._v(" This work is licensed under a "), t("a", { staticStyle: { color: "#262b4a" }, attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [e._v(" Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ")])])])]), e._t("supported")], 2), t("v-row", { staticClass: "footer__main-footer", attrs: { align: "center", justify: e.$vuetify.breakpoint.smAndDown ? "center" : "space-between", "no-gutters": "" } }, [t("v-col", { class: { "footer-privacy": e.$vuetify.breakpoint.smAndDown }, attrs: { cols: "auto" } }, [t("a", { attrs: { href: `https://${e.env_project}ccaf.io/privacy_policy` } }, [e._v(" Privacy Policy ")])]), t("v-col", { attrs: { cols: "auto" } }, [t("span", [e._v("Cambridge Centre for Alternative Finance \xA9\xA0" + e._s(" " + new Date().getFullYear()))])])], 1)], 1)], 1);
-}, tt = [], st = /* @__PURE__ */ H(
-  Je,
-  et,
-  tt,
+  } } }, [e("v-icon", { attrs: { size: "18", color: "#FFB71A" } }, [t._v(" mdi-arrow-up ")])], 1) : t._e(), e("v-container", { staticStyle: { height: "100%" }, attrs: { fluid: "" } }, [e("div", { staticClass: "footer__pre-footer", attrs: { align: "start", justify: "start", "no-gutters": "" } }, [e("div", { staticClass: "footer__info" }, [e("div", { staticClass: "footer__pre-links mb-4 pa-4", attrs: { cols: "auto" } }, [e("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: t.webLink, target: "_blank" } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [t._v(" mdi-web ")]), e("p", [t._v(t._s(t.webLink))])], 1), e("a", { staticClass: "footer__link mb-2 link-icon", attrs: { href: `mailto:${t.email}` } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [t._v(" mdi-email ")]), e("p", [t._v(t._s(t.email))])], 1), e("a", { staticClass: "footer__link footer__link--location mb-2 link-icon", attrs: { href: t.locationLink } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "16", color: "#0e1436" } }, [t._v(" mdi-map-marker ")]), e("p", [t._v(t._s(t.location))])], 1), e("div", { staticClass: "ml-7" }, [e("v-row", [e("v-col", [t.linkedinLink ? e("a", { staticClass: "link-icon", attrs: { href: t.linkedinLink, target: "_blank" } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [t._v(" mdi-linkedin ")])], 1) : t._e(), t.twitterLink ? e("a", { staticClass: "link-icon", attrs: { href: t.twitterLink, target: "_blank" } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [t._v(" mdi-twitter ")])], 1) : t._e(), t.facebookLink ? e("a", { staticClass: "link-icon", attrs: { href: t.facebookLink, target: "_blank" } }, [e("v-icon", { staticClass: "mr-2", attrs: { size: "24", color: "#0e1436" } }, [t._v(" mdi-facebook ")])], 1) : t._e()])], 1)], 1)]), e("div", { staticClass: "footer__pre-commons mb-4 pa-4", attrs: { cols: "auto" } }, [e("a", { attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [e("img", { staticStyle: { "border-width": "0" }, attrs: { alt: "Creative Commons License", src: "https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc-sa.svg" } })]), e("br"), e("p", { staticStyle: { "font-size": "12px", "max-width": "280px" } }, [t._v(" This work is licensed under a "), e("a", { staticStyle: { color: "#262b4a" }, attrs: { rel: "license", href: "http://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" } }, [t._v(" Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License ")])])])]), t._t("supported")], 2), e("v-row", { staticClass: "footer__main-footer", attrs: { align: "center", justify: t.$vuetify.breakpoint.smAndDown ? "center" : "space-between", "no-gutters": "" } }, [e("v-col", { class: { "footer-privacy": t.$vuetify.breakpoint.smAndDown }, attrs: { cols: "auto" } }, [e("a", { attrs: { href: `https://${t.env_project}ccaf.io/privacy_policy` } }, [t._v(" Privacy Policy ")])]), e("v-col", { attrs: { cols: "auto" } }, [e("span", [t._v("Cambridge Centre for Alternative Finance © " + t._s(" " + (/* @__PURE__ */ new Date()).getFullYear()))])])], 1)], 1)], 1);
+}, Ut = [], qt = /* @__PURE__ */ H(
+  zt,
+  Wt,
+  Ut,
   !1,
   null,
-  "bca5b23e",
-  null,
-  null
+  "bca5b23e"
 );
-const pt = st.exports;
-const nt = {
+const ae = qt.exports, Qt = {
   name: "layout-header",
   props: {
     dialog: {
@@ -1180,10 +1104,10 @@ const nt = {
   },
   async beforeMount() {
     const { data: s } = await fetch(`${url}/projects`).then(
-      (e) => e.json()
+      (t) => t.json()
     );
     this.projects = s, console.log(s), this.project = this.projects.find(
-      (e) => e.title === this.activeSelect || !!e.tag && e.tag === this.activeSelect
+      (t) => t.title === this.activeSelect || !!t.tag && t.tag === this.activeSelect
     ) || this.projects[0];
   },
   mounted() {
@@ -1191,41 +1115,38 @@ const nt = {
   },
   methods: {
     linkTo(s) {
-      const e = this.projects.find(
-        (t) => t.title === s.title
+      const t = this.projects.find(
+        (e) => e.title === s.title
       );
-      e && (window.location.href = `https://${this.env_project}ccaf.io/${e.link}`);
+      t && (window.location.href = `https://${this.env_project}ccaf.io/${t.link}`);
     }
   }
 };
-var it = function() {
-  var e = this, t = e._self._c;
-  return t("v-app-bar", { staticClass: "header noselect", attrs: { id: "header", color: "#FFB71A", height: "72", "clipped-right": "", "clipped-left": "", flat: "", app: "" } }, [t("v-row", { staticClass: "header__logo", attrs: { align: "center", justify: "start" } }, [t("a", { attrs: { title: "CCAF.io", href: `https://${e.env_project}ccaf.io/` } }, [t("img", { attrs: { src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf", width: "179", height: "52", alt: "Cambridge Centre for Alternative Finance (CCAF.io)" } })]), t("h4", { staticClass: "d-none d-sm-flex header__title", staticStyle: { "font-family": "MyriadProSemiBold !important" } }, [e._v(" " + e._s(e.title) + " ")]), t("v-spacer"), t("ul", { staticClass: "header-links", class: { "is-long-title": !!e.project && !e.project.tag } }, [t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/" } }, [e._v("Home ")])]), t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/about_ccaf" } }, [e._v("About CCAF ")])]), t("li", { staticClass: "header-links__element" }, [t("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: `https://ccaf.io/contact?topic=${e.topic}` } }, [e._v("Contact ")])])]), t("div", { staticClass: "project-selector", class: { "is-title": !!e.project && !e.project.tag } }, [e.$vuetify.breakpoint.mdAndUp ? t("v-select", { attrs: { value: e.project, items: e.projects, "item-value": "title", "item-text": "tag", "menu-props": {
+var Yt = function() {
+  var t = this, e = t._self._c;
+  return e("v-app-bar", { staticClass: "header noselect", attrs: { id: "header", color: "#FFB71A", height: "72", "clipped-right": "", "clipped-left": "", flat: "", app: "" } }, [e("v-row", { staticClass: "header__logo", attrs: { align: "center", justify: "start" } }, [e("a", { attrs: { title: "CCAF.io", href: `https://${t.env_project}ccaf.io/` } }, [e("img", { attrs: { src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf", width: "179", height: "52", alt: "Cambridge Centre for Alternative Finance (CCAF.io)" } })]), e("h4", { staticClass: "d-none d-sm-flex header__title", staticStyle: { "font-family": "MyriadProSemiBold !important" } }, [t._v(" " + t._s(t.title) + " ")]), e("v-spacer"), e("ul", { staticClass: "header-links", class: { "is-long-title": !!t.project && !t.project.tag } }, [e("li", { staticClass: "header-links__element" }, [e("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/" } }, [t._v("Home ")])]), e("li", { staticClass: "header-links__element" }, [e("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: "https://ccaf.io/about_ccaf" } }, [t._v("About CCAF ")])]), e("li", { staticClass: "header-links__element" }, [e("a", { staticClass: "header-links__element-link", attrs: { title: "Home", href: `https://ccaf.io/contact?topic=${t.topic}` } }, [t._v("Contact ")])])]), e("div", { staticClass: "project-selector", class: { "is-title": !!t.project && !t.project.tag } }, [t.$vuetify.breakpoint.mdAndUp ? e("v-select", { attrs: { value: t.project, items: t.projects, "item-value": "title", "item-text": "tag", "menu-props": {
     offsetY: !0,
     offsetX: !0,
     nudgeBottom: "10px",
     nudgeLeft: "355px",
     maxHeight: 500,
     contentClass: "my-custom-select"
-  }, "background-color": "rgba(255, 183, 26, 0.32);", color: "#333333", height: "40", "append-icon": "mdi-chevron-down", "hide-details": "", solo: "", flat: "" }, on: { change: e.linkTo }, scopedSlots: e._u([{ key: "selection", fn: function({ item: n }) {
-    return [t("strong", { staticClass: "project-selector__active-element" }, [e._v(e._s(n.tag || n.title))])];
-  } }, { key: "item", fn: function({ item: n }) {
-    return [e._v(" " + e._s(n.title) + " "), t("v-spacer"), n.tag ? t("div", { staticClass: "ml-4 chips" }, [e._v(" " + e._s(n.tag) + " ")]) : e._e()];
-  } }], null, !1, 2944779132) }) : e._e()], 1)], 1), e.$vuetify.breakpoint.mdAndUp ? e._e() : t("v-dialog", { attrs: { value: e.dialog, fullscreen: "" }, on: { input: (n) => e.$emit("changeDialog", n) }, scopedSlots: e._u([{ key: "activator", fn: function({ on: n, value: i }) {
-    return [t("div", e._g({ staticClass: "header__nav-icon" }, n), [t("v-icon", { attrs: { color: "#000" } }, [e._v(" " + e._s(i ? "mdi-close" : "mdi-menu") + " ")])], 1)];
-  } }], null, !1, 485362672) }, [e._t("default", null, { close: () => e.isActive.value = !1 })], 2)], 1);
-}, at = [], ot = /* @__PURE__ */ H(
-  nt,
-  it,
-  at,
+  }, "background-color": "rgba(255, 183, 26, 0.32);", color: "#333333", height: "40", "append-icon": "mdi-chevron-down", "hide-details": "", solo: "", flat: "" }, on: { change: t.linkTo }, scopedSlots: t._u([{ key: "selection", fn: function({ item: i }) {
+    return [e("strong", { staticClass: "project-selector__active-element" }, [t._v(t._s(i.tag || i.title))])];
+  } }, { key: "item", fn: function({ item: i }) {
+    return [t._v(" " + t._s(i.title) + " "), e("v-spacer"), i.tag ? e("div", { staticClass: "ml-4 chips" }, [t._v(" " + t._s(i.tag) + " ")]) : t._e()];
+  } }], null, !1, 2944779132) }) : t._e()], 1)], 1), t.$vuetify.breakpoint.mdAndUp ? t._e() : e("v-dialog", { attrs: { value: t.dialog, fullscreen: "" }, on: { input: (i) => t.$emit("changeDialog", i) }, scopedSlots: t._u([{ key: "activator", fn: function({ on: i, value: n }) {
+    return [e("div", t._g({ staticClass: "header__nav-icon" }, i), [e("v-icon", { attrs: { color: "#000" } }, [t._v(" " + t._s(n ? "mdi-close" : "mdi-menu") + " ")])], 1)];
+  } }], null, !1, 485362672) }, [t._t("default", null, { close: () => t.isActive.value = !1 })], 2)], 1);
+}, Xt = [], Gt = /* @__PURE__ */ H(
+  Qt,
+  Yt,
+  Xt,
   !1,
   null,
-  "a237708b",
-  null,
-  null
+  "a237708b"
 );
-const mt = ot.exports;
-const rt = {
+const re = Gt.exports, Kt = {
   name: "Loader",
   props: {
     visible: {
@@ -1238,27 +1159,25 @@ const rt = {
     }
   }
 };
-var ct = function() {
-  var e = this, t = e._self._c;
-  return t("div", { staticClass: "app-loader", class: { "app-loader--visible": e.visible } }, [t("v-container", [t("v-row", { staticClass: "flex-column", attrs: { align: "center", justify: "center" } }, [e.title ? t("v-col", { attrs: { cols: "12" } }, [t("h1", { staticClass: "app-loader__title" }, [e._v(" " + e._s(e.title) + " ")])]) : e._e(), t("v-col", { staticClass: "d-flex justify-center", attrs: { cols: "12" } }, [t("div", { staticClass: "lds-ring" }, [t("div"), t("div"), t("div"), t("div")])]), t("v-col", { attrs: { cols: "12" } }, [t("p", { staticClass: "app-loader__state" }, [e._v("LOADING")])])], 1)], 1)], 1);
-}, lt = [], ft = /* @__PURE__ */ H(
-  rt,
-  ct,
-  lt,
+var Jt = function() {
+  var t = this, e = t._self._c;
+  return e("div", { staticClass: "app-loader", class: { "app-loader--visible": t.visible } }, [e("v-container", [e("v-row", { staticClass: "flex-column", attrs: { align: "center", justify: "center" } }, [t.title ? e("v-col", { attrs: { cols: "12" } }, [e("h1", { staticClass: "app-loader__title" }, [t._v(" " + t._s(t.title) + " ")])]) : t._e(), e("v-col", { staticClass: "d-flex justify-center", attrs: { cols: "12" } }, [e("div", { staticClass: "lds-ring" }, [e("div"), e("div"), e("div"), e("div")])]), e("v-col", { attrs: { cols: "12" } }, [e("p", { staticClass: "app-loader__state" }, [t._v("LOADING")])])], 1)], 1)], 1);
+}, te = [], ee = /* @__PURE__ */ H(
+  Kt,
+  Jt,
+  te,
   !1,
   null,
-  "c10ef48b",
-  null,
-  null
+  "c10ef48b"
 );
-const gt = ft.exports, dt = (s) => {
+const oe = ee.exports, se = (s) => {
   s.component("MobileMenu", b), s.component("LayoutFooter", b), s.component("LayoutHeader", b), s.component("Loader", b);
-}, _t = { install: dt };
+}, ce = { install: se };
 export {
-  pt as LayoutFooter,
-  mt as LayoutHeader,
-  gt as Loader,
+  ae as LayoutFooter,
+  re as LayoutHeader,
+  oe as Loader,
   b as MobileMenu,
-  ht as Vuetify,
-  _t as default
+  ne as Vuetify,
+  ce as default
 };
