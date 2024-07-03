@@ -1,8 +1,7 @@
-import {defineConfig} from 'vite';
+import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue2';
-import {resolve} from 'path';
+import { resolve } from 'path';
 import config from './package.json';
-
 import postcssImport from 'postcss-import';
 import postcss from 'postcss';
 
@@ -12,31 +11,32 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.js'),
       name: config.name,
-      fileName: (format) => `${config.name}.${format}.js`
+      formats: ['es', 'cjs', 'umd'],
+      fileName: (format) => `${config.name}.${format}.js`,
     },
     rollupOptions: {
       external: ['vue', 'vuetify'],
       output: {
         globals: {
           vue: 'Vue',
-          vuetify: 'Vuetify'
-        }
-      }
-    }
+          vuetify: 'Vuetify',
+        },
+      },
+    },
   },
   css: {
     postcss: {
-      plugins: [postcss(), postcssImport()]
+      plugins: [postcss(), postcssImport()],
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/styles/index.scss";`
-      }
-    }
+        additionalData: `@import "@/assets/styles/index.scss";`,
+      },
+    },
   },
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
-    }
-  }
+      '@': resolve(__dirname, 'src'),
+    },
+  },
 });
