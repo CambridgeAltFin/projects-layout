@@ -1,22 +1,22 @@
 import Vue from 'vue';
-import Vuetify from './plugins/vuetify';
+import Vuetify from 'vuetify/lib';
 
-
-
-export {Vuetify};
+import 'vuetify/dist/vuetify.min.css';
 
 import MobileMenu from './components/MobileMenu.vue';
 import LayoutFooter from './components/LayoutFooter.vue';
 import LayoutHeader from './components/LayoutHeader.vue';
 import Loader from './components/Loader.vue';
 
-export {MobileMenu, LayoutFooter, LayoutHeader, Loader};
+Vue.use(Vuetify);
 
 const install = (Vue) => {
   Vue.component('MobileMenu', MobileMenu);
-  Vue.component('LayoutFooter', MobileMenu);
-  Vue.component('LayoutHeader', MobileMenu);
-  Vue.component('Loader', MobileMenu);
+  Vue.component('LayoutFooter', LayoutFooter);
+  Vue.component('LayoutHeader', LayoutHeader);
+  Vue.component('Loader', Loader);
 };
+
+export {MobileMenu, LayoutFooter, LayoutHeader, Loader};
 
 export default {install};
