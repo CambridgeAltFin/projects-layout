@@ -293,7 +293,7 @@ export default {
 .header-links {
   padding: 0;
   margin-left: -30px;
-  margin-right: 5px;
+  margin-right: 20px;
   display: flex;
   align-items: center;
   &__element {
@@ -321,13 +321,20 @@ export default {
     @media (width < 1230px) {
       margin-right: 5px;
     }
+    @media (width < 1120px) {
+      display: none;
+    }
   }
   @media (width < 1230px) {
     margin-left: -5px;
   }
-  @media (width < 1000px) {
+  @media (width < 1080px) {
+    margin-right: 5px;
+  }
+  @media (width < 1030px) {
     display: none;
   }
+
 }
 </style>
 
