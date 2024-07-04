@@ -76,11 +76,9 @@ export default {
     }
   },
   async beforeMount() {
-    const {data} = await fetch(`${this.url}/projects`).then(
-      (data) => {
-        return data.json();
-      }
-    );
+    const {data} = await fetch(`${this.url}/projects`).then((data) => {
+      return data.json();
+    });
     this.projects = data;
   }
 };
@@ -115,7 +113,7 @@ export default {
     padding: 16px 24px;
     border-radius: 24px;
     background-color: #0f1434 !important;
-    color: white;
+    color: white !important;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

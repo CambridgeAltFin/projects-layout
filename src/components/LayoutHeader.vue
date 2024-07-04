@@ -101,6 +101,7 @@
       :value="dialog"
       @input="(value) => $emit('changeDialog', value)"
       fullscreen
+      content-class="header__dialog"
     >
       <template #activator="{on, value}">
         <div class="header__nav-icon" v-on="on">
@@ -151,11 +152,9 @@ export default {
     };
   },
   async beforeMount() {
-    const {data} = await fetch(`${this.url}/projects`).then(
-      (data) => {
-        return data.json();
-      }
-    );
+    const {data} = await fetch(`${this.url}/projects`).then((data) => {
+      return data.json();
+    });
     this.projects = data;
     console.log(data);
     this.project =
@@ -186,17 +185,16 @@ export default {
   .v-dialog--fullscreen {
     border-radius: 0;
     margin: 0;
-    height: 100%;
+    height: calc(100% - 72px);
     position: fixed;
     overflow-y: auto;
-    @include header-top;
-    padding-bottom: 40px;
+    top: 72px;
     left: 0;
   }
 }
 .header {
   width: 100vw;
-  @include header-height;
+  height: 72px;
   z-index: $header-index;
   &__nav-icon {
     position: absolute;
@@ -209,6 +207,8 @@ export default {
     @media (width < 1230px) {
       margin-left: 11px;
     }
+  }
+  &__dialog {
   }
   &__navigation a {
     text-decoration-line: none !important;
@@ -266,6 +266,9 @@ export default {
     .theme--light.v-text-field--solo > .v-input__control > .v-input__slot {
       background-color: #fccf65 !important;
     }
+  }
+  .v-select {
+    margin-left: 15px;
   }
   &.is-title {
     .project-selector__active-element {
