@@ -4,7 +4,7 @@
       v-if="scrollUp"
       class="goup"
       @click="
-        goTo(0, {
+        $vuetify.goTo(0, {
           duration: 300,
           offset: 0,
           easing: 'easeInOutCubic'

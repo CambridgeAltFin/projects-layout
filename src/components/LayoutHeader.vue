@@ -19,7 +19,7 @@
         />
       </a>
       <h4
-        class="d-none d-sm-flex header__title"
+        class="header__title"
         style="font-family: MyriadProSemiBold !important"
       >
         {{ title }}
@@ -156,7 +156,7 @@ export default {
       return data.json();
     });
     this.projects = data;
-    console.log(data);
+
     this.project =
       this.projects.find(
         (project) =>
@@ -206,6 +206,9 @@ export default {
     line-height: 1.4rem;
     @media (width < 1230px) {
       margin-left: 11px;
+    }
+    @media (width < 740px) {
+      display: none;
     }
   }
   &__dialog {
@@ -334,7 +337,6 @@ export default {
   @media (width < 1030px) {
     display: none;
   }
-
 }
 </style>
 
