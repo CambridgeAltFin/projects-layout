@@ -178,7 +178,7 @@ onMounted(async () => {
     }
   );
   projects.value = data;
-    console.log(data);
+
   project.value =
     projects.value.find(
       (project: Project) =>

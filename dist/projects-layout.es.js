@@ -8526,7 +8526,7 @@ const bu = E({
       select: A
     }, a);
   }
-}), vn = (e) => (Dn("data-v-a66bf590"), e = e(), zn(), e), ku = ["href"], wu = /* @__PURE__ */ vn(() => /* @__PURE__ */ J("img", {
+}), vn = (e) => (Dn("data-v-8a279f02"), e = e(), zn(), e), ku = ["href"], wu = /* @__PURE__ */ vn(() => /* @__PURE__ */ J("img", {
   src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf",
   width: "179",
   height: "52",
@@ -8601,7 +8601,7 @@ const bu = E({
       const { data: o } = await fetch(`${t.url}/projects`).then(
         (s) => s.json()
       );
-      l.value = o, console.log(o), a.value = l.value.find(
+      l.value = o, a.value = l.value.find(
         (s) => s.title === t.activeSelect || !!s.tag && s.tag === t.activeSelect
       ) || l.value[0];
     }), (o, s) => (Ve(), ft(ls, {
@@ -8709,7 +8709,7 @@ const bu = E({
   for (const [l, a] of n)
     t[l] = a;
   return t;
-}, cc = /* @__PURE__ */ mn(Eu, [["__scopeId", "data-v-a66bf590"]]), Bu = E({
+}, cc = /* @__PURE__ */ mn(Eu, [["__scopeId", "data-v-8a279f02"]]), Bu = E({
   app: Boolean,
   color: String,
   height: {
