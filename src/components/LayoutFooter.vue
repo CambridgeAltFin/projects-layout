@@ -176,7 +176,6 @@ export default {
   },
   computed: {},
   mounted() {
-    console.log(this.$vuetify);
     const isClientSide = typeof window !== 'undefined';
     if (isClientSide) {
       this.env_project = this.env === 'demo' ? 'demo.' : '';
