@@ -151,7 +151,7 @@ export default {
     };
   },
   async beforeMount() {
-    const {data} = await fetch(`${url}/projects`).then(
+    const {data} = await fetch(`${this.url}/projects`).then(
       (data) => {
         return data.json();
       }
