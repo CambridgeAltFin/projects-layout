@@ -325,7 +325,7 @@ export default {
   @media (width < 1230px) {
     margin-left: -5px;
   }
-  @media (width < 991px) {
+  @media (width < 1000px) {
     display: none;
   }
 }
