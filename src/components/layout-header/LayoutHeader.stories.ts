@@ -24,5 +24,5 @@ export const DefaultHeader: StoryFn<typeof LayoutHeader> = (args) => ({
     return {args:{...args, url:'https://demo-api.ccaf.io/v1'}};
   },
 
-  template: '<div><LayoutHeader v-bind="args" /></div>'
+  template: '<div><LayoutHeader v-bind="args" title="Cambridge Blockchain Network Sustainability Index" activeSelect="CBNCI" /></div>'
 });

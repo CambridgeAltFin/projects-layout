@@ -19,14 +19,14 @@
         />
       </a>
       <h4
-        class="ma-0 ml-6 d-none d-sm-flex header__title"
+        class="header__title"
         style="font-family: MyriadPro"
       >
         {{ title }}
       </h4>
 
       <v-spacer />
-      <ul class="header-links">
+      <ul class="header-links"  :class="{'is-long-title': !!project && !project.tag}">
         <li class="header-links__element">
           <a
             class="header-links__element-link"
@@ -57,7 +57,7 @@
           v-if="mdAndUp"
           variant="solo"
           class="project-selector__select"
-          :class="{'is-long': !!project && !project.tag}"
+         :class="{'is-title': !!project && !project.tag}"
           :model-value="project"
           :items="projects"
           :loading="!projects.length"
@@ -75,9 +75,9 @@
           @update:modelValue="linkTo"
         >
           <template #selection="{item}">
-            <strong style="font-size: 14px; font-weight: 600">{{
+            {{
               item.title || item.value
-            }}</strong>
+            }}
           </template>
           <template #item="{item, props}">
             <v-list-item
@@ -108,7 +108,6 @@
             {{ dialog ? 'mdi-close' : 'mdi-menu' }}
           </v-icon>
         </v-btn>
-        <div class="hidden-lg-and-up"></div>
       </template>
       <template v-slot:default="{isActive}">
         <slot :close="() => (isActive.value = false)" />
@@ -179,7 +178,7 @@ onMounted(async () => {
     }
   );
   projects.value = data;
-
+    console.log(data);
   project.value =
     projects.value.find(
       (project: Project) =>
@@ -195,8 +194,15 @@ onMounted(async () => {
   @include header-height;
   z-index: $header-index;
   &__title {
+    margin-left: 24px;
     font-size: 1.3rem;
     line-height: 1.4rem;
+    @media (width < 1230px) {
+      margin-left: 11px;
+    }
+    @media (width < 740px) {
+      display: none;
+    }
   }
   &__navigation a {
     text-decoration-line: none !important;
@@ -263,8 +269,6 @@ header .v-toolbar__content {
   padding: 4px 75px;
   .v-select {
     display: inline-flex;
-    width: 100px;
-    margin-left: 30px;
     border-radius: 6px;
   }
   a.logo {
@@ -322,8 +326,25 @@ header .v-toolbar__content {
 .project-selector {
   height: 40px;
   &__select {
-    &.is-long {
-      width: auto !important;
+    width: 100px;
+    &.is-title {
+      width: 190px;
+      .v-select__selection {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .v-field {
+        padding-right: 5px !important;
+      }
+      .v-input {
+        font-size: 12px;
+      }
+      .v-select {
+        margin-left: 5px;
+      }
+      .v-field__input{
+        padding-right: 0;
+      }
     }
   }
   .v-input__control {
@@ -337,8 +358,12 @@ header .v-toolbar__content {
     box-sizing: border-box;
     min-height: auto;
   }
-  .v-input {
-    width: 100px;
+  .v-select__selection{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .v-select {
+
     height: 40px;
     border-radius: 8px;
     background-color: #fccf65 !important;
@@ -399,6 +424,7 @@ header .v-toolbar__content {
 
     padding: 2px 2px 2px 6px;
     margin-left: 30px;
+ 
     @media (width < 1230px) {
       margin-left: 8px;
     }
@@ -416,10 +442,28 @@ header .v-toolbar__content {
         0.2px 0.2px #000;
     }
   }
+  &.is-long-title {
+    margin-right: 10px;
+    .header-links__element{
+      margin-left: 15px;
+      @media (width < 1230px) {
+        margin-left: 8px;
+      }
+    }
+    @media (width < 1230px) {
+      margin-right: 5px;
+    }
+    @media (width < 1120px) {
+      display: none;
+    }
+  }
   @media (width < 1230px) {
     margin-left: -5px;
   }
-  @media (width < 960px) {
+  @media (width < 1080px) {
+    margin-right: 5px;
+  }
+  @media (width < 1030px) {
     display: none;
   }
 }
