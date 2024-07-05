@@ -197,7 +197,7 @@ export default {
   &__nav-icon {
     position: absolute;
     right: 16px;
-    @media (width > 960px) {
+    @media (width > 959px) {
       display: none !important;
     }
   }
@@ -377,7 +377,7 @@ export default {
     padding-bottom: 40px;
     left: 0;
   }
-  @media (width > 960px) {
+  @media (width > 959px) {
     display: none !important;
   }
 }
