@@ -59,7 +59,6 @@
         :class="{'is-title': !!project && !project.tag}"
       >
         <v-select
-          v-if="$vuetify.breakpoint.mdAndUp"
           :value="project"
           :items="projects"
           item-value="title"
@@ -70,7 +69,7 @@
             nudgeBottom: '10px',
             nudgeLeft: '355px',
             maxHeight: 500,
-            contentClass: 'project-selector__menu'
+            contentClass: 'my-custom-select'
           }"
           background-color="rgba(255, 183, 26, 0.32);"
           color="#333333"
@@ -97,7 +96,6 @@
       </div>
     </v-row>
     <v-dialog
-      v-if="!$vuetify.breakpoint.mdAndUp"
       :value="dialog"
       @input="(value) => $emit('changeDialog', value)"
       fullscreen
@@ -199,6 +197,9 @@ export default {
   &__nav-icon {
     position: absolute;
     right: 16px;
+    @media (width > 960px) {
+      display: none !important;
+    }
   }
   &__title {
     margin-left: 24px;
@@ -291,6 +292,9 @@ export default {
       }
     }
   }
+  @media (width < 960px) {
+    display: none !important;
+  }
 }
 
 .header-links {
@@ -341,8 +345,8 @@ export default {
 </style>
 
 <style lang="scss">
-.project-selector__menu {
-  .v-menu__content {
+.my-custom-select {
+  &.v-menu__content {
     .primary--text {
       color: #ffb71a !important;
       caret-color: #ffb71a !important;
@@ -372,6 +376,9 @@ export default {
     overflow-y: auto;
     padding-bottom: 40px;
     left: 0;
+  }
+  @media (width > 960px) {
+    display: none !important;
   }
 }
 header .v-toolbar__content {
