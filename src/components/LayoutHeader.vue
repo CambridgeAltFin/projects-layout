@@ -211,8 +211,6 @@ export default {
       display: none;
     }
   }
-  &__dialog {
-  }
   &__navigation a {
     text-decoration-line: none !important;
     color: #000000 !important;

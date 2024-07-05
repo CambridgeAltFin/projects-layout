@@ -1,6 +1,6 @@
 {
   "name": "projects-layout",
-  "version": "0.1.6",
+  "version": "0.1.6.1",
   "description": "",
   "main": "dist/projects-layout.js",
   "types": "dist/types.d.ts",
