@@ -342,7 +342,11 @@ export default {
 
 <style lang="scss">
 .project-selector__menu {
-  .v-list-item {
+  &.v-menu__content {
+    .primary--text {
+      color: #ffb71a !important;
+      caret-color: #ffb71a !important;
+    }
     .chips {
       padding: 4.5px 4px;
       margin-left: 16px;
