@@ -4,7 +4,7 @@ import Vuetify from 'vuetify/lib';
 Vue.use(Vuetify);
 
 const opts = {
-  ssr: false,
+  ssr: true,
   components,
   directives,
   theme: {
