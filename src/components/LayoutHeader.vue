@@ -253,16 +253,7 @@ export default {
     font-size: 14px;
     font-weight: 600;
   }
-  &__chip {
-    padding: 4.5px 4px;
-    margin-left: 16px;
-    font-size: 12px;
-    opacity: 1;
-    line-height: 8px;
-    color: #ffb71a;
-    border: 1px solid #ffb71a;
-    border-radius: 5px;
-  }
+
   ::v-deep {
     .v-input {
       width: 100px;
@@ -349,6 +340,18 @@ export default {
 </style>
 
 <style lang="scss">
+.project-selector {
+  &__chip {
+    padding: 4.5px 4px;
+    margin-left: 16px;
+    font-size: 12px;
+    opacity: 1;
+    line-height: 8px;
+    color: #ffb71a;
+    border: 1px solid #ffb71a;
+    border-radius: 5px;
+  }
+}
 .header-overlay {
   .v-overlay__content {
     border-radius: 0;
