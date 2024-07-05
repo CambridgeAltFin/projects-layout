@@ -342,7 +342,7 @@ export default {
 
 <style lang="scss">
 .project-selector__menu {
-  &.v-menu__content {
+  .v-menu__content {
     .primary--text {
       color: #ffb71a !important;
       caret-color: #ffb71a !important;
