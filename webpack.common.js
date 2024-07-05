@@ -20,13 +20,23 @@ module.exports = {
       vue$: 'vue/dist/vue.esm.js',
       '@': path.resolve(__dirname, 'src')
     },
-    extensions: ['*', '.js', '.vue', '.json']
+    extensions: ['*', 'ts', '.js', '.vue', '.json']
   },
   module: {
     rules: [
       {
         test: /\.vue$/,
         loader: 'vue-loader'
+      },
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            appendTsSuffixTo: [/\.vue$/]
+          }
+        }
       },
       {
         test: /\.js$/,

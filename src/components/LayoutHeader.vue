@@ -89,7 +89,7 @@
           <template v-slot:item="{item}">
             {{ item.title }}
             <v-spacer />
-            <div v-if="item.tag" class="ml-4 chips">
+            <div v-if="item.tag" class="ml-4 chips project-selector__chip">
               {{ item.tag }}
             </div>
           </template>
@@ -254,6 +254,16 @@ export default {
   &__active-element {
     font-size: 14px;
     font-weight: 600;
+  }
+  &__chip {
+    padding: 4.5px 4px;
+    margin-left: 16px;
+    font-size: 12px;
+    opacity: 1;
+    line-height: 8px;
+    color: #ffb71a;
+    border: 1px solid #ffb71a;
+    border-radius: 5px;
   }
   ::v-deep {
     .v-input {
