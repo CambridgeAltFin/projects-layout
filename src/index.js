@@ -10,14 +10,10 @@ import Loader from './components/Loader.vue';
 
 Vue.use(Vuetify);
 
-Vue.component('MobileMenu', MobileMenu);
-Vue.component('LayoutFooter', LayoutFooter);
-Vue.component('LayoutHeader', LayoutHeader);
-Vue.component('Loader', Loader);
-
 export {MobileMenu, LayoutFooter, LayoutHeader, Loader};
 
 export default () => {
+  Vue.use(Vuetify);
   Vue.component('MobileMenu', MobileMenu);
   Vue.component('LayoutFooter', LayoutFooter);
   Vue.component('LayoutHeader', LayoutHeader);
