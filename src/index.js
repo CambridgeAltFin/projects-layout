@@ -3,7 +3,23 @@ import Vuetify from 'vuetify/lib';
 
 import 'vuetify/dist/vuetify.min.css';
 
-Vue.use(Vuetify);
+const opts = {
+  ssr: true,
+  components,
+  directives,
+  theme: {
+    themes: {
+      dark: false,
+      light: {
+        primary: '#0E1436',
+        accent: '#FFB71A',
+        secondary: '#828597'
+      }
+    }
+  }
+};
+
+Vue.use(Vuetify, opts);
 
 import MobileMenu from './components/MobileMenu.vue';
 import LayoutFooter from './components/LayoutFooter.vue';
