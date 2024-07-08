@@ -1,12 +1,43 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
-import {components, directives} from 'vuetify';
+import {directives} from 'vuetify';
 
 import 'vuetify/dist/vuetify.min.css';
+import {
+  VFooter,
+  VRow,
+  VContainer,
+  VCol,
+  VIcon,
+  VCard,
+  VListItem,
+  VListItemTitle,
+  VDivider,
+  VChip,
+  VAppBar,
+  VSpacer,
+  VSelect,
+  VDialog
+} from 'vuetify';
 
 const opts = {
   ssr: true,
-  components,
+  components: {
+    VFooter,
+    VRow,
+    VContainer,
+    VCol,
+    VIcon,
+    VAppBar,
+    VSpacer,
+    VSelect,
+    VDialog,
+    VCard,
+    VListItem,
+    VListItemTitle,
+    VDivider,
+    VChip
+  },
   directives,
   theme: {
     themes: {
