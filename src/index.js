@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib';
-import {directives} from 'vuetify';
+import {directives, components} from 'vuetify';
 
 import 'vuetify/dist/vuetify.min.css';
 import {
@@ -22,22 +22,7 @@ import {
 
 const opts = {
   ssr: true,
-  components: {
-    VFooter,
-    VRow,
-    VContainer,
-    VCol,
-    VIcon,
-    VAppBar,
-    VSpacer,
-    VSelect,
-    VDialog,
-    VCard,
-    VListItem,
-    VListItemTitle,
-    VDivider,
-    VChip
-  },
+  components,
   directives,
   theme: {
     themes: {
