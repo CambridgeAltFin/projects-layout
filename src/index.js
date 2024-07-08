@@ -8,8 +8,6 @@ import LayoutFooter from './components/LayoutFooter.vue';
 import LayoutHeader from './components/LayoutHeader.vue';
 import Loader from './components/Loader.vue';
 
-Vue.use(Vuetify);
-
 export {MobileMenu, LayoutFooter, LayoutHeader, Loader};
 
 export default () => {
