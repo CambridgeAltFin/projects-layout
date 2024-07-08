@@ -132,8 +132,17 @@
 </template>
 
 <script>
+import {VFooter, VRow, VContainer, VCol, VIcon} from 'vuetify';
+
 export default {
   name: 'LayoutFooter',
+  components: {
+    VFooter,
+    VRow,
+    VContainer,
+    VCol,
+    VIcon
+  },
   data() {
     return {
       env_project: '',

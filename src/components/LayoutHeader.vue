@@ -114,8 +114,18 @@
 </template>
 
 <script>
+import {VAppBar, VRow, VSpacer, VSelect, VDialog, VIcon} from 'vuetify';
+
 export default {
   name: 'layout-header',
+  components: {
+    VAppBar,
+    VRow,
+    VSpacer,
+    VSelect,
+    VDialog,
+    VIcon
+  },
   props: {
     dialog: {
       type: Boolean,

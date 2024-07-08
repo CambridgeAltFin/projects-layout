@@ -40,8 +40,17 @@
 </template>
 
 <script>
+import {VCard, VListItem, VListItemTitle, VDivider, VChip} from 'vuetify';
+
 export default {
   name: 'MobileMenu',
+  components: {
+    VCard,
+    VListItem,
+    VListItemTitle,
+    VDivider,
+    VChip
+  },
   props: {
     env: {
       type: String,
