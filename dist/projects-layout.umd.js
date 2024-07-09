@@ -45792,7 +45792,9 @@ var vuetify_min = __webpack_require__("bf40");
 
 
 external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(vuetify_default.a);
-const opts = {};
+const opts = {
+  ssr: true
+};
 /* harmony default export */ var plugins_vuetify = (new vuetify_default.a(opts));
 // CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2c8591fa-vue-loader-template"}!./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./src/components/LayoutHeader.vue?vue&type=template&id=bb7b6db6&scoped=true
 var render = function render() {
