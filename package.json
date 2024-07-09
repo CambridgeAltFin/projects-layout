@@ -1,42 +1,27 @@
 {
   "name": "projects-layout",
-  "version": "0.1.7-alpha",
-  "description": "",
-  "main": "dist/projects-layout.js",
-  "types": "dist/types.d.ts",
-  "type": "commonjs",
-  "license": "AGPL-version-3.0",
-  "private": false,
-  "engines": {
-    "node": ">= 14.0.0",
-    "npm": ">= 6.0.0"
-  },
-  "homepage": "https://github.com/CambridgeAltFin/projects-layout#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CambridgeAltFin/projects-layout.git"
-  },
-  "files": [
-    "dist"
-  ],
-  "bugs": "",
-  "keywords": [],
-  "author": {
-    "name": "",
-    "email": "",
-    "url": ""
-  },
-  "contributors": [],
+  "version": "1.0.0",
+  "main": "dist/projects-layout.umd.js",
+  "style": "dist/projects-layout.css",
   "scripts": {
-
-  },
-  "peerDependencies": {
-    "vue": "^2.7.0"
+    "build": "vue-cli-service build --target lib --name projects-layout --dest dist src/index.js"
   },
   "dependencies": {
-
+    "sass": "1.32.8",
+    "sass-loader": "10.1.1",
+    "vue": "2.7.0",
+    "vue-class-component": "^7.2.6",
+    "vuetify": "^2.5.10"
   },
   "devDependencies": {
-  
+    "@types/node": "^20.14.10",
+    "@vue/cli-plugin-babel": "4.5.15",
+    "@vue/cli-service": "4.5.15",
+    "sass-resources-loader": "^2.2.5",
+    "thread-loader": "^4.0.2",
+    "ts-loader": "^9.5.1",
+    "vue-loader": "^17.4.2",
+    "vue-property-decorator": "^9.1.2",
+    "vue-template-compiler": "^2.7.0"
   }
 }

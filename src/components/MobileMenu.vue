@@ -40,17 +40,8 @@
 </template>
 
 <script>
-import {VCard, VListItem, VListItemTitle, VDivider, VChip} from 'vuetify';
-
 export default {
   name: 'MobileMenu',
-  components: {
-    VCard,
-    VListItem,
-    VListItemTitle,
-    VDivider,
-    VChip
-  },
   props: {
     env: {
       type: String,
@@ -69,9 +60,11 @@ export default {
       default: ''
     }
   },
-  data: () => ({
-    projects: []
-  }),
+  data() {
+    return {
+      projects: []
+    };
+  },
   computed: {
     projectLoc() {
       const active = this.projects.find((project) => {
@@ -85,9 +78,8 @@ export default {
     }
   },
   async beforeMount() {
-    const {data} = await fetch(`${this.url}/projects`).then((data) => {
-      return data.json();
-    });
+    const response = await fetch(`${this.url}/projects`);
+    const data = await response.json();
     this.projects = data;
   }
 };

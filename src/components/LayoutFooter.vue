@@ -132,23 +132,10 @@
 </template>
 
 <script>
-import {VFooter, VRow, VContainer, VCol, VIcon} from 'vuetify';
+import Vue from 'vue';
 
-export default {
+export default Vue.extend({
   name: 'LayoutFooter',
-  components: {
-    VFooter,
-    VRow,
-    VContainer,
-    VCol,
-    VIcon
-  },
-  data() {
-    return {
-      env_project: '',
-      scrollUp: false
-    };
-  },
   props: {
     webLink: {
       type: String,
@@ -183,7 +170,12 @@ export default {
       default: ''
     }
   },
-  computed: {},
+  data() {
+    return {
+      scrollUp: false,
+      env_project: ''
+    };
+  },
   mounted() {
     const isClientSide = typeof window !== 'undefined';
     if (isClientSide) {
@@ -215,7 +207,7 @@ export default {
       };
     }
   }
-};
+});
 </script>
 
 <style lang="scss" scoped>

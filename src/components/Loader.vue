@@ -24,15 +24,8 @@
 </template>
 
 <script>
-import {VContainer, VRow, VCol} from 'vuetify';
-
 export default {
   name: 'Loader',
-  components: {
-    VContainer,
-    VRow,
-    VCol
-  },
   props: {
     visible: {
       type: Boolean,

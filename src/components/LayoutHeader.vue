@@ -114,18 +114,8 @@
 </template>
 
 <script>
-import {VAppBar, VRow, VSpacer, VSelect, VDialog, VIcon} from 'vuetify';
-
 export default {
-  name: 'layout-header',
-  components: {
-    VAppBar,
-    VRow,
-    VSpacer,
-    VSelect,
-    VDialog,
-    VIcon
-  },
+  name: 'LayoutHeader',
   props: {
     dialog: {
       type: Boolean,
@@ -160,9 +150,8 @@ export default {
     };
   },
   async beforeMount() {
-    const {data} = await fetch(`${this.url}/projects`).then((data) => {
-      return data.json();
-    });
+    const response = await fetch(`${this.url}/projects`);
+    const data = await response.json();
     this.projects = data;
 
     this.project =
