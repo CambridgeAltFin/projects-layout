@@ -79,7 +79,7 @@ export default {
   },
   async beforeMount() {
     const response = await fetch(`${this.url}/projects`);
-    const data = await response.json();
+    const {data} = await response.json();
     this.projects = data;
   }
 };
