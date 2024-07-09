@@ -53,6 +53,5 @@ module.exports = {
         resources: path.resolve(__dirname, './src/assets/styles/index.scss')
       })
       .end();
-
   }
 };
