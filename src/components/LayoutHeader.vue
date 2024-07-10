@@ -167,9 +167,8 @@ export default {
   },
   methods: {
     linkTo(projectTitle) {
-      console.log(projectTitle)
       const project = this.projects.find(
-        (project) => project.title === projectTitle.title
+        (project) => project.title === projectTitle
       );
       if (project) {
         window.location.href = `https://${this.env_project}ccaf.io/${project.link}`;
