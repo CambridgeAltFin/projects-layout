@@ -42,6 +42,7 @@ export default {
 <style scoped lang="scss">
 .app-loader {
   position: absolute;
+  top: 0;
   width: 100%;
   height: 100%;
   background: #f7f8fa;

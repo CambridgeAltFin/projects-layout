@@ -33,7 +33,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            href="https://ccaf.io/"
+            :href="`https://${this.env_project}ccaf.io/`"
             >Home
           </a>
         </li>
@@ -41,7 +41,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            href="https://ccaf.io/about_ccaf"
+            :href="`https://${this.env_project}ccaf.io/about_ccaf`"
             >About CCAF
           </a>
         </li>
@@ -49,7 +49,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            :href="`https://ccaf.io/contact?topic=${topic}`"
+            :href="`https://${this.env_project}ccaf.io/contact?topic=${topic}`"
             >Contact
           </a>
         </li>
