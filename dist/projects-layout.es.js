@@ -9431,7 +9431,7 @@ const hu = E({
       _: 3
     }));
   }
-}), mc = /* @__PURE__ */ vn(oc, [["__scopeId", "data-v-3cd5e177"]]), Di = (e) => (Nn("data-v-b93dadf5"), e = e(), Dn(), e), sc = { class: "app-loader__title" }, rc = /* @__PURE__ */ Di(() => /* @__PURE__ */ J("div", { class: "lds-ring" }, [
+}), mc = /* @__PURE__ */ vn(oc, [["__scopeId", "data-v-3cd5e177"]]), Di = (e) => (Nn("data-v-dfe110a7"), e = e(), Dn(), e), sc = { class: "app-loader__title" }, rc = /* @__PURE__ */ Di(() => /* @__PURE__ */ J("div", { class: "lds-ring" }, [
   /* @__PURE__ */ J("div"),
   /* @__PURE__ */ J("div"),
   /* @__PURE__ */ J("div"),
@@ -9489,7 +9489,7 @@ const hu = E({
       })
     ], 2));
   }
-}), gc = /* @__PURE__ */ vn(cc, [["__scopeId", "data-v-b93dadf5"]]);
+}), gc = /* @__PURE__ */ vn(cc, [["__scopeId", "data-v-dfe110a7"]]);
 export {
   vc as LayoutFooter,
   fc as LayoutHeader,

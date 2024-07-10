@@ -41,6 +41,7 @@ defineProps({
 <style scoped lang="scss">
 .app-loader {
   position: absolute;
+  top: 72px;
   width: 100%;
   height: 100%;
   transition: opacity 0.3s ease;
