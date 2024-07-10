@@ -2,15 +2,15 @@
   <v-card>
     <slot name="switcher" />
     <slot />
-    <v-list-item :href="`https://${env}ccaf.io/`">
+    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`">
       <v-list-item-title class="list__title"> CCAF Home </v-list-item-title>
     </v-list-item>
     <v-divider />
-    <v-list-item :href="`https://${env}ccaf.io/about_ccaf`">
+    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/about_ccaf`">
       <v-list-item-title class="list__title"> CCAF About </v-list-item-title>
     </v-list-item>
     <v-divider />
-    <v-list-item :href="`https://${env}ccaf.io/contact?topic=cbeci`">
+    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact?topic=cbeci`">
       <v-list-item-title class="list__title"> CCAF Contact </v-list-item-title>
     </v-list-item>
     <v-divider />
@@ -25,7 +25,7 @@
         v-for="(project, index) in projects"
         :key="project.id"
         :class="{'chips__item-active': !index}"
-        :href="!index ? undefined : `https://${env}ccaf.io/${project.link}`"
+        :href="!index ? undefined : `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/${project.link}`"
       >
         {{ project.tag || project.title }}
       </v-chip>

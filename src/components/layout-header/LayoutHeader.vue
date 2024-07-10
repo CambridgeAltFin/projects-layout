@@ -10,7 +10,7 @@
     app
   >
     <v-row align="center" justify="start" class="header__logo">
-      <a title="CCAF.io" :href="`https://${env}ccaf.io/`">
+      <a title="CCAF.io" :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf"
           width="179"
@@ -31,7 +31,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            href="https://ccaf.io/"
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`"
             >Home
           </a>
         </li>
@@ -39,7 +39,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            href="https://ccaf.io/about_ccaf"
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/about_ccaf`"
             >About CCAF
           </a>
         </li>
@@ -47,7 +47,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            href="https://ccaf.io/contact?topic=dmd"
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact?topic=dmd`"
             >Contact
           </a>
         </li>
