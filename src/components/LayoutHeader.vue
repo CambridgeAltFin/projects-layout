@@ -167,6 +167,7 @@ export default {
   },
   methods: {
     linkTo(projectTitle) {
+      console.log(projectTitle)
       const project = this.projects.find(
         (project) => project.title === projectTitle.title
       );
@@ -382,6 +383,7 @@ export default {
   }
 }
 header .v-toolbar__content {
+  height: 72px !important;
   padding: 4px 75px;
 
   .v-select {
