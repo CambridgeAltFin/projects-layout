@@ -10,7 +10,10 @@
     app
   >
     <v-row align="center" justify="start" class="header__logo">
-      <a title="CCAF.io" :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`">
+      <a
+        title="CCAF.io"
+        :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`"
+      >
         <img
           src="https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf"
           width="179"
@@ -18,15 +21,15 @@
           alt="Cambridge Centre for Alternative Finance (CCAF.io)"
         />
       </a>
-      <h4
-        class="header__title"
-        style="font-family: MyriadPro"
-      >
+      <h4 class="header__title" style="font-family: MyriadPro">
         {{ title }}
       </h4>
 
       <v-spacer />
-      <ul class="header-links"  :class="{'is-long-title': !!project && !project.tag}">
+      <ul
+        class="header-links"
+        :class="{'is-long-title': !!project && !project.tag}"
+      >
         <li class="header-links__element">
           <a
             class="header-links__element-link"
@@ -57,7 +60,7 @@
           v-if="mdAndUp"
           variant="solo"
           class="project-selector__select"
-         :class="{'is-title': !!project && !project.tag}"
+          :class="{'is-title': !!project && !project.tag}"
           :model-value="project"
           :items="projects"
           :loading="!projects.length"
@@ -75,9 +78,7 @@
           @update:modelValue="linkTo"
         >
           <template #selection="{item}">
-            {{
-              item.title || item.value
-            }}
+            {{ item.title || item.value }}
           </template>
           <template #item="{item, props}">
             <v-list-item
@@ -342,7 +343,7 @@ header .v-toolbar__content {
       .v-select {
         margin-left: 5px;
       }
-      .v-field__input{
+      .v-field__input {
         padding-right: 0;
       }
     }
@@ -358,12 +359,11 @@ header .v-toolbar__content {
     box-sizing: border-box;
     min-height: auto;
   }
-  .v-select__selection{
+  .v-select__selection {
     font-size: 14px;
     font-weight: 600;
   }
   .v-select {
-
     height: 40px;
     border-radius: 8px;
     background-color: #fccf65 !important;
@@ -388,7 +388,7 @@ header .v-toolbar__content {
 
   .v-list-item--active {
     caret-color: #ffb71a !important;
-    color: #ffb71a !important;
+    color: #000000 !important;
   }
   .v-list-item__content {
     display: flex;
@@ -424,7 +424,7 @@ header .v-toolbar__content {
 
     padding: 2px 2px 2px 6px;
     margin-left: 30px;
- 
+
     @media (width < 1230px) {
       margin-left: 8px;
     }
@@ -444,7 +444,7 @@ header .v-toolbar__content {
   }
   &.is-long-title {
     margin-right: 10px;
-    .header-links__element{
+    .header-links__element {
       margin-left: 15px;
       @media (width < 1230px) {
         margin-left: 8px;

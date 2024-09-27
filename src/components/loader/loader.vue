@@ -3,9 +3,11 @@
     <v-container>
       <v-row align="center" justify="center" class="flex-column">
         <v-col cols="12">
-          <h1 class="app-loader__title">
-            {{ title }}
-          </h1>
+          <client-only>
+            <h1 class="app-loader__title">
+              {{ title }}
+            </h1>
+          </client-only>
         </v-col>
         <v-col cols="12" class="d-flex justify-center">
           <div class="lds-ring">
