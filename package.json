@@ -1,6 +1,6 @@
 {
   "name": "projects-layout",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/projects-layout.umd.js",
   "style": "dist/projects-layout.css",
   "scripts": {

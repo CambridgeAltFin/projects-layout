@@ -20,13 +20,13 @@
       </a>
       <slot name="title">
         <h4
-        class="header__title"
-        style="font-family: MyriadProSemiBold !important"
-      >
-        {{ title }}
-      </h4>
+          class="header__title"
+          style="font-family: MyriadProSemiBold !important"
+        >
+          {{ title }}
+        </h4>
       </slot>
-      
+
       <v-spacer />
       <slot name="links"></slot>
       <ul
@@ -227,10 +227,14 @@ export default {
     border-left: 2px solid transparent;
     &.active {
       border-left: 2px solid #000000;
-      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+      text-shadow:
+        -0.2px -0.2px 0 black,
+        0.2px 0.2px black;
     }
     &:hover {
-      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+      text-shadow:
+        -0.2px -0.2px 0 black,
+        0.2px 0.2px black;
     }
   }
   &__logo {
@@ -266,8 +270,8 @@ export default {
       border-radius: 8px;
       background-color: #fccf65 !important;
     }
-    .v-list-item--active{
-      color: rgba(0, 0, 0, .87) !important;
+    .v-list-item--active {
+      color: rgba(0, 0, 0, 0.87) !important;
     }
     .v-text-field.v-text-field--solo .v-input__control {
       min-height: 40px;
@@ -327,7 +331,9 @@ export default {
     text-decoration: none;
     transition: 0.33 cubic-bezier(0.25, 0.8, 0.5, 1) text-shadow;
     &:hover {
-      text-shadow: -0.2px -0.2px 0 #000, 0.2px 0.2px #000;
+      text-shadow:
+        -0.2px -0.2px 0 #000,
+        0.2px 0.2px #000;
     }
   }
   &.is-long-title {
@@ -355,8 +361,11 @@ export default {
 .my-custom-select {
   &.v-menu__content {
     .primary--text {
-      color: #ffb71a !important;
+      color: #333333 !important;
       caret-color: #ffb71a !important;
+      &::before {
+        background-color: #ffb71a !important;
+      }
     }
     .chips {
       padding: 4.5px 4px;
@@ -415,10 +424,14 @@ header .v-toolbar__content {
     border-left: 2px solid transparent;
     &.active {
       border-left: 2px solid #000000;
-      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+      text-shadow:
+        -0.2px -0.2px 0 black,
+        0.2px 0.2px black;
     }
     &:hover {
-      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
+      text-shadow:
+        -0.2px -0.2px 0 black,
+        0.2px 0.2px black;
     }
   }
   .mobile-menu a {
