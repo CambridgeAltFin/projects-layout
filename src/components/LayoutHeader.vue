@@ -18,13 +18,17 @@
           alt="Cambridge Centre for Alternative Finance (CCAF.io)"
         />
       </a>
-      <h4
+      <slot name="title">
+        <h4
         class="header__title"
         style="font-family: MyriadProSemiBold !important"
       >
         {{ title }}
       </h4>
+      </slot>
+      
       <v-spacer />
+      <slot name="links"></slot>
       <ul
         class="header-links"
         :class="{'is-long-title': !!project && !project.tag}"
@@ -261,6 +265,9 @@ export default {
       height: 40px;
       border-radius: 8px;
       background-color: #fccf65 !important;
+    }
+    .v-list-item--active{
+      color: rgba(0, 0, 0, .87) !important;
     }
     .v-text-field.v-text-field--solo .v-input__control {
       min-height: 40px;
