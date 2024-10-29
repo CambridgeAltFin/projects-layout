@@ -1,26 +1,25 @@
 {
   "name": "projects-layout",
   "version": "1.0.5",
-  "main": "dist/projects-layout.common.js",
+  "main": "dist/projects-layout.umd.js",
+  "module": "dist/projects-layout.common.js",
   "style": "dist/projects-layout.css",
   "scripts": {
-    "build": "vue-cli-service build --target lib --name projects-layout --dest dist src/index.js"
+    "build": "vue-cli-service build --target lib --formats umd --name projects-layout --dest dist src/index.js"
   },
   "dependencies": {
-    "sass": "1.32.8",
-    "sass-loader": "10.1.1",
     "vue": "^2.7.2",
-    "vue-class-component": "^7.2.6",
-    "vuetify": "^2.5.10",
-    "vuetify-loader": "^1.9.2"
+    "vuetify": "^2.5.10"
+  },
+  "peerDependencies": {
+    "nuxt": "^2.15.8",
+    "vue": "^2.7.2",
+    "vuetify": "^2.5.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.5.15",
     "@vue/cli-service": "4.5.15",
-    "sass-resources-loader": "^2.2.5",
-    "thread-loader": "^4.0.2",
     "vue-loader": "^17.4.2",
-    "vue-property-decorator": "^9.1.2",
     "vue-template-compiler": "^2.7.0"
   }
 }
