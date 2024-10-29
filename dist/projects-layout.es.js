@@ -8526,7 +8526,7 @@ const hu = E({
       select: A
     }, a);
   }
-}), Cu = (e) => (Nn("data-v-596e0c22"), e = e(), Dn(), e), ku = ["href"], wu = /* @__PURE__ */ Cu(() => /* @__PURE__ */ J("img", {
+}), Cu = (e) => (Nn("data-v-6fca92e2"), e = e(), Dn(), e), ku = ["href"], wu = /* @__PURE__ */ Cu(() => /* @__PURE__ */ J("img", {
   src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf",
   width: "179",
   height: "52",
@@ -8636,6 +8636,7 @@ const hu = E({
             J("div", Bu, [
               ye(n) ? (Ve(), ft(Su, {
                 key: 0,
+                menu: "",
                 variant: "solo",
                 class: xt(["project-selector__select", { "is-title": !!a.value && !a.value.tag }]),
                 "model-value": a.value,
@@ -8712,7 +8713,7 @@ const hu = E({
   for (const [l, a] of n)
     t[l] = a;
   return t;
-}, fc = /* @__PURE__ */ vn(Tu, [["__scopeId", "data-v-596e0c22"]]), Lu = E({
+}, fc = /* @__PURE__ */ vn(Tu, [["__scopeId", "data-v-6fca92e2"]]), Lu = E({
   app: Boolean,
   color: String,
   height: {

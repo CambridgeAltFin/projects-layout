@@ -1,7 +1,7 @@
 {
   "name": "projects-layout",
   "private": false,
-  "version": "1.2.4.2",
+  "version": "1.2.4.3",
   "type": "module",
   "files": [
     "dist"

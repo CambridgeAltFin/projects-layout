@@ -28,7 +28,7 @@
       </slot>
 
       <v-spacer />
-      <slot name="links"/>
+      <slot name="links" />
       <ul
         class="header-links"
         :class="{'is-long-title': !!project && !project.tag}"
@@ -61,6 +61,7 @@
       <div class="project-selector">
         <v-select
           v-if="mdAndUp"
+          menu
           variant="solo"
           class="project-selector__select"
           :class="{'is-title': !!project && !project.tag}"
@@ -357,6 +358,7 @@ header .v-toolbar__content {
   .v-field {
     background-color: #fccf65;
   }
+
   .v-field__input {
     height: 40px;
     box-sizing: border-box;
@@ -392,6 +394,9 @@ header .v-toolbar__content {
   .v-list-item--active {
     caret-color: #ffb71a !important;
     color: #000000 !important;
+    .v-list-item__overlay {
+      background-color: #fccf65 !important;
+    }
   }
   .v-list-item__content {
     display: flex;
