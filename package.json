@@ -1,13 +1,13 @@
 {
   "name": "projects-layout",
-  "version": "1.0.92",
+  "version": "1.0.94",
   "main": "dist/projects-layout.umd.js",
   "style": "dist/projects-layout.css",
   "scripts": {
     "build": "vue-cli-service build --target lib --name projects-layout --dest dist src/index.js"
   },
   "dependencies": {
-    "sass": "^1.35.2",
+    "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "vue": "^2.7.2",
     "vue-class-component": "^7.2.6",
