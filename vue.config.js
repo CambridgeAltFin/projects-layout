@@ -4,16 +4,12 @@ module.exports = {
   chainWebpack: (config) => {
     config.module
       .rule('vue')
-      .use('thread-loader')
-      .loader('thread-loader')
+      // Удалено использование thread-loader для vue
       .end();
 
     config.module
       .rule('scss')
       .oneOf('vue-modules')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .end()
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
@@ -22,9 +18,6 @@ module.exports = {
       .end()
       .end()
       .oneOf('vue')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .end()
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
@@ -33,9 +26,6 @@ module.exports = {
       .end()
       .end()
       .oneOf('normal-modules')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .end()
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
@@ -44,9 +34,6 @@ module.exports = {
       .end()
       .end()
       .oneOf('normal')
-      .use('thread-loader')
-      .loader('thread-loader')
-      .end()
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
