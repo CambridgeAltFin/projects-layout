@@ -1,14 +1,5 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("vue"));
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["projects-layout"] = factory(require("vue"));
-	else
-		root["projects-layout"] = factory(root["Vue"]);
-})((typeof self !== 'undefined' ? self : this), function(__WEBPACK_EXTERNAL_MODULE__8bbf__) {
-return /******/ (function(modules) { // webpackBootstrap
+module.exports =
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -157,7 +148,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ "8bbf":
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
+module.exports = require("vue");
 
 /***/ }),
 
@@ -47998,5 +47989,4 @@ external_commonjs_vue_commonjs2_vue_root_Vue_default.a.use(vuetify_default.a, op
 /***/ })
 
 /******/ });
-});
-//# sourceMappingURL=projects-layout.umd.js.map
+//# sourceMappingURL=projects-layout.common.js.map
