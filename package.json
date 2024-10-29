@@ -1,7 +1,7 @@
 {
   "name": "projects-layout",
   "version": "1.0.5",
-  "main": "dist/projects-layout.umd.js",
+  "main": "dist/projects-layout.common.js",
   "style": "dist/projects-layout.css",
   "scripts": {
     "build": "vue-cli-service build --target lib --name projects-layout --dest dist src/index.js"
