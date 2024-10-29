@@ -21,11 +21,14 @@
           alt="Cambridge Centre for Alternative Finance (CCAF.io)"
         />
       </a>
-      <h4 class="header__title" style="font-family: MyriadPro">
-        {{ title }}
-      </h4>
+      <slot name="title">
+        <h4 class="header__title" style="font-family: MyriadPro">
+          {{ title }}
+        </h4>
+      </slot>
 
       <v-spacer />
+      <slot name="links"/>
       <ul
         class="header-links"
         :class="{'is-long-title': !!project && !project.tag}"

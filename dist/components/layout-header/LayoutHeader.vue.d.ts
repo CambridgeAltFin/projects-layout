@@ -60,6 +60,8 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
     topic: string;
     url: string;
 }, {}>, {
+    title?(_: {}): any;
+    links?(_: {}): any;
     default?(_: {
         close: () => boolean;
     }): any;
