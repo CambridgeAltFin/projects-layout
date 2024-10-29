@@ -1,6 +1,6 @@
 {
   "name": "projects-layout",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/projects-layout.umd.js",
   "style": "dist/projects-layout.css",
   "scripts": {
@@ -15,11 +15,11 @@
     "vuetify-loader": "^1.9.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4.5.15",
-    "@vue/cli-service": "4.5.15",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
     "sass-resources-loader": "^2.2.5",
     "thread-loader": "^4.0.2",
-    "vue-loader": "^17.4.2",
+    "vue-loader": "^15.9.8",
     "vue-property-decorator": "^9.1.2",
     "vue-template-compiler": "^2.7.0"
   }
