@@ -1,6 +1,6 @@
 {
   "name": "projects-layout",
-  "version": "1.0.942",
+  "version": "1.0.943",
   "main": "dist/projects-layout.umd.js",
   "style": "dist/projects-layout.css",
   "scripts": {
@@ -10,7 +10,7 @@
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "vue": "^2.7.2",
-    "vue-class-component": "^7.2.6",
+    "vue-class-component": "^7.2.3",
     "vuetify": "^2.5.10",
     "vuetify-loader": "^1.9.2"
   },

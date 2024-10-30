@@ -227,14 +227,10 @@ export default {
     border-left: 2px solid transparent;
     &.active {
       border-left: 2px solid #000000;
-      text-shadow:
-        -0.2px -0.2px 0 black,
-        0.2px 0.2px black;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
     }
     &:hover {
-      text-shadow:
-        -0.2px -0.2px 0 black,
-        0.2px 0.2px black;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
     }
   }
   &__logo {
@@ -331,9 +327,7 @@ export default {
     text-decoration: none;
     transition: 0.33 cubic-bezier(0.25, 0.8, 0.5, 1) text-shadow;
     &:hover {
-      text-shadow:
-        -0.2px -0.2px 0 #000,
-        0.2px 0.2px #000;
+      text-shadow: -0.2px -0.2px 0 #000, 0.2px 0.2px #000;
     }
   }
   &.is-long-title {
@@ -424,14 +418,10 @@ header .v-toolbar__content {
     border-left: 2px solid transparent;
     &.active {
       border-left: 2px solid #000000;
-      text-shadow:
-        -0.2px -0.2px 0 black,
-        0.2px 0.2px black;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
     }
     &:hover {
-      text-shadow:
-        -0.2px -0.2px 0 black,
-        0.2px 0.2px black;
+      text-shadow: -0.2px -0.2px 0 black, 0.2px 0.2px black;
     }
   }
   .mobile-menu a {
