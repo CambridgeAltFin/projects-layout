@@ -2,42 +2,25 @@ const path = require('path');
 
 module.exports = {
   chainWebpack: (config) => {
-    config.module
-      .rule('vue')
-      // Удалено использование thread-loader для vue
-      .end();
+    // Обработка файлов Vue
+    config.module.rule('vue').use('vue-loader').loader('vue-loader');
 
+    // Обработка SCSS
     config.module
       .rule('scss')
       .oneOf('vue-modules')
-      .use('sass-resources-loader')
-      .loader('sass-resources-loader')
+      .use('sass-loader')
+      .loader('sass-loader')
       .options({
-        resources: path.resolve(__dirname, './src/assets/styles/index.scss')
+        sourceMap: true
       })
       .end()
-      .end()
-      .oneOf('vue')
       .use('sass-resources-loader')
       .loader('sass-resources-loader')
       .options({
-        resources: path.resolve(__dirname, './src/assets/styles/index.scss')
-      })
-      .end()
-      .end()
-      .oneOf('normal-modules')
-      .use('sass-resources-loader')
-      .loader('sass-resources-loader')
-      .options({
-        resources: path.resolve(__dirname, './src/assets/styles/index.scss')
-      })
-      .end()
-      .end()
-      .oneOf('normal')
-      .use('sass-resources-loader')
-      .loader('sass-resources-loader')
-      .options({
-        resources: path.resolve(__dirname, './src/assets/styles/index.scss')
+        resources: [
+          path.resolve(__dirname, './src/assets/styles/index.scss') // Другие стили
+        ]
       })
       .end();
   }

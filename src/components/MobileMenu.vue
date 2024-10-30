@@ -86,6 +86,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/variables.scss'; 
 .list {
   &__title {
     font-family: MyriadProSemiBold, sans-serif;

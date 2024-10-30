@@ -209,6 +209,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../assets/styles/variables.scss'; 
 .goup {
   cursor: pointer;
   padding: 10px;

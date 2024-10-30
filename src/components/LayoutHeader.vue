@@ -197,7 +197,7 @@ export default {
 .header {
   width: 100vw;
   height: 72px;
-  z-index: $header-index;
+  z-index: 99;
   &__nav-icon {
     position: absolute;
     right: 16px;
@@ -352,6 +352,7 @@ export default {
 </style>
 
 <style lang="scss">
+@import '../assets/styles/variables.scss';  
 .my-custom-select {
   &.v-menu__content {
     .primary--text {
