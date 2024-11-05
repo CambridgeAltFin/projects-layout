@@ -128,10 +128,11 @@ const projects = computed(() => {
   padding: 8px 24px;
 }
 .list-line {
+  margin-top: 28px;
   width: 87.7%;
   margin: 0 auto;
   height: 1px;
-  background-color: #0f1434;
+  background-color: #b1b4bf;
 }
 .list-title {
   font-family: 'MyriadPro', sans-serif;
