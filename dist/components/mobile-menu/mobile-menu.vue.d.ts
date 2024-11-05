@@ -10,6 +10,10 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    topic: {
+        type: StringConstructor;
+        default: string;
+    };
     activeProject: {
         type: PropType<ActiveProject>;
         default: string;
@@ -23,6 +27,10 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    topic: {
+        type: StringConstructor;
+        default: string;
+    };
     activeProject: {
         type: PropType<ActiveProject>;
         default: string;
@@ -30,6 +38,7 @@ declare const _default: __VLS_WithTemplateSlots<import('vue').DefineComponent<{
 }>>, {
     env: string;
     title: string;
+    topic: string;
     activeProject: ActiveProject;
 }, {}>, {
     switcher?(_: {}): any;

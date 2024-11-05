@@ -2,30 +2,41 @@
   <v-card>
     <slot name="switcher" />
     <slot />
-    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`">
-      <v-list-item-title class="list__title"> CCAF Home </v-list-item-title>
-    </v-list-item>
-    <v-divider />
-    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/about_ccaf`">
-      <v-list-item-title class="list__title"> CCAF About </v-list-item-title>
-    </v-list-item>
-    <v-divider />
-    <v-list-item :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact?topic=cbeci`">
-      <v-list-item-title class="list__title"> CCAF Contact </v-list-item-title>
-    </v-list-item>
-    <v-divider />
-    <v-list-item>
-      <v-list-item-title class="list__title">
-        CCAF Digital Tools:
-      </v-list-item-title>
-    </v-list-item>
+    <div class="list-line"></div>
+    <div class="list-wrapper">
+      <p class="list-title">CCAF:</p>
+      <ul class="list">
+        <li class="list__link">
+          <a
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/`"
+            >Home
+          </a>
+        </li>
+        <li class="list__link">
+          <a
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/about_ccaf`"
+            >About
+          </a>
+        </li>
+        <li class="list__link">
+          <a
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact${topic ? `?topic=${topic}` : ''}`"
+            >Contact
+          </a>
+        </li>
+      </ul>
+    </div>
     <div class="chips">
       <v-chip
         class="chips__item"
         v-for="(project, index) in projects"
         :key="project.id"
         :class="{'chips__item-active': !index}"
-        :href="!index ? undefined : `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/${project.link}`"
+        :href="
+          !index
+            ? undefined
+            : `https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/${project.link}`
+        "
       >
         {{ project.tag || project.title }}
       </v-chip>
@@ -44,6 +55,10 @@ const props = defineProps({
     default: ''
   },
   title: {
+    type: String,
+    default: ''
+  },
+  topic: {
     type: String,
     default: ''
   },
@@ -108,21 +123,50 @@ const projects = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+.list-wrapper{
+  margin-top: 28px;
+  padding: 8px 24px;
+}
+.list-line {
+  width: 87.7%;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #0f1434;
+}
+.list-title {
+  font-family: 'MyriadPro', sans-serif;
+  margin-bottom: 24px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.2px;
+}
+
 .list {
+  display: flex;
+  margin-bottom: 16px;
   &__title {
-    font-family: MyriadProSemiBold, sans-serif;
+    font-family: 'MyriadPro', sans-serif;
     height: 66px;
     padding: 24px 8px;
   }
   &__link {
+    list-style-type: none;
+    width: 67.7px;
+    margin-right: 10px;
+
     &-active {
       background-color: #f7f8fa !important;
     }
     a {
+      color: #0e1436;
       text-decoration: none;
+      &:hover {
+        color: #ffb81c !important;
+      }
     }
   }
 }
+
 .chips {
   display: flex;
   overflow-x: auto;
@@ -132,8 +176,7 @@ const projects = computed(() => {
   padding: 0 24px 24px;
   &__item {
     flex: 0 0 auto;
-    height: 48px;
-    padding: 16px 24px;
+    padding: 8px 12px;
     border-radius: 24px;
     background-color: #0f1434 !important;
     color: white !important;

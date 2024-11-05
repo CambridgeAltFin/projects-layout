@@ -61,7 +61,6 @@
       <div class="project-selector">
         <v-select
           v-if="mdAndUp"
-          menu
           variant="solo"
           class="project-selector__select"
           :class="{'is-title': !!project && !project.tag}"
