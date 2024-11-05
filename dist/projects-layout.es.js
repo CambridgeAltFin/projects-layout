@@ -9291,7 +9291,7 @@ const bu = E({
       }), [[at("ripple"), p.value && e.ripple]]);
     }), {};
   }
-}), Mi = (e) => (on("data-v-3b9611f6"), e = e(), sn(), e), oc = /* @__PURE__ */ Mi(() => /* @__PURE__ */ j("div", { class: "list-line" }, null, -1)), sc = { class: "list-wrapper" }, rc = /* @__PURE__ */ Mi(() => /* @__PURE__ */ j("p", { class: "list-title" }, "CCAF:", -1)), uc = { class: "list" }, cc = { class: "list__link" }, dc = ["href"], fc = { class: "list__link" }, vc = ["href"], mc = { class: "list__link" }, gc = ["href"], yc = { class: "chips" }, hc = /* @__PURE__ */ Tt({
+}), Mi = (e) => (on("data-v-c94c2e2a"), e = e(), sn(), e), oc = /* @__PURE__ */ Mi(() => /* @__PURE__ */ j("div", { class: "list-line" }, null, -1)), sc = { class: "list-wrapper" }, rc = /* @__PURE__ */ Mi(() => /* @__PURE__ */ j("p", { class: "list-title" }, "CCAF:", -1)), uc = { class: "list" }, cc = { class: "list__link" }, dc = ["href"], fc = { class: "list__link" }, vc = ["href"], mc = { class: "list__link" }, gc = ["href"], yc = { class: "chips" }, hc = /* @__PURE__ */ Tt({
   __name: "mobile-menu",
   props: {
     env: {
@@ -9406,7 +9406,7 @@ const bu = E({
       _: 3
     }));
   }
-}), xc = /* @__PURE__ */ vn(hc, [["__scopeId", "data-v-3b9611f6"]]), Ni = (e) => (on("data-v-1b275338"), e = e(), sn(), e), bc = { class: "app-loader__title" }, Sc = /* @__PURE__ */ Ni(() => /* @__PURE__ */ j("div", { class: "lds-ring" }, [
+}), xc = /* @__PURE__ */ vn(hc, [["__scopeId", "data-v-c94c2e2a"]]), Ni = (e) => (on("data-v-1b275338"), e = e(), sn(), e), bc = { class: "app-loader__title" }, Sc = /* @__PURE__ */ Ni(() => /* @__PURE__ */ j("div", { class: "lds-ring" }, [
   /* @__PURE__ */ j("div"),
   /* @__PURE__ */ j("div"),
   /* @__PURE__ */ j("div"),

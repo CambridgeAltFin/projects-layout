@@ -128,9 +128,9 @@ const projects = computed(() => {
   padding: 8px 24px;
 }
 .list-line {
-  margin-top: 28px;
   width: 87.7%;
   margin: 0 auto;
+  margin-top: 28px;
   height: 1px;
   background-color: #b1b4bf;
 }
