@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card style="padding-top: 24px;">
     <slot name="switcher" />
     <slot />
     <div class="list-line"></div>
