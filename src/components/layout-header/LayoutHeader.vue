@@ -53,7 +53,7 @@
           <a
             class="header-links__element-link"
             title="Home"
-            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact?topic=dmd`"
+            :href="`https://${props.env === 'demo' || props.env === 'develop' ? 'demo.' : ''}ccaf.io/contact${topic ? `?topic=${topic}` : ''}`"
             >Contact
           </a>
         </li>

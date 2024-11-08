@@ -8526,7 +8526,7 @@ const bu = E({
       select: A
     }, a);
   }
-}), ku = (e) => (on("data-v-4179ffbf"), e = e(), sn(), e), wu = ["href"], pu = /* @__PURE__ */ ku(() => /* @__PURE__ */ j("img", {
+}), ku = (e) => (on("data-v-29a42081"), e = e(), sn(), e), wu = ["href"], pu = /* @__PURE__ */ ku(() => /* @__PURE__ */ j("img", {
   src: "https://firebasestorage.googleapis.com/v0/b/ccaf-afea-test.appspot.com/o/logo.webp?alt=media&token=f4da887e-96cf-4325-b67b-5afd938250bf",
   width: "179",
   height: "52",
@@ -8629,7 +8629,7 @@ const bu = E({
                 j("a", {
                   class: "header-links__element-link",
                   title: "Home",
-                  href: `https://${t.env === "demo" || t.env === "develop" ? "demo." : ""}ccaf.io/contact?topic=dmd`
+                  href: `https://${t.env === "demo" || t.env === "develop" ? "demo." : ""}ccaf.io/contact${e.topic ? `?topic=${e.topic}` : ""}`
                 }, "Contact ", 8, Bu)
               ])
             ], 2),
@@ -8712,7 +8712,7 @@ const bu = E({
   for (const [l, a] of n)
     t[l] = a;
   return t;
-}, pc = /* @__PURE__ */ vn(Lu, [["__scopeId", "data-v-4179ffbf"]]), Ou = E({
+}, pc = /* @__PURE__ */ vn(Lu, [["__scopeId", "data-v-29a42081"]]), Ou = E({
   app: Boolean,
   color: String,
   height: {
