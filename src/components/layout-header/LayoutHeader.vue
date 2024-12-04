@@ -102,7 +102,6 @@
     >
       <template #activator="{props: activatorProps}">
         <v-btn
-          v-if="!mdAndUp"
           v-bind="activatorProps"
           flat
           :ripple="false"
@@ -249,20 +248,22 @@ onMounted(async () => {
   }
 }
 .dialog-button {
+  display: none;
   position: absolute;
   right: 16px;
   padding: 0;
   height: auto;
   width: auto;
   min-width: auto;
-  .v-ripple__container {
-    display: none;
+
+  @media (max-width: 960px) {
+    display: block;
   }
 }
 
 .header-overlay {
   display: none;
-  @media (width < 960px) {
+  @media (max-width: 960px) {
     display: block;
   }
 }
