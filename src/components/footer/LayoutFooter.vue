@@ -1,16 +1,6 @@
 <template>
   <v-footer id="footer" color="white" width="100vw" class="footer pa-0">
-    <div
-      v-if="scrollUp"
-      class="goup"
-      @click="
-        goTo(0, {
-          duration: 300,
-          offset: 0,
-          easing: 'easeInOutCubic'
-        })
-      "
-    >
+    <div v-if="scrollUp" class="goup" @click="goToTop">
       <v-icon size="18" color="#FFB71A" icon="mdi-arrow-up"> </v-icon>
     </div>
     <v-container fluid style="height: 100%">
@@ -125,13 +115,13 @@
         :justify="smAndDown ? 'center' : 'space-between'"
         no-gutters
       >
-        <v-col :class="{'footer-privacy': smAndDown}" cols="auto">
+        <v-col :class="{ 'footer-privacy': smAndDown }" cols="auto">
           <a :href="`https://${env}ccaf.io/privacy_policy`"> Privacy Policy </a>
         </v-col>
         <v-col cols="auto">
           <span
             >Cambridge Centre for Alternative Finance ©&nbsp;{{
-              ' ' + new Date().getFullYear()
+              " " + new Date().getFullYear()
             }}</span
           >
         </v-col>
@@ -141,59 +131,60 @@
 </template>
 
 <script setup lang="ts">
-import {defineProps, ref, onMounted} from 'vue';
-import {useDisplay, useGoTo} from 'vuetify';
+import { defineProps, ref, onMounted } from "vue";
 
-const goTo = useGoTo();
+import { useBreakpoint } from "../../composables/useBreakpoint";
 
-const {smAndDown} = useDisplay();
+const goToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
+const { smAndDown } = useBreakpoint();
 
 defineProps({
   webLink: {
     type: String,
-    default: ''
+    default: "",
   },
   email: {
     type: String,
-    default: ''
+    default: "",
   },
   location: {
     type: String,
-    default: ''
+    default: "",
   },
   locationLink: {
     type: String,
-    default: ''
+    default: "",
   },
   env: {
     type: String,
-    default: ''
+    default: "",
   },
   linkedinLink: {
     type: String,
-    default: ''
+    default: "",
   },
   twitterLink: {
     type: String,
-    default: ''
+    default: "",
   },
   facebookLink: {
     type: String,
-    default: ''
-  }
+    default: "",
+  },
 });
 
 const scrollUp = ref(false);
 
 onMounted(() => {
-  const isClientSide = typeof window !== 'undefined';
+  const isClientSide = typeof window !== "undefined";
   if (isClientSide) {
     window.onscroll = () => {
       scrollUp.value =
         document.body.scrollTop > 50 || document.documentElement.scrollTop > 50;
-      const sidebar = document.getElementById('sidebar');
-      const menu = document.getElementById('sidebar__menu');
-      const footer = document.getElementById('footer');
+      const sidebar = document.getElementById("sidebar");
+      const menu = document.getElementById("sidebar__menu");
+      const footer = document.getElementById("footer");
       if (menu && sidebar && footer) {
         const sidebarHeight =
           window.innerHeight < menu.getBoundingClientRect().height + 72
@@ -209,7 +200,7 @@ onMounted(() => {
             footerTop - scrollTop - sidebarHeight
           );
         }
-        sidebar.style.top = topPosition + 'px';
+        sidebar.style.top = topPosition + "px";
       }
     };
   }

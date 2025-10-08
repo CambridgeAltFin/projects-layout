@@ -121,10 +121,10 @@
 
 <script setup lang="ts">
 import {defineProps, defineEmits, ref, onMounted} from 'vue';
-import {useDisplay} from 'vuetify';
+import { useBreakpoint } from '../../composables/useBreakpoint'
 import type {Project} from './LayoutHeader.type';
 
-const {mdAndUp} = useDisplay();
+const { mdAndUp } = useBreakpoint()
 
 const props = defineProps({
   dialog: {
