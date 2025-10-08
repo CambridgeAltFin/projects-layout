@@ -4,11 +4,7 @@
       v-if="scrollUp"
       class="goup"
       @click="
-        goTo(0, {
-          duration: 300,
-          offset: 0,
-          easing: 'easeInOutCubic'
-        })
+        goToTop()
       "
     >
       <v-icon size="18" color="#FFB71A" icon="mdi-arrow-up"> </v-icon>
@@ -142,11 +138,11 @@
 
 <script setup lang="ts">
 import {defineProps, ref, onMounted} from 'vue';
-import {useDisplay, useGoTo} from 'vuetify';
+import { useBreakpoint } from '../../composables/useBreakpoint'
 
-const goTo = useGoTo();
+const goToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
-const {smAndDown} = useDisplay();
+const { smAndDown } = useBreakpoint()
 
 defineProps({
   webLink: {
